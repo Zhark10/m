@@ -7,24 +7,17 @@ import { mst } from "reactotron-mst"
 import { clear } from "../../utils/storage"
 import { RootNavigation } from "../../navigation"
 
-// Teach TypeScript about the bad things we want to do.
 declare global {
   interface Console {
-    /**
-     * Hey, it's Reactotron if we're in dev, and no-ops if we're in prod.
-     */
     tron: typeof Tron
   }
 }
 
-/** Do Nothing. */
 const noop = () => undefined
 
-// in dev, we attach Reactotron, in prod we attach a interface-compatible mock.
 if (__DEV__) {
-  console.tron = Tron // attach reactotron to `console.tron`
+  console.tron = Tron
 } else {
-  // attach a mock so if things sneaky by our __DEV__ guards, we won't crash.
   console.tron = {
     benchmark: noop,
     clear: noop,
@@ -48,11 +41,6 @@ if (__DEV__) {
   }
 }
 
-/**
- * You'll probably never use the service like this since we hang the Reactotron
- * instance off of `console.tron`. This is only to be consistent with the other
- * services.
- */
 export class Reactotron {
   config: ReactotronConfig
 
