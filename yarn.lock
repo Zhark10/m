@@ -2723,6 +2723,11 @@
     "@types/react" "*"
     "@types/reactcss" "*"
 
+"@types/react-native-uuid@^1.4.0":
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/@types/react-native-uuid/-/react-native-uuid-1.4.0.tgz#b37501042bbeb7066b7386804adf41f1b219f18f"
+  integrity sha512-armOJH4Zcfq/pQ+Wj1wFWKuOI7Vdn5VlvqomdgGFkW5C2pBFEvrPwL/04xDLU6HFq1k9Rg/r9NNGKRDJiW+wtQ==
+
 "@types/react-native@^0.63.37":
   version "0.63.40"
   resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.63.40.tgz#66b11824a6aadb0dde0db87bd8aff58165c7a8f8"
@@ -12056,7 +12061,7 @@ ramdasauce@^2.1.0:
   dependencies:
     ramda "^0.24.1"
 
-randombytes@^2.0.0, randombytes@^2.0.1, randombytes@^2.0.5, randombytes@^2.1.0:
+randombytes@^2.0.0, randombytes@^2.0.1, randombytes@^2.0.3, randombytes@^2.0.5, randombytes@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/randombytes/-/randombytes-2.1.0.tgz#df6f84372f0270dc65cdf6291349ab7a473d4f2a"
   integrity sha512-vYl3iOX+4CKUWuxGi9Ukhie6fsqXqS9FE2Zaic4tNFD2N2QQaXOMFbuKK4QmDHC0JO6B1Zp41J0LpT0oR68amQ==
@@ -12343,6 +12348,13 @@ react-native-unimodules@^0.11.0:
     unimodules-permissions-interface "~5.3.0"
     unimodules-sensors-interface "~5.3.0"
     unimodules-task-manager-interface "~5.3.0"
+
+react-native-uuid@^1.4.9:
+  version "1.4.9"
+  resolved "https://registry.yarnpkg.com/react-native-uuid/-/react-native-uuid-1.4.9.tgz#a526742f8fddfe6414500655212ca8d109c40229"
+  integrity sha1-pSZ0L4/d/mQUUAZVISyo0QnEAik=
+  dependencies:
+    randombytes "^2.0.3"
 
 react-native-web@0.13.18:
   version "0.13.18"

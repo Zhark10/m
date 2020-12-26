@@ -3,25 +3,19 @@ import uuid from 'react-native-uuid'
 
 const Model = types.model({
   id: types.identifier,
-  firstName: types.string,
-  secondName: types.string,
-  nickname: types.string,
-  age: types.number,
+  token: types.string,
   isLoaded: types.boolean,
 })
 
 const DefaultState = {
   id: uuid.v1(),
-  firstName: '',
-  secondName: '',
-  nickname: '',
-  age: 0,
+  token: '',
   isLoaded: false,
 }
 
-export const User = {
+export const AuthInfo = {
   Model,
   DefaultState,
 }
 
-export interface TUser extends Instance<typeof Model> { }
+export interface TAuthInfo extends Instance<typeof Model> {}

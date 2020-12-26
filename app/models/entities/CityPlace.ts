@@ -1,4 +1,5 @@
 import { Instance, types } from "mobx-state-tree"
+import uuid from 'react-native-uuid'
 
 const Coordinate = types.model({
   latitude: types.number,
@@ -7,11 +8,25 @@ const Coordinate = types.model({
   longitudeDelta: types.number,
 })
 
-export const PlaceModel = types.model({
+const Model = types.model({
   id: types.identifier,
   organizationName: types.string,
   organizationOwner: types.string, // uid
   coordinates: types.array(Coordinate),
+  isLoaded: types.boolean,
 })
 
-export interface TCityPlace extends Instance<typeof PlaceModel> { }
+const DefaultState = {
+  id: uuid.v1(),
+  organizationName: '',
+  organizationOwner: '',
+  coordinates: [],
+  isLoaded: false,
+}
+
+export const CityPlace = {
+  Model,
+  DefaultState,
+}
+
+export interface TCityPlace extends Instance<typeof Model> { }
