@@ -1,3 +1,3 @@
-export * from "./welcome/welcome-screen"
-export * from "./demo/demo-screen"
+export * from "./welcome/Welcome"
+export * from "./map/map-screen"
 // export other screens here
