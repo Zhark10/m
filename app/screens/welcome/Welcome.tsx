@@ -1,76 +1,71 @@
-import React, { useEffect, useState } from "react"
+import React from "react"
 import { View, Image, SafeAreaView, TouchableOpacity } from "react-native"
 import { observer } from "mobx-react-lite"
 import { Button, Header, Screen, Text } from "../../components"
 import { color } from "../../theme"
 import Icon from 'react-native-vector-icons/FontAwesome'
 import { WelcomeStyles } from "./Welcome-Styles"
-import { useWelcome } from "./Welcome-VM"
+import { EIconType, useWelcome } from "./Welcome-VM"
+import Animated from 'react-native-reanimated/src/Animated'
 
 Icon.loadFont()
 const logo = require("./logo.png")
 
 export const WelcomeScreen = observer(function WelcomeScreen() {
   const vm = useWelcome()
-  const { data: { timeToPlay }, methods: { goToMap } } = vm
+  const { data: { providers, guest, animationStyles }, methods: { goToMap } } = vm
+
+  const getRoundButtonIcon = (provider: {
+    name: string
+    onPress: () => void
+    iconType: EIconType
+    animationStyle: any
+  }) =>
+    (
+      <Animated.View key={provider.name} style={provider.animationStyle}>
+        <TouchableOpacity onPress={provider.onPress}>
+          <View style={WelcomeStyles.PROVIDER_ICON_WITH_LINE}>
+            {provider.iconType === EIconType.LEFT && <View style={WelcomeStyles.PROVIDER_LINE} />}
+            <View style={WelcomeStyles.PROVIDER_ICON_BUTTON}>
+              <Icon
+                name={provider.name}
+                color={color.palette.black}
+                style={WelcomeStyles.PROVIDER_ICON}
+              />
+            </View>
+            {provider.iconType === EIconType.RIGHT && <View style={WelcomeStyles.PROVIDER_LINE} />}
+          </View>
+        </TouchableOpacity>
+      </Animated.View>
+    )
 
   return (
     <View testID="WelcomeScreen" style={WelcomeStyles.FULL}>
       <Screen style={WelcomeStyles.CONTAINER} preset="scroll" backgroundColor={color.transparent}>
         <Header style={WelcomeStyles.HEADER} titleStyle={WelcomeStyles.HEADER_TITLE} />
-        <Text style={WelcomeStyles.TITLE_WRAPPER}>
+        <Animated.Text style={[WelcomeStyles.TITLE_WRAPPER, animationStyles.titleStyle]}>
           <Text style={WelcomeStyles.TITLE} tx="welcomeScreen.welcome_1" />
-        </Text>
-        <Text style={WelcomeStyles.TITLE} tx="welcomeScreen.welcome_2" />
+          <Text style={WelcomeStyles.TITLE} tx="welcomeScreen.welcome_2" />
+        </Animated.Text>
 
         <View style={WelcomeStyles.ICONS_WRAPPER}>
           <View style={WelcomeStyles.PROVIDER_ICON_WRAPPER}>
-            <TouchableOpacity onPress={goToMap}>
-              <View style={WelcomeStyles.PROVIDER_ICON_WITH_LINE}>
-                <View style={WelcomeStyles.PROVIDER_LINE} />
-                <View style={WelcomeStyles.PROVIDER_ICON_BUTTON}>
-                  <Icon
-                    name="facebook"
-                    color={color.palette.black}
-                    style={WelcomeStyles.PROVIDER_ICON}
-                  />
-                </View>
-              </View>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={goToMap}>
-              <View style={WelcomeStyles.PROVIDER_ICON_WITH_LINE}>
-                <View style={WelcomeStyles.PROVIDER_LINE} />
-                <View style={WelcomeStyles.PROVIDER_ICON_BUTTON}>
-                  <Icon
-                    name="google"
-                    color={color.palette.black}
-                    style={WelcomeStyles.PROVIDER_ICON}
-                  />
-                </View>
-              </View>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={goToMap}>
-              <View style={WelcomeStyles.PROVIDER_ICON_WITH_LINE}>
-                <View style={WelcomeStyles.PROVIDER_LINE} />
-                <View style={WelcomeStyles.PROVIDER_ICON_BUTTON}>
-                  <Icon
-                    name="vk"
-                    color={color.palette.black}
-                    style={WelcomeStyles.PROVIDER_ICON}
-                  />
-                </View>
-              </View>
-            </TouchableOpacity>
+            {providers.map(getRoundButtonIcon)}
           </View>
-          <Image source={logo} style={WelcomeStyles.LOGO} />
+          <Animated.View style={animationStyles.logoStyle}>
+            <Image source={logo} style={WelcomeStyles.LOGO} />
+          </Animated.View>
         </View>
 
-        <Text style={WelcomeStyles.CONTENT}>
-          Игра начнется через <Text style={WelcomeStyles.COUNT}>{timeToPlay}</Text>...
-        </Text>
+        <View style={WelcomeStyles.CONTENT}>
+          <Animated.View style={animationStyles.showQuestDescriptionStyle}>
+            <Text tx="welcomeScreen.quest" style={WelcomeStyles.QUEST_DESCRIPTION} />
+          </Animated.View>
+          {getRoundButtonIcon(guest)}
+        </View>
       </Screen>
       <SafeAreaView style={WelcomeStyles.FOOTER}>
-        <View style={WelcomeStyles.FOOTER_CONTENT}>
+        <Animated.View style={[WelcomeStyles.FOOTER_CONTENT, animationStyles.showFooterStyle]}>
           <Button
             testID="next-screen-button"
             style={WelcomeStyles.BUTTON}
@@ -85,7 +80,7 @@ export const WelcomeScreen = observer(function WelcomeScreen() {
             tx="welcomeScreen.continue"
             onPress={goToMap}
           />
-        </View>
+        </Animated.View>
       </SafeAreaView>
     </View>
   )

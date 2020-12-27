@@ -13,7 +13,8 @@
     "welcome_1": "Welcome to the world",
     "welcome_2": "of real monopoly!",
     "instruction": "ПРОЙТИ ИНСТРУКЦИЮ",
-    "continue": "РАЗБЕРУСЬ В ПРОЦЕССЕ"
+    "continue": "РАЗБЕРУСЬ В ПРОЦЕССЕ",
+    "quest": "войти как гость"
   },
   "mapScreen": {
     "title": "Построй филиал"
