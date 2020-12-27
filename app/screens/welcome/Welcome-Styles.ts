@@ -3,6 +3,12 @@ import { color, spacing, typography } from "../../theme"
 import { screenWidth } from "../../utils/screen"
 
 export const WelcomeStyles = StyleSheet.create({
+  ANIMATED: {
+    backgroundColor: color.palette.black,
+    height: 80,
+    margin: 30,
+    width: 100,
+  },
   BOLD: {
     fontWeight: "bold",
   },
@@ -19,7 +25,7 @@ export const WelcomeStyles = StyleSheet.create({
     color: color.palette.black,
     fontFamily: typography.primary,
     fontSize: 13,
-    fontWeight: "bold",
+    fontWeight: "900",
     letterSpacing: 2,
   },
   CONTAINER: {
@@ -27,26 +33,27 @@ export const WelcomeStyles = StyleSheet.create({
     paddingHorizontal: spacing[4],
   },
   CONTENT: {
+    alignItems: 'center',
     alignSelf: 'center',
     color: color.palette.black,
+    flexDirection: 'row',
     fontFamily: typography.primary,
     fontSize: 18,
     fontWeight: '600',
+    justifyContent: 'space-between',
+    left: screenWidth / 15,
     lineHeight: 28,
     marginBottom: spacing[5],
-  },
-  COUNT: {
-    color: color.palette.black,
-    fontSize: 24,
-    fontWeight: '700',
-    padding: 8,
+    width: "100%",
   },
   FOOTER: { marginBottom: 64 },
   FOOTER_CONTENT: {
     paddingHorizontal: spacing[4],
     paddingVertical: spacing[4],
   },
-  FULL: { flex: 1 },
+  FULL: {
+    flex: 1,
+  },
   HEADER: {
     paddingBottom: spacing[4] + spacing[1],
     paddingHorizontal: 0,
@@ -99,7 +106,14 @@ export const WelcomeStyles = StyleSheet.create({
   PROVIDER_LINE: {
     backgroundColor: color.palette.black,
     height: 3,
-    width: 50
+    width: 50,
+  },
+  QUEST_DESCRIPTION: {
+    color: color.palette.black,
+    fontSize: 24,
+    fontWeight: '700',
+    letterSpacing: 2,
+    padding: 8,
   },
   TEXT: {
     color: color.palette.black,
@@ -108,7 +122,7 @@ export const WelcomeStyles = StyleSheet.create({
   TITLE: {
     color: color.palette.black,
     fontFamily: typography.primary,
-    fontSize: 28,
+    fontSize: 26,
     fontWeight: "bold",
     lineHeight: 38,
     textAlign: "center",
@@ -117,5 +131,6 @@ export const WelcomeStyles = StyleSheet.create({
     color: color.palette.black,
     fontFamily: typography.primary,
     textAlign: "center",
+    width: '100%',
   }
 })

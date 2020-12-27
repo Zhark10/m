@@ -1,28 +1,58 @@
 import { useNavigation } from "@react-navigation/native"
-import { useCallback, useEffect, useState } from "react"
+import { useCallback } from "react"
+import { welcomeAnimations } from "./Welcome-Animations"
+
+export enum EIconType {
+  LEFT, RIGHT
+}
 
 export const useWelcome = () => {
   const navigation = useNavigation()
   const goToMap = useCallback(() => navigation.navigate("demo"), [])
-  const [timeToPlay, setTimer] = useState(8)
 
-  useEffect(() => {
-    // const goToStartByTime = setInterval(() => {
-    //   setTimer(currentTimeValue => currentTimeValue - 1)
-    // }, 1000)
+  const { useTitleAnimation, useDeparturePictureFromTheSide } = welcomeAnimations
+  const { style: titleStyle } = useTitleAnimation()
+  const { logoStyle, vkStyle, facebookStyle, googleStyle, questStyle, showFooterStyle, showQuestDescriptionStyle } = useDeparturePictureFromTheSide()
 
-    // return () => clearInterval(goToStartByTime)
-  }, [])
-
-  useEffect(() => {
-    if (timeToPlay < 1) {
-      navigation.navigate("demo")
-      setTimer(8)
+  const providers = [
+    {
+      name: "facebook",
+      onPress: goToMap,
+      iconType: EIconType.LEFT,
+      animationStyle: facebookStyle,
+    },
+    {
+      name: "google",
+      onPress: goToMap,
+      iconType: EIconType.LEFT,
+      animationStyle: googleStyle,
+    },
+    {
+      name: "vk",
+      onPress: goToMap,
+      iconType: EIconType.LEFT,
+      animationStyle: vkStyle,
     }
-  }, [timeToPlay])
+  ]
+
+  const guest = {
+    name: "user",
+    onPress: goToMap,
+    iconType: EIconType.RIGHT,
+    animationStyle: questStyle,
+  }
 
   return {
-    data: { timeToPlay },
+    data: {
+      providers,
+      guest,
+      animationStyles: {
+        titleStyle,
+        logoStyle,
+        showFooterStyle,
+        showQuestDescriptionStyle,
+      }
+    },
     methods: { goToMap }
   }
 }
