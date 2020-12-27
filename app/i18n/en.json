@@ -8,17 +8,15 @@
     "invalidEmail": "Invalid email address."
   },
   "welcomeScreen": {
-    "poweredBy": "POWERED BY IGNITE",
+    "poweredBy": "powered by Bygaga and Zhark10",
     "readyForLaunch": "Ready for launch.",
-    "continue": "CONTINUE"
+    "welcome_1": "Welcome to the world",
+    "welcome_2": "of real monopoly!",
+    "instruction": "ПРОЙТИ ИНСТРУКЦИЮ",
+    "continue": "РАЗБЕРУСЬ В ПРОЦЕССЕ"
   },
-  "demoScreen": {
-    "howTo": "HOW TO",
-    "title": "What’s In This Stack?",
-    "tagLine": "Congratulations, you’ve got a very advanced React Native app template here.  Take advantage of this boilerplate!",
-    "reactotron": "Demo Reactotron",
-    "androidReactotronHint": "If this doesn't work, ensure the Reactotron desktop app is running, run adb reverse tcp:9090 tcp:9090 from your terminal, and reload the app.",
-    "iosReactotronHint": "If this doesn't work, ensure the Reactotron desktop app is running and reload app."
+  "mapScreen": {
+    "title": "Построй филиал"
   },
   "storybook": {
     "placeholder": "Placeholder",

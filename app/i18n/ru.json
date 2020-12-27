@@ -1,0 +1,25 @@
+{
+  "common": {
+    "ok": "Хорошо",
+    "cancel": "Отмена",
+    "back": "Назад"
+  },
+  "errors": {
+    "invalidEmail": "Невалидный email"
+  },
+  "welcomeScreen": {
+    "poweredBy": "разработано Bygaga и Zhark10",
+    "readyForLaunch": "Готово к запуску!",
+    "welcome_1": "Добро пожаловать",
+    "welcome_2": "в МОНОПОЛИЮ!",
+    "instruction": "ПРОЙТИ ИНСТРУКЦИЮ",
+    "continue": "РАЗБЕРУСЬ В ПРОЦЕССЕ"
+  },
+  "mapScreen": {
+    "title": "Построй филиал"
+  },
+  "storybook": {
+    "placeholder": "Placeholder",
+    "field": "Field"
+  }
+}
