@@ -10,8 +10,8 @@
   "welcomeScreen": {
     "poweredBy": "разработано Bygaga и Zhark10",
     "readyForLaunch": "Готово к запуску!",
-    "welcome_1": "Добро пожаловать",
-    "welcome_2": "в МОНОПОЛИЮ!",
+    "welcome_1": "Добро пожаловать в ",
+    "welcome_2": "MONOPOLY",
     "instruction": "ПРОЙТИ ИНСТРУКЦИЮ",
     "continue": "РАЗБЕРУСЬ В ПРОЦЕССЕ",
     "quest": "войти как гость"

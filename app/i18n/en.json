@@ -10,11 +10,11 @@
   "welcomeScreen": {
     "poweredBy": "powered by Bygaga and Zhark10",
     "readyForLaunch": "Ready for launch.",
-    "welcome_1": "Welcome to the world",
-    "welcome_2": "of real monopoly!",
-    "instruction": "ПРОЙТИ ИНСТРУКЦИЮ",
-    "continue": "РАЗБЕРУСЬ В ПРОЦЕССЕ",
-    "quest": "войти как гость"
+    "welcome_1": "Welcome to ",
+    "welcome_2": "Monopoly Life!",
+    "instruction": "INSTRUCTION",
+    "continue": "GO TO MAP",
+    "quest": "Login as a guest"
   },
   "mapScreen": {
     "title": "Построй филиал"

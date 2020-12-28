@@ -43,10 +43,10 @@ export const WelcomeScreen = observer(function WelcomeScreen() {
     <View testID="WelcomeScreen" style={WelcomeStyles.FULL}>
       <Screen style={WelcomeStyles.CONTAINER} preset="scroll" backgroundColor={color.transparent}>
         <Header style={WelcomeStyles.HEADER} titleStyle={WelcomeStyles.HEADER_TITLE} />
-        <Animated.Text style={[WelcomeStyles.TITLE_WRAPPER, animationStyles.titleStyle]}>
-          <Text style={WelcomeStyles.TITLE} tx="welcomeScreen.welcome_1" />
-          <Text style={WelcomeStyles.TITLE} tx="welcomeScreen.welcome_2" />
-        </Animated.Text>
+        <Animated.View style={[WelcomeStyles.TITLE_WRAPPER, animationStyles.titleStyle]}>
+          <Text style={WelcomeStyles.TITLE_FIRST_PART} tx="welcomeScreen.welcome_1" />
+          <Text style={WelcomeStyles.TITLE_SECOND_PART} tx="welcomeScreen.welcome_2" />
+        </Animated.View>
 
         <View style={WelcomeStyles.ICONS_WRAPPER}>
           <View style={WelcomeStyles.PROVIDER_ICON_WRAPPER}>

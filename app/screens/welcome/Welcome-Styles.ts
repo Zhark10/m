@@ -119,11 +119,20 @@ export const WelcomeStyles = StyleSheet.create({
     color: color.palette.black,
     fontFamily: typography.primary,
   },
-  TITLE: {
+  TITLE_FIRST_PART: {
     color: color.palette.black,
     fontFamily: typography.primary,
     fontSize: 26,
     fontWeight: "bold",
+    lineHeight: 38,
+    textAlign: "center",
+  },
+  TITLE_SECOND_PART: {
+    color: color.palette.black,
+    fontFamily: typography.primary,
+    fontSize: 32,
+    fontWeight: "bold",
+    letterSpacing: 2,
     lineHeight: 38,
     textAlign: "center",
   },
