@@ -1,6 +1,6 @@
 import { useNavigation } from "@react-navigation/native"
 import { useCallback } from "react"
-import { welcomeAnimations } from "./Welcome-Animations"
+import { welcomeAnimations } from "./WelcomeScreen-Animations"
 
 export enum EIconType {
   LEFT, RIGHT
@@ -35,6 +35,17 @@ export const useWelcome = () => {
     }
   ]
 
+  const footerOptions = [
+    {
+      buttonTitle: "welcomeScreen.instruction",
+      onPress: goToMap,
+    },
+    {
+      buttonTitle: "welcomeScreen.continue",
+      onPress: goToMap,
+    }
+  ]
+
   const guest = {
     name: "user",
     onPress: goToMap,
@@ -46,6 +57,7 @@ export const useWelcome = () => {
     data: {
       providers,
       guest,
+      footerOptions,
       animationStyles: {
         titleStyle,
         logoStyle,

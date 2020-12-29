@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native"
 import { color, spacing, typography } from "../../theme"
 import { screenWidth } from "../../utils/screen"
 
-export const WelcomeStyles = StyleSheet.create({
+export const WelcomeScreenStyles = StyleSheet.create({
   ANIMATED: {
     backgroundColor: color.palette.black,
     height: 80,
