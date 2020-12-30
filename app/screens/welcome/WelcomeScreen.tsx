@@ -9,11 +9,11 @@ import { EIconType, useWelcome } from "./WelcomeScreen-VM"
 import Animated from 'react-native-reanimated/src/Animated'
 
 Icon.loadFont()
-const logo = require("./logo.png")
+const logo = require("../../../assets/brand/logo.png")
 
 export const WelcomeScreen = observer(function WelcomeScreen() {
   const vm = useWelcome()
-  const { data: { providers, guest, animationStyles, footerOptions }, methods: { goToMap } } = vm
+  const { data: { providers, guest, animationStyles, footerOptions } } = vm
 
   const getRoundButtonIcon = (provider: {
     name: string
