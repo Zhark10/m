@@ -37,13 +37,9 @@ export const useWelcome = () => {
 
   const footerOptions = [
     {
-      buttonTitle: "welcomeScreen.instruction",
+      buttonTitle: "welcomeScreen.quest",
       onPress: goToMap,
     },
-    {
-      buttonTitle: "welcomeScreen.continue",
-      onPress: goToMap,
-    }
   ]
 
   const guest = {

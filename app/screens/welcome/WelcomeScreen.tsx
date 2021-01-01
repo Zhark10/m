@@ -24,16 +24,12 @@ export const WelcomeScreen = observer(function WelcomeScreen() {
     (
       <Animated.View key={provider.name} style={provider.animationStyle}>
         <TouchableOpacity onPress={provider.onPress}>
-          <View style={WelcomeScreenStyles.PROVIDER_ICON_WITH_LINE}>
-            {provider.iconType === EIconType.LEFT && <View style={WelcomeScreenStyles.PROVIDER_LINE} />}
-            <View style={WelcomeScreenStyles.PROVIDER_ICON_BUTTON}>
-              <Icon
-                name={provider.name}
-                color={color.palette.black}
-                style={WelcomeScreenStyles.PROVIDER_ICON}
-              />
-            </View>
-            {provider.iconType === EIconType.RIGHT && <View style={WelcomeScreenStyles.PROVIDER_LINE} />}
+          <View style={WelcomeScreenStyles.PROVIDER_ICON_BUTTON}>
+            <Icon
+              name={provider.name}
+              color={color.palette.black}
+              style={WelcomeScreenStyles.PROVIDER_ICON}
+            />
           </View>
         </TouchableOpacity>
       </Animated.View>
@@ -49,19 +45,16 @@ export const WelcomeScreen = observer(function WelcomeScreen() {
         </Animated.View>
 
         <View style={WelcomeScreenStyles.ICONS_WRAPPER}>
-          <View style={WelcomeScreenStyles.PROVIDER_ICON_WRAPPER}>
-            {providers.map(getRoundButtonIcon)}
-          </View>
           <Animated.View style={animationStyles.logoStyle}>
             <Image source={logo} style={WelcomeScreenStyles.LOGO} />
           </Animated.View>
-        </View>
-
-        <View style={WelcomeScreenStyles.CONTENT}>
           <Animated.View style={animationStyles.showQuestDescriptionStyle}>
-            <Text tx="welcomeScreen.quest" style={WelcomeScreenStyles.QUEST_DESCRIPTION} />
+            <Text style={WelcomeScreenStyles.TITLE_FIRST_PART} tx="welcomeScreen.input_via" />
           </Animated.View>
-          {getRoundButtonIcon(guest)}
+          <View style={WelcomeScreenStyles.PROVIDER_ICON_WRAPPER}>
+            {providers.map(getRoundButtonIcon)}
+            {/* {getRoundButtonIcon(guest)} */}
+          </View>
         </View>
       </Screen>
       <SafeAreaView style={WelcomeScreenStyles.FOOTER}>
