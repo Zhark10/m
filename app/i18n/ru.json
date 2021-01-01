@@ -10,11 +10,11 @@
   "welcomeScreen": {
     "poweredBy": "разработано Bygaga и Zhark10",
     "readyForLaunch": "Готово к запуску!",
-    "welcome_1": "Добро пожаловать в ",
+    "welcome_1": "Добро пожаловать в",
     "welcome_2": "MONOPOLY",
-    "instruction": "ПРОЙТИ ИНСТРУКЦИЮ",
-    "continue": "РАЗБЕРУСЬ В ПРОЦЕССЕ",
-    "quest": "войти как гость"
+    "continue": "ПРОДОЛЖИТЬ",
+    "quest": "попробовать как гость",
+    "input_via": "войти через"
   },
   "mapScreen": {
     "title": "Построй филиал"

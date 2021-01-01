@@ -18,7 +18,7 @@ export const typography = {
    * The primary font.  Used in most places.
    */
   primary: {
-    regular: Platform.select({ ios: "BebasNeue", android: "BebasNeue" }),
+    regular: Platform.select({ ios: "BebasNeue-Regular", android: "BebasNeue-Regular" }),
     bold: Platform.select({ ios: "BebasNeue-Bold", android: "BebasNeue-Bold" }),
     light: Platform.select({ ios: "BebasNeue-Light", android: "BebasNeue-Light" }),
     book: Platform.select({ ios: "BebasNeue-Book", android: "BebasNeue-Book" }),

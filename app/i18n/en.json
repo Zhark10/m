@@ -12,9 +12,9 @@
     "readyForLaunch": "Ready for launch.",
     "welcome_1": "Welcome to ",
     "welcome_2": "Monopoly Life!",
-    "instruction": "INSTRUCTION",
-    "continue": "GO TO MAP",
-    "quest": "Login as a guest"
+    "continue": "CONTINUE",
+    "quest": "Login as a guest",
+    "input_via": "input via"
   },
   "mapScreen": {
     "title": "Построй филиал"
