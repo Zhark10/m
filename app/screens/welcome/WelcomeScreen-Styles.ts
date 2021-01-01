@@ -23,7 +23,7 @@ export const WelcomeScreenStyles = StyleSheet.create({
   },
   BUTTON_TEXT: {
     color: color.palette.black,
-    fontFamily: typography.primary,
+    fontFamily: typography.primary.light,
     fontSize: 13,
     fontWeight: "900",
     letterSpacing: 2,
@@ -37,7 +37,7 @@ export const WelcomeScreenStyles = StyleSheet.create({
     alignSelf: 'center',
     color: color.palette.black,
     flexDirection: 'row',
-    fontFamily: typography.primary,
+    fontFamily: typography.primary.regular,
     fontSize: 18,
     fontWeight: '600',
     justifyContent: 'space-between',
@@ -61,7 +61,7 @@ export const WelcomeScreenStyles = StyleSheet.create({
   },
   HEADER_TITLE: {
     color: color.palette.black,
-    fontFamily: typography.primary,
+    fontFamily: typography.primary.bold,
     fontSize: 12,
     fontWeight: "bold",
     letterSpacing: 1.5,
@@ -117,11 +117,11 @@ export const WelcomeScreenStyles = StyleSheet.create({
   },
   TEXT: {
     color: color.palette.black,
-    fontFamily: typography.primary,
+    fontFamily: typography.primary.regular,
   },
   TITLE_FIRST_PART: {
     color: color.palette.black,
-    fontFamily: typography.primary,
+    fontFamily: typography.primary.regular,
     fontSize: 26,
     fontWeight: "bold",
     lineHeight: 38,
@@ -129,7 +129,7 @@ export const WelcomeScreenStyles = StyleSheet.create({
   },
   TITLE_SECOND_PART: {
     color: color.palette.black,
-    fontFamily: typography.primary,
+    fontFamily: typography.primary.bold,
     fontSize: 32,
     fontWeight: "bold",
     letterSpacing: 2,
@@ -138,7 +138,6 @@ export const WelcomeScreenStyles = StyleSheet.create({
   },
   TITLE_WRAPPER: {
     color: color.palette.black,
-    fontFamily: typography.primary,
     textAlign: "center",
     width: '100%',
   }
