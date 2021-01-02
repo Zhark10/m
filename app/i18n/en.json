@@ -17,7 +17,8 @@
     "input_via": "input via"
   },
   "mapScreen": {
-    "title": "Построй филиал"
+    "title": "Построй филиал",
+    "roll_the_dice": "Бросить игральную кость"
   },
   "storybook": {
     "placeholder": "Placeholder",
