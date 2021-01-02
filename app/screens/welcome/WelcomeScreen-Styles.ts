@@ -61,14 +61,13 @@ export const WelcomeScreenStyles = StyleSheet.create({
   PROVIDER_ICON: {
     color: color.palette.black,
     fontSize: 32,
-    // textShadowColor: color.palette.black,
     textShadowOffset: { width: 1, height: 1 },
     textShadowRadius: 2,
   },
   PROVIDER_ICON_BUTTON: {
     alignItems: 'center',
-    borderRadius: 100,
     backgroundColor: color.palette.gold,
+    borderRadius: 100,
     height: screenWidth / 5.5,
     justifyContent: 'center',
     width: screenWidth / 5.5,
@@ -102,9 +101,6 @@ export const WelcomeScreenStyles = StyleSheet.create({
     fontSize: 52,
     left: 4,
     letterSpacing: 10,
-    // textShadowColor: color.palette.black,
-    // textShadowOffset: { width: 2, height: 2 },
-    // textShadowRadius: 4,
   },
   TITLE_WRAPPER: {
     alignItems: 'center',
