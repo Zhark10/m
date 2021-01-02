@@ -37,7 +37,7 @@ export const WelcomeScreen = observer(function WelcomeScreen() {
 
   return (
     <View testID="WelcomeScreen" style={WelcomeScreenStyles.FULL}>
-      <Screen style={WelcomeScreenStyles.CONTAINER} preset="scroll" backgroundColor={color.transparent}>
+      <Screen style={WelcomeScreenStyles.CONTAINER} preset="scroll" backgroundColor={color.transparent} statusBar="dark-content">
         <Header style={WelcomeScreenStyles.HEADER} titleStyle={WelcomeScreenStyles.HEADER_TITLE} />
         <Animated.View style={[WelcomeScreenStyles.TITLE_WRAPPER, animationStyles.titleStyle]}>
           <Text style={WelcomeScreenStyles.TITLE_FIRST_PART} tx="welcomeScreen.welcome_1" />
