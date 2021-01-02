@@ -28,9 +28,9 @@ export const Cube = () => {
     <View style={styles.container}>
       <ZSvg canvas={canvas}>
         <ZBox
-          width={0.5}
-          height={0.5}
-          depth={0.5}
+          width={0.8}
+          height={0.8}
+          depth={0.8}
           front={color.palette.gold}
           back={color.palette.gold}
           left={color.palette.gold}
