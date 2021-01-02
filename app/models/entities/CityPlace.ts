@@ -8,7 +8,7 @@ const Coordinate = types.model({
   longitudeDelta: types.number,
 })
 
-const Model = types.model({
+const Place = types.model({
   id: types.identifier,
   organizationName: types.string,
   organizationOwner: types.string, // uid
@@ -29,9 +29,24 @@ const DefaultState = {
   isLoaded: false,
 }
 
-export const CityPlace = {
-  Model,
+const Store = types
+  .model("City", {
+    places: types.array(Place),
+    currentPlace: types.optional(Place, DefaultState),
+  })
+  .actions(self => ({
+    addPlace(selectedPlace) {
+      self.places.push(selectedPlace)
+    },
+    removePlace(selectedPlace) {
+      self.places.remove(selectedPlace)
+    }
+  }))
+
+type TStore = typeof Store
+export interface TCityPlace extends Instance<TStore> { }
+
+export const City = {
+  Store,
   DefaultState,
 }
-
-export interface TCityPlace extends Instance<typeof Model> { }
