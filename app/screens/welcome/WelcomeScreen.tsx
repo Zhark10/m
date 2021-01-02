@@ -48,7 +48,7 @@ export const WelcomeScreen = observer(function WelcomeScreen() {
           <Animated.View style={animationStyles.logoStyle}>
             <Image source={logo} style={WelcomeScreenStyles.LOGO} />
           </Animated.View>
-          <Animated.View style={animationStyles.showQuestDescriptionStyle}>
+          <Animated.View style={[animationStyles.showQuestDescriptionStyle, WelcomeScreenStyles.INPUT_VIA]}>
             <Text style={WelcomeScreenStyles.TITLE_FIRST_PART} tx="welcomeScreen.input_via" />
           </Animated.View>
           <View style={WelcomeScreenStyles.PROVIDER_ICON_WRAPPER}>

@@ -26,7 +26,6 @@ export const WelcomeScreenStyles = StyleSheet.create({
   },
   FOOTER: { marginBottom: 64 },
   FOOTER_CONTENT: {
-    // borderBottomWidth: 0.5,
     borderColor: color.palette.black,
     marginHorizontal: spacing[4],
     marginVertical: spacing[4],
@@ -52,11 +51,14 @@ export const WelcomeScreenStyles = StyleSheet.create({
     justifyContent: 'center',
     marginVertical: spacing[7],
   },
+  INPUT_VIA: {
+    marginTop: spacing[5],
+  },
   LOGO: {
     alignSelf: "center",
-    height: screenWidth / 1.65,
+    height: screenWidth / 1.5,
     marginBottom: spacing[7],
-    width: screenWidth / 1.65
+    width: screenWidth / 1.5
   },
   PROVIDER_ICON: {
     color: color.palette.black,
@@ -73,11 +75,14 @@ export const WelcomeScreenStyles = StyleSheet.create({
     width: screenWidth / 5.5,
   },
   PROVIDER_ICON_WRAPPER: {
+    alignItems: 'center',
+    backgroundColor: color.palette.black,
     flexDirection: 'row',
-    justifyContent: 'space-around',
+    height: screenWidth / 5.5 + 36,
+    justifyContent: 'space-evenly',
     marginBottom: spacing[7],
     marginTop: spacing[5],
-    width: '80%',
+    width: '100%',
   },
   QUEST_DESCRIPTION: {
     color: color.palette.black,

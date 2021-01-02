@@ -97,7 +97,7 @@ const useDeparturePictureFromTheSide = () => {
       ...defaultConfig,
     }
     return {
-      top: withTiming(offset.value + 4, config),
+      top: withTiming(offset.value, config),
     }
   })
 
@@ -107,7 +107,7 @@ const useDeparturePictureFromTheSide = () => {
       ...defaultConfig,
     }
     return {
-      top: withTiming(offset.value + 4, config),
+      top: withTiming(offset.value, config),
     }
   })
 
@@ -117,7 +117,7 @@ const useDeparturePictureFromTheSide = () => {
       ...defaultConfig,
     }
     return {
-      top: withTiming(offset.value + 4, config),
+      top: withTiming(offset.value, config),
     }
   })
 
