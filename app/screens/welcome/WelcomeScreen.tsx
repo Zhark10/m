@@ -13,7 +13,7 @@ const logo = require("../../../assets/brand/logo_2.png")
 
 export const WelcomeScreen = observer(function WelcomeScreen() {
   const vm = useWelcome()
-  const { data: { providers, animationStyles, footerOptions } } = vm
+  const { data: { providers, animationStyles, footerOptions }, methods: { goToMap } } = vm
 
   const getRoundButtonIcon = (provider: {
     name: string
@@ -38,7 +38,7 @@ export const WelcomeScreen = observer(function WelcomeScreen() {
   return (
     <View testID="WelcomeScreen" style={WelcomeScreenStyles.FULL}>
       <Screen style={WelcomeScreenStyles.CONTAINER} preset="scroll" backgroundColor={color.transparent} statusBar="dark-content">
-        <Header style={WelcomeScreenStyles.HEADER} titleStyle={WelcomeScreenStyles.HEADER_TITLE} />
+        <Header style={WelcomeScreenStyles.HEADER} />
         <Animated.View style={[WelcomeScreenStyles.TITLE_WRAPPER, animationStyles.titleStyle]}>
           <Text style={WelcomeScreenStyles.TITLE_FIRST_PART} tx="welcomeScreen.welcome_1" />
           <Text style={WelcomeScreenStyles.TITLE_SECOND_PART} tx="welcomeScreen.welcome_2" />
@@ -48,27 +48,30 @@ export const WelcomeScreen = observer(function WelcomeScreen() {
           <Animated.View style={animationStyles.logoStyle}>
             <Image source={logo} style={WelcomeScreenStyles.LOGO} />
           </Animated.View>
-          <Animated.View style={[animationStyles.showQuestDescriptionStyle, WelcomeScreenStyles.INPUT_VIA]}>
-            <Text style={WelcomeScreenStyles.TITLE_FIRST_PART} tx="welcomeScreen.input_via" />
+          <Animated.View style={animationStyles.showQuestDescriptionStyle}>
+            <Button
+              style={WelcomeScreenStyles.REGISTRATION_BUTTON}
+              textStyle={WelcomeScreenStyles.REGISTRATION_BUTTON_TEXT}
+              tx={"welcomeScreen.registration"}
+              onPress={goToMap}
+            />
           </Animated.View>
           <View style={WelcomeScreenStyles.PROVIDER_ICON_WRAPPER}>
             {providers.map(getRoundButtonIcon)}
           </View>
         </View>
       </Screen>
-      <SafeAreaView style={WelcomeScreenStyles.FOOTER}>
-        <Animated.View style={[WelcomeScreenStyles.FOOTER_CONTENT, animationStyles.showFooterStyle]}>
-          {footerOptions.map(option =>
-            <Button
-              key={option.buttonTitle}
-              testID="next-screen-button"
-              style={WelcomeScreenStyles.BUTTON}
-              textStyle={WelcomeScreenStyles.BUTTON_TEXT}
-              tx={option.buttonTitle}
-              onPress={option.onPress}
-            />)}
-        </Animated.View>
-      </SafeAreaView>
+      <Animated.View style={[WelcomeScreenStyles.FOOTER_CONTENT, animationStyles.showFooterStyle]}>
+        {footerOptions.map(option =>
+          <Button
+            key={option.buttonTitle}
+            testID="next-screen-button"
+            style={WelcomeScreenStyles.BUTTON}
+            textStyle={WelcomeScreenStyles.BUTTON_TEXT}
+            tx={option.buttonTitle}
+            onPress={option.onPress}
+          />)}
+      </Animated.View>
     </View>
   )
 })
