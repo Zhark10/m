@@ -10,10 +10,11 @@
   "welcomeScreen": {
     "poweredBy": "разработано Bygaga и Zhark10",
     "readyForLaunch": "Готово к запуску!",
-    "welcome_1": "Добро пожаловать в",
+    "welcome_1": "ДОБРО ПОЖАЛОВАТЬ В",
     "welcome_2": "MONOPOLY",
+    "registration": "ВХОД / РЕГИСТРАЦИЯ",
     "continue": "ПРОДОЛЖИТЬ",
-    "quest": "попробовать как гость",
+    "quest": "ВОЙТИ КАК ГОСТЬ",
     "input_via": "войти через"
   },
   "mapScreen": {

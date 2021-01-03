@@ -10,8 +10,9 @@
   "welcomeScreen": {
     "poweredBy": "powered by Bygaga and Zhark10",
     "readyForLaunch": "Ready for launch.",
-    "welcome_1": "Welcome to ",
+    "welcome_1": "WELCOME TO ",
     "welcome_2": "Monopoly Life!",
+    "registration": "РЕГИСТРАЦИЯ",
     "continue": "CONTINUE",
     "quest": "Login as a guest",
     "input_via": "input via"
