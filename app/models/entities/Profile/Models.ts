@@ -1,5 +1,4 @@
 import { types } from "mobx-state-tree"
-import uuid from 'react-native-uuid'
 
 const Model = types.model({
   id: types.identifier,
@@ -10,16 +9,6 @@ const Model = types.model({
   isLoaded: types.boolean,
 })
 
-const DefaultState = {
-  id: uuid.v1(),
-  firstName: '',
-  secondName: '',
-  nickname: '',
-  age: 0,
-  isLoaded: false,
-}
-
-export const User = {
+export const Profile = {
   Model,
-  DefaultState,
 }

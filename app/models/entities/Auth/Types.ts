@@ -1,5 +1,5 @@
 import { Instance } from "mobx-state-tree"
-import { AuthInfo } from "./Models"
+import { Auth } from "./Models"
 
-export type TAuthModel = typeof AuthInfo.Model
+export type TAuthModel = typeof Auth.Model
 export interface TAuth extends Instance<TAuthModel> { }
