@@ -1,4 +1,4 @@
-import { Instance, types } from "mobx-state-tree"
+import { types } from "mobx-state-tree"
 import uuid from 'react-native-uuid'
 
 const Model = types.model({
@@ -17,5 +17,3 @@ export const AuthInfo = {
   Model,
   DefaultState,
 }
-
-export interface TAuthInfo extends Instance<typeof Model> {}
