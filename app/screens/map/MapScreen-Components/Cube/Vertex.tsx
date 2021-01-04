@@ -7,8 +7,9 @@ import { avg } from "react-native-redash"
 import { Polygon } from "react-native-svg"
 import { color } from "../../../../theme"
 import Layer from "./Layer"
-
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 import { Vector3 } from "./Vector"
+import { WelcomeScreenStyles } from "../../../welcome/WelcomeScreen-Styles"
 
 const AnimatedPolygon = Animated.createAnimatedComponent(Polygon)
 

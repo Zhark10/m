@@ -3,9 +3,9 @@ import { View } from "react-native"
 import { observer } from "mobx-react-lite"
 import { Button, Header, Screen } from "../../components"
 import { color } from "../../theme"
-import MapView, { Marker } from "react-native-maps"
+import MapView, { Marker, PROVIDER_GOOGLE } from "react-native-maps"
 import { MapScreenStyles } from "./MapScreen-Styles"
-import { Cube } from "./MapScreen-Animations/Cube"
+import { Cube } from "./MapScreen-Components/Cube/Cube"
 import { customMapStyles } from "../welcome/WelcomeScreen-CustomMapStyles"
 import uuid from "react-native-uuid"
 import { useMap } from "./MapScreen-VM"
@@ -45,6 +45,7 @@ export const MapScreen = observer(function MapScreen() {
         <MapView
           customMapStyle={customMapStyles}
           style={MapScreenStyles.MAP_VIEW}
+          // provider={PROVIDER_GOOGLE}
           // onRegionChange={(e) => {
           //   console.log('WWWWWW', e)
           // }}

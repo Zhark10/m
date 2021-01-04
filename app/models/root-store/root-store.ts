@@ -1,16 +1,24 @@
 import { Instance, SnapshotOut, types } from "mobx-state-tree"
-import { AuthInfo } from "../entities/AuthInfo/Models"
+import { Auth } from "../entities/Auth/Models"
 import { City } from "../entities/City/Store"
-import { User } from "../entities/User/Models"
+import { Game } from "../entities/Game/Models"
+import { Profile } from "../entities/Profile/Models"
 
 const NestedStores = {
-  city: types.optional(City.Store, {}),
+  city: types.optional(City.Store, {
+    places: [],
+    currentPlace: null,
+  }),
+}
+
+const SimpleModels = {
+  auth: types.maybeNull(Auth.Model),
+  profile: types.maybeNull(Profile.Model),
+  game: types.maybeNull(Game.Model),
 }
 
 export const RootStoreModel = types.model("RootStore", {
-  authInfo: types.optional(AuthInfo.Model, AuthInfo.DefaultState),
-  me: types.optional(User.Model, User.DefaultState),
-  friends: types.array(User.Model),
+  ...SimpleModels,
   ...NestedStores
 })
 
