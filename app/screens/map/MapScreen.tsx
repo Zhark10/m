@@ -1,6 +1,5 @@
 import React from "react"
 import { View } from "react-native"
-import { useNavigation } from "@react-navigation/native"
 import { observer } from "mobx-react-lite"
 import { Button, Header, Screen } from "../../components"
 import { color } from "../../theme"
@@ -8,8 +7,8 @@ import MapView, { Marker } from "react-native-maps"
 import { MapScreenStyles } from "./MapScreen-Styles"
 import { Cube } from "./MapScreen-Animations/Cube"
 import { customMapStyles } from "../welcome/WelcomeScreen-CustomMapStyles"
-import { useStores } from "../../models"
 import uuid from "react-native-uuid"
+import { useMap } from "./MapScreen-VM"
 
 const LATITUDE = 56.62830507073426
 const LONGITUDE = 47.895421717849814
@@ -29,20 +28,17 @@ const example = {
   isLoaded: false,
 }
 
-export const DemoScreen = observer(function DemoScreen() {
-  const navigation = useNavigation()
-  const goBack = () => navigation.goBack()
-  const { city: { places, currentPlace, addPlace } } = useStores()
-
-  console.log("PLACES", places)
+export const MapScreen = observer(function MapScreen() {
+  const vm = useMap()
+  const { methods: { addPlace, removePlace, goToWelcome }, data: { places } } = vm
 
   return (
-    <View testID="DemoScreen" style={MapScreenStyles.FULL}>
+    <View testID="MapScreen" style={MapScreenStyles.FULL}>
       <Screen style={MapScreenStyles.CONTAINER} preset="scroll" backgroundColor={color.transparent} statusBar="dark-content">
-        <Header
+      <Header
           headerTx="mapScreen.title"
           leftIcon="back"
-          onLeftPress={goBack}
+          onLeftPress={goToWelcome}
           style={MapScreenStyles.HEADER}
           titleStyle={MapScreenStyles.HEADER_TITLE}
         />
@@ -77,7 +73,7 @@ export const DemoScreen = observer(function DemoScreen() {
         <Button
           tx={"mapScreen.roll_the_dice"}
           onPress={() => {
-            addPlace(example)
+            removePlace(example)
           }}
         />
       </Screen>
