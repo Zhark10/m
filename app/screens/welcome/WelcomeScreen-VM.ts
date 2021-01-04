@@ -8,7 +8,7 @@ export enum EIconType {
 
 export const useWelcome = () => {
   const navigation = useNavigation()
-  const goToMap = useCallback(() => navigation.navigate("demo"), [])
+  const goToMap = useCallback(() => navigation.navigate("map"), [])
 
   const { useTitleAnimation, useDeparturePictureFromTheSide } = welcomeAnimations
   const { style: titleStyle } = useTitleAnimation()
