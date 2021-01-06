@@ -1,7 +1,7 @@
 /* eslint-disable react-native/no-color-literals */
 import { StyleSheet } from "react-native"
 import { color, spacing, typography } from "../../theme"
-import { screenWidth } from "../../utils/screen"
+import { screenHeight, screenWidth } from "../../utils/screen"
 
 export const MapScreenStyles = StyleSheet.create({
   CONTAINER: {
@@ -15,6 +15,7 @@ export const MapScreenStyles = StyleSheet.create({
     paddingBottom: spacing[5] - 1,
     paddingHorizontal: spacing[4],
     paddingTop: spacing[3],
+    zIndex: 999,
   },
   HEADER_TITLE: {
     color: color.palette.black,
@@ -26,6 +27,22 @@ export const MapScreenStyles = StyleSheet.create({
   },
   MAP_VIEW: {
     flex: 1,
+  },
+  MAP_VIEW_CONTAINER: {
+    height: (2 / 3 * screenHeight),
+    top: 0,
+  },
+  ME_ICON: {
+    color: color.palette.black,
+    fontSize: 20,
+  },
+  ME_MARKER: {
+    alignItems: 'center',
+    backgroundColor: color.palette.gold,
+    borderRadius: 4,
+    height: 36,
+    justifyContent: 'center',
+    width: 36,
   },
   PANEL_TITLE: {
     backgroundColor: color.palette.gold,
