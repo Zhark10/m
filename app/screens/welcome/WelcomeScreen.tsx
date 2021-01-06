@@ -1,5 +1,5 @@
 import React from "react"
-import { View, Image, SafeAreaView, TouchableOpacity } from "react-native"
+import { View, Image, TouchableOpacity } from "react-native"
 import { observer } from "mobx-react-lite"
 import { Button, Header, Screen, Text } from "../../components"
 import { color } from "../../theme"
