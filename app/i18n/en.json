@@ -19,7 +19,11 @@
   },
   "mapScreen": {
     "title": "Построй филиал",
-    "roll_the_dice": "Бросить игральную кость"
+    "roll_the_dice": "СДЕЛАЙ СВОЙ ХОД   ",
+    "game_steps": {
+      "step_1": "Сделать бросок",
+      "step_2": "Выбрать место"
+    }
   },
   "storybook": {
     "placeholder": "Placeholder",
