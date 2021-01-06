@@ -5,7 +5,8 @@ const Model = types.model({
   firstName: types.string,
   secondName: types.string,
   nickname: types.string,
-  age: types.number,
+  age: types.maybeNull(types.number),
+  playerColor: types.maybeNull(types.string),
   isLoaded: types.boolean,
 })
 

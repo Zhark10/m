@@ -3,6 +3,7 @@ import { Place } from "./Models"
 
 const Store = types
   .model("City", {
+    availablePlaces: types.array(Place),
     places: types.array(Place),
     currentPlace: types.maybeNull(Place),
   })
