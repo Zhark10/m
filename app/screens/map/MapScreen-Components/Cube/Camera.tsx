@@ -28,7 +28,7 @@ const Camera = ({ camera, canvas }: CameraProps) => {
   const x = useSharedValue(0)
   const y = useSharedValue(0)
   useAnimatedReaction(
-    () => processTransform3d([{ rotateX: y.value }, { rotateY: x.value }]),
+    () => processTransform3d([{ rotateX: y.value + 12 }, { rotateY: x.value + 12 }]),
     (transform) => {
       camera.value = transform
     }

@@ -7,9 +7,7 @@ import { avg } from "react-native-redash"
 import { Polygon } from "react-native-svg"
 import { color } from "../../../../theme"
 import Layer from "./Layer"
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 import { Vector3 } from "./Vector"
-import { WelcomeScreenStyles } from "../../../welcome/WelcomeScreen-Styles"
 
 const AnimatedPolygon = Animated.createAnimatedComponent(Polygon)
 
@@ -21,7 +19,7 @@ interface VertexProps {
 const Vertex = ({ points, fill }: VertexProps) => {
   const animatedProps = useAnimatedProps(() => ({
     points: points.value.map(({ x, y }) => [x, y].join(", ")).join(" "),
-    stroke: color.palette.black,
+    stroke: color.palette.white,
     strokeWidth: 1,
   }))
   const zIndex = useAnimatedStyle(() => ({
