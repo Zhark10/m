@@ -16,7 +16,7 @@ export const StepCard: FC<TProps> = ({ children, theme, title }) => {
     <View style={StepCardStyles.CONTAINER}>
       <View style={StepCardStyles.TITLE_BOX}>
         <Text style={StepCardStyles.TITLE} tx={title} />
-        <Entypo name="eye" style={StepCardStyles.HELP_ICON}/>
+        {/* <Entypo name="info" style={StepCardStyles.HELP_ICON}/> */}
       </View>
       <View style={StepCardStyles.DICE_CONTAINER}>
         {children}
