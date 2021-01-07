@@ -3,13 +3,15 @@ import { useSharedValue, Easing, useAnimatedStyle, withTiming } from "react-nati
 import { screenHeight } from "../../../../utils/screen"
 import { TGamePanelProps } from "./GamePanel"
 
+const panelHeight = 2 / 3 * screenHeight
+
 const usePanelAnimation = ({ isMapTouched }: TGamePanelProps) => {
-  const top = useSharedValue(screenHeight / 6)
+  const top = useSharedValue(screenHeight - 128)
   const initialMessageStartOffset = useSharedValue(0)
 
   const panelStyle = useAnimatedStyle(() => {
     const config = {
-      duration: 1200,
+      duration: 1500,
       easing: Easing.bezier(0.5, 0.01, 0, 1),
     }
 
@@ -30,7 +32,7 @@ const usePanelAnimation = ({ isMapTouched }: TGamePanelProps) => {
 
   useEffect(() => {
     const animationByTimeout = setTimeout(() => {
-      top.value = 0
+      top.value = panelHeight
       initialMessageStartOffset.value = screenHeight
     }, 2000)
 
