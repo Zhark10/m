@@ -8,6 +8,7 @@ const NestedStores = {
   city: types.optional(City.Store, {
     places: [],
     currentPlace: null,
+    availablePlaces: City.fake.availablePlaces
   }),
 }
 
