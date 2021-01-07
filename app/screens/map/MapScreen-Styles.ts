@@ -4,6 +4,18 @@ import { color, spacing, typography } from "../../theme"
 import { screenHeight, screenWidth } from "../../utils/screen"
 
 export const MapScreenStyles = StyleSheet.create({
+  BUILDING: {
+    alignItems: 'center',
+    backgroundColor: color.palette.black,
+    borderRadius: 16,
+    height: 32,
+    justifyContent: 'center',
+    width: 32,
+  },
+  BUILDING_ICON: {
+    color: color.palette.white,
+    fontSize: 16,
+  },
   CONTAINER: {
     backgroundColor: color.transparent,
     flex: 1,
@@ -29,8 +41,9 @@ export const MapScreenStyles = StyleSheet.create({
     flex: 1,
   },
   MAP_VIEW_CONTAINER: {
-    height: (2 / 3 * screenHeight),
+    height: screenHeight,
     top: 0,
+    zIndex: 9999,
   },
   ME_ICON: {
     color: color.palette.black,
@@ -60,5 +73,19 @@ export const MapScreenStyles = StyleSheet.create({
     height: screenWidth / 3,
     position: 'absolute',
     width: screenWidth / 3,
-  }
+  },
+  TRAPEZOID_1: {
+    borderBottomColor: "transparent",
+    borderBottomWidth: 12,
+    borderLeftColor: color.palette.black,
+    borderLeftWidth: 18,
+    borderStyle: "solid",
+    borderTopColor: "transparent",
+    borderTopWidth: 12,
+    bottom: -10,
+    height: screenHeight,
+    left: 0,
+    position: 'absolute',
+    width: 0,
+  },
 })

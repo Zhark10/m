@@ -6,7 +6,7 @@ import { MapScreenAnimations } from "./MapScreen-Animations"
 export const useMap = () => {
   const navigation = useNavigation()
   const goToWelcome = useCallback(() => navigation.navigate("welcome"), [])
-  const { city: { places, currentPlace, addPlace, removePlace, resetAll } } = useStores()
+  const { city: { places, currentPlace, availablePlaces, addPlace, removePlace, resetAll } } = useStores()
   const { style: mapViewContainerStyles } = MapScreenAnimations.useMapViewContainerAnimation()
   const [isMapTouched, setTouched] = useState(false)
 
@@ -30,6 +30,7 @@ export const useMap = () => {
       isMapTouched,
       places,
       currentPlace,
+      availablePlaces,
     },
     methods: {
       addPlace,
