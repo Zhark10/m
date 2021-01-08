@@ -43,6 +43,7 @@
     "ramda": "0.27.1",
     "react": "16.14.0",
     "react-native": "^0.63.3",
+    "react-native-card-flip": "^1.0.7",
     "react-native-gesture-handler": "1.8.0",
     "react-native-keychain": "6.2.0",
     "react-native-maps": "0.27.1",

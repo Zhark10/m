@@ -6,7 +6,7 @@ import { screenWidth } from "../../../../utils/screen"
 import ZBox from "./ZBox"
 import ZSvg from "./ZSvg"
 
-export const cubeSize = screenWidth / 6
+export const cubeSize = screenWidth / 5
 
 const styles = StyleSheet.create({
   container: {

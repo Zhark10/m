@@ -11,5 +11,6 @@ export const palette = {
   opacity: {
     gold50: "rgba(199, 166, 99, 0.5)",
     gold32: "rgba(199, 166, 99, 0.32)",
+    black40: "rgba(0,0,0,0.4)"
   }
 }
