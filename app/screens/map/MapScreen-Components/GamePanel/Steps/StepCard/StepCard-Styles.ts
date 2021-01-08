@@ -5,6 +5,12 @@ import { color } from "../../../../../../theme/color"
 import { screenHeight, screenWidth } from "../../../../../../utils/screen"
 
 export const StepCardStyles = StyleSheet.create({
+  CARD_BOX: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    paddingHorizontal: spacing[2],
+  },
   CONTAINER: {
     alignItems: 'center',
     backgroundColor: 'transparent',
@@ -14,17 +20,19 @@ export const StepCardStyles = StyleSheet.create({
     maxHeight: screenHeight / 4,
     width: (screenWidth / 2),
   },
-  DICE_CONTAINER: {
-    alignItems: 'center',
-    flexDirection: 'row',
-    justifyContent: 'center',
-    paddingHorizontal: spacing[2],
-  },
   HELP_ICON: {
     color: color.palette.white,
     fontFamily: typography.primary.book,
     fontSize: 24,
     paddingBottom: 5,
+  },
+  STEP_CARD_FLIP: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    flex: 1,
+    justifyContent: 'center',
+    paddingHorizontal: spacing[2],
+    width: screenWidth / 2,
   },
   TITLE: {
     color: color.palette.white,
@@ -34,7 +42,7 @@ export const StepCardStyles = StyleSheet.create({
   },
   TITLE_BOX: {
     alignItems: 'center',
-    backgroundColor: 'rgba(0,0,0,0.2)',
+    backgroundColor: color.palette.opacity.black40,
     flexDirection: 'row',
     justifyContent: 'center',
     paddingHorizontal: 8,
