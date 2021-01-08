@@ -7,11 +7,19 @@ import { Step1Styles } from "./Step1_Dice-Styles"
 
 export const Step1: FC = () => {
   return (
-    <StepCard title="mapScreen.game_steps.step_1" theme="light" size="small">
-      <>
-        <Cube />
-        <Cube />
-      </>
-    </StepCard>
+    <StepCard title="mapScreen.game_steps.step_1" theme="light" size="small"
+      backView={
+        <View style={Step1Styles.INFO_CONTAINER}>
+          <Text style={Step1Styles.INFO_TITLE}>Подсказка</Text>
+          <Text style={Step1Styles.INFO_DESCRIPTION}>Чтобы бросить кубики, нужно смахнуть их на карту</Text>
+        </View>
+      }
+      frontView={
+        <View style={Step1Styles.DICE_CONTAINER}>
+          <Cube />
+          <Cube />
+        </View>
+      }
+    />
   )
 }
