@@ -10,7 +10,7 @@ export const Step2Styles = StyleSheet.create({
   BOX: {
     borderRadius: 8,
     flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.2)',
+    backgroundColor: color.palette.opacity.black40,
   },
   CONTAINER: {
     alignItems: 'center',
@@ -27,5 +27,57 @@ export const Step2Styles = StyleSheet.create({
     lineHeight: 32,
     padding: spacing[2],
   },
-
+  PLACE_ITEM: {
+    flexDirection: 'row',
+  },
+  PLACE_ITEM_TITLE: {
+    color: color.palette.white,
+    fontFamily: typography.primary.light,
+    textAlign: 'center',
+    fontSize: 16,
+    padding: spacing[2],
+  },
+  PLACE_ITEM_INFO: {
+    color: color.palette.white,
+    fontFamily: typography.primary.bold,
+    textAlign: 'center',
+    fontSize: 16,
+    padding: spacing[2],
+  },
+  PLACE_COST: {
+    color: color.palette.white,
+    fontFamily: typography.primary.bold,
+    textAlign: 'center',
+    fontSize: 36,
+    padding: spacing[2],
+  },
+  INFO_CONTAINER: {
+    marginVertical: spacing[3],
+  },
+  INFO_DESCRIPTION: {
+    color: color.palette.white,
+    fontFamily: typography.primary.book,
+    fontSize: 16,
+    textAlign: 'center',
+  },
+  INFO_TITLE: {
+    color: color.palette.white,
+    fontFamily: typography.primary.bold,
+    fontSize: 20,
+    lineHeight: 32,
+    paddingBottom: 4,
+    textAlign: 'center',
+  },
+  REGISTRATION_BUTTON: {
+    backgroundColor: color.palette.gold,
+    height: 32,
+    paddingTop: 10,
+    width: '90%',
+    alignSelf: 'center',
+  },
+  REGISTRATION_BUTTON_TEXT: {
+    color: color.palette.black,
+    fontFamily: typography.primary.book,
+    fontSize: 16,
+  },
 })
