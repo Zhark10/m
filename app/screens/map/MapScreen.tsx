@@ -25,7 +25,7 @@ const defaultCoordinates = {
 
 export const MapScreen = observer(function MapScreen() {
   const vm = useMap()
-  const { data: { animationStyles, availablePlaces, isMapTouched }, methods } = vm
+  const { data: { animationStyles, availablePlaces, isMapTouched, mapViewRef }, methods } = vm
 
   return (
     <View testID="MapScreen" style={MapScreenStyles.FULL}>
@@ -35,6 +35,7 @@ export const MapScreen = observer(function MapScreen() {
           animationStyles.mapViewContainerStyles
         ]}>
           <MapView
+            ref={mapViewRef}
             customMapStyle={customMapStyles}
             style={MapScreenStyles.MAP_VIEW}
             onTouchStart={methods.mapTouchStart}

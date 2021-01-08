@@ -24,7 +24,7 @@ export const GamePanel: FC<TGamePanelProps> = (props) => {
     ]}>
       <BlurView
         style={GamePanelStyles.BLUR_VIEW}
-        blurType="dark"
+        blurType="light"
         blurAmount={10}
         reducedTransparencyFallbackColor="white"
       />

@@ -4,12 +4,14 @@ import Animated, {
   useAnimatedStyle,
 } from "react-native-reanimated"
 import { avg } from "react-native-redash"
-import { Polygon } from "react-native-svg"
+import { Circle, Polygon } from "react-native-svg"
 import { color } from "../../../../theme"
+import { screenWidth } from "../../../../utils/screen"
 import Layer from "./Layer"
 import { Vector3 } from "./Vector"
 
 const AnimatedPolygon = Animated.createAnimatedComponent(Polygon)
+const AnimatedCircle = Animated.createAnimatedComponent(Circle)
 
 interface VertexProps {
   points: Animated.SharedValue<Vector3[]>;
@@ -27,7 +29,15 @@ const Vertex = ({ points, fill }: VertexProps) => {
   }))
   return (
     <Layer zIndexStyle={zIndex}>
-      <AnimatedPolygon animatedProps={animatedProps} fill={fill} />
+      <>
+        <AnimatedPolygon animatedProps={animatedProps} fill={fill} />
+        {/* <AnimatedCircle
+          cx={0}
+          cy={0}
+          r={4}
+          fill="white"
+        /> */}
+      </>
     </Layer>
   )
 }
