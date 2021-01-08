@@ -6,7 +6,7 @@ const Store = types
   .model("City", {
     availablePlaces: types.array(Place),
     places: types.array(Place),
-    currentPlace: types.maybeNull(Place),
+    currentPlace: types.maybeNull(types.reference(Place)),
   })
   .actions(self => ({
     addPlace(selectedPlace) {
@@ -18,7 +18,10 @@ const Store = types
     },
     resetAll() {
       self.places = [] as any
-    }
+    },
+    selectPlace(selectedPlace) {
+      self.currentPlace = selectedPlace
+    },
   }))
 
 const fake = {
