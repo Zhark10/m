@@ -14,13 +14,13 @@ export const Step1Styles = StyleSheet.create({
     marginVertical: spacing[3],
   },
   INFO_DESCRIPTION: {
-    color: color.palette.white,
+    color: color.palette.black,
     fontFamily: typography.primary.book,
     fontSize: 16,
     textAlign: 'center',
   },
   INFO_TITLE: {
-    color: color.palette.white,
+    color: color.palette.black,
     fontFamily: typography.primary.bold,
     fontSize: 20,
     lineHeight: 32,

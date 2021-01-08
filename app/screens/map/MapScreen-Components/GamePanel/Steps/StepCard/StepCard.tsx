@@ -23,7 +23,7 @@ export const StepCard: FC<TProps> = ({ theme, title, frontView, backView }) => {
           <Entypo name="info" style={StepCardStyles.HELP_ICON} />
         </TouchableOpacity>
       </View>
-      <CardFlip style={StepCardStyles.STEP_CARD_FLIP} ref={cardRef} >
+      <CardFlip style={StepCardStyles.STEP_CARD_FLIP} ref={cardRef}>
         <View style={StepCardStyles.CARD_BOX} >{frontView}</View>
         <View style={StepCardStyles.CARD_BOX} >{backView}</View>
       </CardFlip>

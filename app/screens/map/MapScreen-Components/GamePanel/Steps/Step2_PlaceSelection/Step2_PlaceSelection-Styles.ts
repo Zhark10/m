@@ -8,9 +8,9 @@ export const COONTAINER_HEIGHT = screenHeight / 3 - 128
 
 export const Step2Styles = StyleSheet.create({
   BOX: {
-    borderRadius: 8,
     flex: 1,
-    backgroundColor: color.palette.opacity.black40,
+    backgroundColor: color.palette.white,
+    borderWidth: 1,
   },
   CONTAINER: {
     alignItems: 'center',
@@ -20,7 +20,7 @@ export const Step2Styles = StyleSheet.create({
     marginVertical: spacing[3],
   },
   PLACE_TITLE: {
-    color: color.palette.white,
+    color: color.palette.black,
     fontFamily: typography.primary.book,
     textAlign: 'center',
     fontSize: 20,
@@ -31,37 +31,40 @@ export const Step2Styles = StyleSheet.create({
     flexDirection: 'row',
   },
   PLACE_ITEM_TITLE: {
-    color: color.palette.white,
-    fontFamily: typography.primary.light,
+    color: color.palette.black,
+    fontFamily: typography.primary.book,
     textAlign: 'center',
     fontSize: 16,
     padding: spacing[2],
   },
   PLACE_ITEM_INFO: {
-    color: color.palette.white,
+    color: color.palette.black,
     fontFamily: typography.primary.bold,
     textAlign: 'center',
     fontSize: 16,
     padding: spacing[2],
   },
   PLACE_COST: {
-    color: color.palette.white,
+    color: color.palette.gold,
     fontFamily: typography.primary.bold,
     textAlign: 'center',
     fontSize: 36,
     padding: spacing[2],
   },
+  ICON: {
+    fontSize: 32,
+  },
   INFO_CONTAINER: {
     marginVertical: spacing[3],
   },
   INFO_DESCRIPTION: {
-    color: color.palette.white,
+    color: color.palette.black,
     fontFamily: typography.primary.book,
     fontSize: 16,
     textAlign: 'center',
   },
   INFO_TITLE: {
-    color: color.palette.white,
+    color: color.palette.black,
     fontFamily: typography.primary.bold,
     fontSize: 20,
     lineHeight: 32,
