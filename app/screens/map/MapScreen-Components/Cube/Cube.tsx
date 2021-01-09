@@ -6,7 +6,7 @@ import { PanGestureHandler } from 'react-native-gesture-handler'
 
 import ZBox from "./ZBox"
 import ZSvg from "./ZSvg"
-import Animated, { useSharedValue, useAnimatedGestureHandler, withSpring, useAnimatedStyle } from "react-native-reanimated"
+import Animated, { useSharedValue, useAnimatedGestureHandler, withSpring, useAnimatedStyle, withTiming } from "react-native-reanimated"
 
 export const cubeSize = screenWidth / 5
 
@@ -26,17 +26,25 @@ const canvas = {
 }
 
 export const Cube = () => {
-  const x = useSharedValue(0)
+  const xOffset = useSharedValue(0)
+  const yOffset = useSharedValue(0)
+  const scale = useSharedValue(1)
 
   const gestureHandler = useAnimatedGestureHandler({
     onStart: (_, ctx: any) => {
-      ctx.startX = x.value
+      ctx.startX = xOffset.value
+      ctx.startY = yOffset.value
+      ctx.scale = scale.value
     },
     onActive: (event, ctx) => {
-      x.value = ctx.startX + event.translationX
+      xOffset.value = ctx.startX + event.translationX
+      yOffset.value = ctx.startY + event.translationY
+      scale.value = withSpring(1.5)
     },
-    onEnd: (_) => {
-      x.value = withSpring(0)
+    onEnd: (event, ctx) => {
+      xOffset.value = withSpring(ctx.startX + event.translationX)
+      yOffset.value = withSpring(ctx.startY + event.translationY)
+      scale.value = withSpring(1)
     },
   })
 
@@ -44,8 +52,14 @@ export const Cube = () => {
     return {
       transform: [
         {
-          translateX: x.value,
+          translateX: xOffset.value,
         },
+        {
+          translateY: yOffset.value
+        },
+        {
+          scale: scale.value
+        }
       ],
     }
   })

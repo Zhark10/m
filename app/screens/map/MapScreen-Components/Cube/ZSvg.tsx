@@ -32,7 +32,7 @@ const ZSvg = ({ canvas, children }: ZSvgProps) => {
     <Context.Provider value={{ canvas, camera }}>
       <View style={{ width: canvas.x, height: canvas.y }}>
         {children}
-        <Camera camera={camera} canvas={canvas} />
+        {/* <Camera camera={camera} canvas={canvas} /> */}
       </View>
     </Context.Provider>
   )
