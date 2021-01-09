@@ -1,4 +1,4 @@
-import React, { FC } from "react"
+import React, { FC, Fragment } from "react"
 import Animated from 'react-native-reanimated/src/Animated'
 import { Text } from "../../../../components"
 import { GamePanelStyles } from "./GamePanel-Styles"
@@ -17,6 +17,11 @@ export type TGamePanelProps = {
 export const GamePanel: FC<TGamePanelProps> = (props) => {
   const vm = useGamePanel(props)
   const { data: { animationStyles } } = vm
+
+  const gameSteps = [
+    Step1, Step2
+  ]
+
   return (
     <Animated.View style={[
       GamePanelStyles.CONTAINER,
@@ -29,13 +34,17 @@ export const GamePanel: FC<TGamePanelProps> = (props) => {
         reducedTransparencyFallbackColor="white"
       />
       <Animated.View style={[GamePanelStyles.GAME_SPACE, {}]}>
-        <Step1 />
-        <View style={GamePanelStyles.CARD_SEPARATOR} />
-        <Step2 />
+        {
+          gameSteps.map((DynamicStepComponent, key) => (
+            <Fragment key={key}>
+              <DynamicStepComponent />
+              <View style={GamePanelStyles.CARD_SEPARATOR} />
+            </Fragment>
+          ))
+        }
       </Animated.View>
       <Animated.View style={[GamePanelStyles.INITIAL_MESSAGE_BOX, animationStyles.initialMessageStyle]}>
         <Text style={GamePanelStyles.INITIAL_MESSAGE} tx="mapScreen.roll_the_dice" />
-        {/* <FontAwesome5 name="shoe-prints" style={GamePanelStyles.INITIAL_MESSAGE} /> */}
       </Animated.View>
     </Animated.View>
   )
