@@ -4,6 +4,7 @@ import Animated, { useSharedValue } from "react-native-reanimated"
 import { identityMatrix4, Matrix4 } from "react-native-redash"
 
 import Camera from "./Camera"
+import { TRollDiceParams } from "./Cube"
 import { Vector3 } from "./Vector"
 
 const Context = React.createContext<ZSvgContext | null>(null)
@@ -24,15 +25,16 @@ interface ZSvgContext {
 interface ZSvgProps {
   canvas: Vector3;
   children: ReactElement[] | ReactElement;
+  rollDiceParams: TRollDiceParams
 }
 
-const ZSvg = ({ canvas, children }: ZSvgProps) => {
+const ZSvg = ({ canvas, children, rollDiceParams }: ZSvgProps) => {
   const camera = useSharedValue(identityMatrix4)
   return (
     <Context.Provider value={{ canvas, camera }}>
       <View style={{ width: canvas.x, height: canvas.y }}>
         {children}
-        {/* <Camera camera={camera} canvas={canvas} /> */}
+        <Camera camera={camera} canvas={canvas} rollDiceParams={rollDiceParams}/>
       </View>
     </Context.Provider>
   )

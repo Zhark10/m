@@ -9,14 +9,17 @@ import Animated, {
   useSharedValue,
   withDecay,
   useAnimatedReaction,
+  withSpring,
 } from "react-native-reanimated"
 import { Matrix4, processTransform3d } from "react-native-redash"
+import { TRollDiceParams } from "./Cube"
 
 import { Vector3 } from "./Vector"
 
 interface CameraProps {
   camera: Animated.SharedValue<Matrix4>;
   canvas: Vector3;
+  rollDiceParams: TRollDiceParams;
 }
 
 const toRad = (v: number, size: number) => {
@@ -24,9 +27,10 @@ const toRad = (v: number, size: number) => {
   return (v / size) * 2 * Math.PI
 }
 
-const Camera = ({ camera, canvas }: CameraProps) => {
+const Camera = ({ camera, canvas, rollDiceParams: { xOffset, yOffset, scale } }: CameraProps) => {
   const x = useSharedValue(0)
   const y = useSharedValue(0)
+
   useAnimatedReaction(
     () => processTransform3d([{ rotateX: y.value + 12 }, { rotateY: x.value + 12 }]),
     (transform) => {
@@ -38,23 +42,46 @@ const Camera = ({ camera, canvas }: CameraProps) => {
     {
       x: number;
       y: number;
+      startX: number;
+      startY: number;
+      scale: number;
     }
   >({
     onStart: (e, ctx) => {
       ctx.x = x.value
       ctx.y = y.value
+
+      ctx.startX = xOffset.value
+      ctx.startY = yOffset.value
+      ctx.scale = scale.value
     },
     onActive: ({ translationX, translationY }, ctx) => {
       x.value = ctx.x + toRad(translationX, canvas.x)
       y.value = ctx.y + toRad(translationY, canvas.y)
+
+      xOffset.value = ctx.startX + translationX
+      yOffset.value = ctx.startY + translationY
+      scale.value = withSpring(1.5)
     },
-    onEnd: ({ velocityX, velocityY }) => {
+    onEnd: ({ velocityX, velocityY, translationX, translationY }, ctx) => {
       x.value = withDecay({
         velocity: toRad(velocityX, canvas.x),
       })
       y.value = withDecay({
         velocity: toRad(velocityY, canvas.y),
       })
+
+      const endEventPointByX = ctx.startX + translationX
+      const endEventPointByY = ctx.startY + translationY
+      const isNotChangeValues = endEventPointByY > -120
+
+      const endPointByX = isNotChangeValues ? ctx.startX : 1.2 * endEventPointByX
+      const endPointByY = isNotChangeValues ? ctx.startY : 1.2 * endEventPointByY
+      const scaleValue = isNotChangeValues ? 1 : 0.5
+
+      xOffset.value = withSpring(endPointByX)
+      yOffset.value = withSpring(endPointByY)
+      scale.value = withSpring(scaleValue)
     },
   })
   return (
