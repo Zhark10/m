@@ -10,9 +10,11 @@ import Animated, {
   withDecay,
   useAnimatedReaction,
   withSpring,
+  withTiming,
+  runOnJS,
 } from "react-native-reanimated"
 import { Matrix4, processTransform3d } from "react-native-redash"
-import { TRollDiceParams } from "./Cube"
+import { END_SCALE_VALUE, TRollDiceParams } from "./Cube"
 
 import { Vector3 } from "./Vector"
 
@@ -20,6 +22,7 @@ interface CameraProps {
   camera: Animated.SharedValue<Matrix4>;
   canvas: Vector3;
   rollDiceParams: TRollDiceParams;
+  setDiceResult: React.Dispatch<React.SetStateAction<number>>
 }
 
 const toRad = (v: number, size: number) => {
@@ -27,9 +30,24 @@ const toRad = (v: number, size: number) => {
   return (v / size) * 2 * Math.PI
 }
 
-const Camera = ({ camera, canvas, rollDiceParams: { xOffset, yOffset, scale } }: CameraProps) => {
+const maxPoint = 6
+
+const Camera = ({ camera, canvas, rollDiceParams: { xOffset, yOffset, scale }, setDiceResult }: CameraProps) => {
   const x = useSharedValue(0)
   const y = useSharedValue(0)
+
+  const updateShare = () => {
+    const result = Math.floor(Math.random() * maxPoint) + 1
+    // const saveResultByTime = setTimeout(() => {
+    setDiceResult(result)
+    // }, 1000)
+    // return () => clearTimeout(saveResultByTime)
+  }
+
+  const callback = () => {
+    'worklet'
+    runOnJS(updateShare)()
+  }
 
   useAnimatedReaction(
     () => processTransform3d([{ rotateX: y.value + 12 }, { rotateY: x.value + 12 }]),
@@ -75,13 +93,17 @@ const Camera = ({ camera, canvas, rollDiceParams: { xOffset, yOffset, scale } }:
       const endEventPointByY = ctx.startY + translationY
       const isNotChangeValues = endEventPointByY > -120
 
-      const endPointByX = isNotChangeValues ? ctx.startX : 1.2 * endEventPointByX
-      const endPointByY = isNotChangeValues ? ctx.startY : 1.2 * endEventPointByY
-      const scaleValue = isNotChangeValues ? 1 : 0.5
+      const endPointByX = isNotChangeValues ? ctx.startX : 0.9 * endEventPointByX
+      const endPointByY = isNotChangeValues ? ctx.startY : 0.9 * endEventPointByY
+      const scaleValue = isNotChangeValues ? 1 : END_SCALE_VALUE
 
-      xOffset.value = withSpring(endPointByX)
-      yOffset.value = withSpring(endPointByY)
-      scale.value = withSpring(scaleValue)
+      const config = {
+        duration: 1800,
+      }
+
+      xOffset.value = withTiming(endPointByX, config)
+      yOffset.value = withTiming(endPointByY, config, callback)
+      scale.value = withTiming(scaleValue, config)
     },
   })
   return (
