@@ -1,12 +1,15 @@
-import React, { useEffect, useState } from "react"
+/* eslint-disable camelcase */
+import React, { FC, useEffect } from "react"
 import { StyleSheet, View } from "react-native"
 import { color } from "../../../../theme/color"
 import { screenWidth } from "../../../../utils/screen"
+import { observer } from "mobx-react-lite"
 
 import ZBox from "./ZBox"
 import ZSvg from "./ZSvg"
 import Animated, { useSharedValue, useAnimatedStyle } from "react-native-reanimated"
 import FontAwesome5Icon from "react-native-vector-icons/FontAwesome5"
+import { useStores } from "../../../../models"
 
 export const END_SCALE_VALUE = 0.3
 export const cubeSize = screenWidth / 5
@@ -47,7 +50,11 @@ export type TRollDiceParams = {
   scale: Animated.SharedValue<number>;
 }
 
-export const Cube = () => {
+type TCubeProps = {
+  cubeNumber: 'first' | 'second'
+}
+
+export const Cube: FC<TCubeProps> = observer(({ cubeNumber }) => {
   const xOffset = useSharedValue(0)
   const yOffset = useSharedValue(0)
   const scale = useSharedValue(1)
@@ -72,7 +79,9 @@ export const Cube = () => {
     }
   })
 
-  const [diceResult, setDiceResult] = useState(0)
+  const { game: { gameProgress } } = useStores()
+
+  const diceResult = gameProgress.step1_DiceResult ? gameProgress.step1_DiceResult[cubeNumber] : 0
 
   const getDicePointIcon = (diceSize: 'small' | 'large') => {
     const dicePoints = {
@@ -85,9 +94,11 @@ export const Cube = () => {
       6: 'dice-six',
     }
 
+    const diceResultIcon = diceSize === "small" ? styles.diceSmall : styles.diceLarge
+
     return <FontAwesome5Icon
       name={dicePoints[diceResult]}
-      style={diceSize === "small" ? styles.diceSmall : styles.diceLarge}
+      style={diceResultIcon}
     />
   }
 
@@ -96,7 +107,7 @@ export const Cube = () => {
       <View style={styles.diceBox}>
         {getDicePointIcon("small")}
       </View>
-      <ZSvg canvas={canvas} rollDiceParams={rollDiceParams} setDiceResult={setDiceResult}>
+      <ZSvg canvas={canvas} rollDiceParams={rollDiceParams} cubeNumber={cubeNumber}>
         <Animated.View style={[styles.container, animatedStyle]}>
           {diceResult ? getDicePointIcon("large")
             : <ZBox
@@ -115,4 +126,4 @@ export const Cube = () => {
       </ZSvg>
     </View>
   )
-}
+})

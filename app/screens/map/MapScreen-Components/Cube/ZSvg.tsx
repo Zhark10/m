@@ -26,16 +26,16 @@ interface ZSvgProps {
   canvas: Vector3;
   children: ReactElement[] | ReactElement;
   rollDiceParams: TRollDiceParams
-  setDiceResult: React.Dispatch<React.SetStateAction<number>>
+  cubeNumber: 'first' | 'second'
 }
 
-const ZSvg = ({ canvas, children, rollDiceParams, setDiceResult }: ZSvgProps) => {
+const ZSvg = ({ canvas, children, rollDiceParams, cubeNumber }: ZSvgProps) => {
   const camera = useSharedValue(identityMatrix4)
   return (
     <Context.Provider value={{ canvas, camera }}>
       <View style={{ width: canvas.x, height: canvas.y }}>
         {children}
-        <Camera camera={camera} canvas={canvas} rollDiceParams={rollDiceParams} setDiceResult={setDiceResult} />
+        <Camera camera={camera} canvas={canvas} rollDiceParams={rollDiceParams} cubeNumber={cubeNumber} />
       </View>
     </Context.Provider>
   )

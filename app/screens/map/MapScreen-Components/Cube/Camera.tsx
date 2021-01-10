@@ -14,6 +14,7 @@ import Animated, {
   runOnJS,
 } from "react-native-reanimated"
 import { Matrix4, processTransform3d } from "react-native-redash"
+import { useStores } from "../../../../models"
 import { END_SCALE_VALUE, TRollDiceParams } from "./Cube"
 
 import { Vector3 } from "./Vector"
@@ -22,7 +23,7 @@ interface CameraProps {
   camera: Animated.SharedValue<Matrix4>;
   canvas: Vector3;
   rollDiceParams: TRollDiceParams;
-  setDiceResult: React.Dispatch<React.SetStateAction<number>>
+  cubeNumber: 'first' | 'second'
 }
 
 const toRad = (v: number, size: number) => {
@@ -32,14 +33,16 @@ const toRad = (v: number, size: number) => {
 
 const maxPoint = 6
 
-const Camera = ({ camera, canvas, rollDiceParams: { xOffset, yOffset, scale }, setDiceResult }: CameraProps) => {
+const Camera = ({ camera, canvas, rollDiceParams: { xOffset, yOffset, scale }, cubeNumber }: CameraProps) => {
   const x = useSharedValue(0)
   const y = useSharedValue(0)
+
+  const { game: { saveDiceResult } } = useStores()
 
   const updateShare = () => {
     const result = Math.floor(Math.random() * maxPoint) + 1
     // const saveResultByTime = setTimeout(() => {
-    setDiceResult(result)
+    saveDiceResult(cubeNumber, result)
     // }, 1000)
     // return () => clearTimeout(saveResultByTime)
   }
