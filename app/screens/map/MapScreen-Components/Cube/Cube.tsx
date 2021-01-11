@@ -12,7 +12,7 @@ import FontAwesome5Icon from "react-native-vector-icons/FontAwesome5"
 import { useStores } from "../../../../models"
 
 export const END_SCALE_VALUE = 0.3
-export const cubeSize = screenWidth / 5
+export const cubeSize = screenWidth / 4
 
 const styles = StyleSheet.create({
   container: {
@@ -30,11 +30,11 @@ const styles = StyleSheet.create({
   },
   diceLarge: {
     color: color.palette.black,
-    fontSize: 46,
+    fontSize: 52,
   },
   diceSmall: {
     color: color.palette.black,
-    fontSize: 38,
+    fontSize: 46,
   }
 })
 
