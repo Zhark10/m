@@ -20,6 +20,11 @@
   "mapScreen": {
     "title": "Построй филиал",
     "roll_the_dice": "СДЕЛАЙ СВОЙ ХОД   ",
+    "options": {
+      "step_1_completed_text": "БРОСОК",
+      "step_2_completed_text": "МЕСТО",
+      "step_3_completed_text": "ЗАВЕРШЕНИЕ"
+    },
     "game_steps": {
       "step_1": "Сделать бросок",
       "step_2": {
