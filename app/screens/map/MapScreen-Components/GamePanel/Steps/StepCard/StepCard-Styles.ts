@@ -18,7 +18,7 @@ export const StepCardStyles = StyleSheet.create({
     borderRadius: 4,
     justifyContent: 'flex-start',
     maxHeight: screenHeight / 4,
-    width: (screenWidth / 2),
+    width: screenWidth,
   },
   HELP_ICON: {
     color: color.palette.gold,
@@ -36,8 +36,8 @@ export const StepCardStyles = StyleSheet.create({
   },
   TITLE: {
     color: color.palette.black,
-    fontFamily: typography.primary.book,
-    fontSize: 20,
+    fontFamily: typography.primary.bold,
+    fontSize: 24,
     lineHeight: 32,
   },
   TITLE_BOX: {
