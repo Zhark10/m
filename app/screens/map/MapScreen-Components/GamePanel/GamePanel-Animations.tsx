@@ -1,6 +1,7 @@
 import { useEffect } from "react"
 import { useSharedValue, Easing, useAnimatedStyle, withTiming } from "react-native-reanimated"
-import { screenHeight } from "../../../../utils/screen"
+import { useStores } from "../../../../models"
+import { screenHeight, screenWidth } from "../../../../utils/screen"
 import { TGamePanelProps } from "./GamePanel"
 
 const panelHeight = 2 / 3 * screenHeight
@@ -45,6 +46,40 @@ const usePanelAnimation = ({ isMapTouched }: TGamePanelProps) => {
   }
 }
 
+const useStepChangeAnimation = () => {
+  const right = useSharedValue(0)
+  const { game: { gameProgress, resetDiceResult } } = useStores()
+
+  const stepsStyle = useAnimatedStyle(() => {
+    const config = {
+      duration: 1500,
+      easing: Easing.bezier(0.5, 0.01, 0, 1),
+    }
+
+    return {
+      right: withTiming(right.value, config),
+    }
+  })
+
+  useEffect(() => {
+    let newRightOffset = 0
+    if (Object.values(gameProgress.step1_DiceResult).every(cubeResult => Boolean(cubeResult))) {
+      newRightOffset = screenWidth
+    }
+
+    const animationByTimeout = setTimeout(() => {
+      right.value = newRightOffset
+    }, 2000)
+
+    return () => clearTimeout(animationByTimeout)
+  }, [gameProgress.step1_DiceResult.first, gameProgress.step1_DiceResult.second])
+
+  return {
+    stepsStyle,
+  }
+}
+
 export const PanelAnimations = {
   usePanelAnimation,
+  useStepChangeAnimation,
 }
