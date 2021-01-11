@@ -1,7 +1,7 @@
 /* eslint-disable react-native/no-color-literals */
 import { StyleSheet } from "react-native"
 import { color, spacing, typography } from "../../theme"
-import { screenWidth } from "../../utils/screen"
+import { screenHeight, screenWidth } from "../../utils/screen"
 
 export const WelcomeScreenStyles = StyleSheet.create({
   ANIMATED: {
@@ -9,6 +9,11 @@ export const WelcomeScreenStyles = StyleSheet.create({
     height: 80,
     margin: 30,
     width: 100,
+  },
+  BLUR_VIEW: {
+    height: screenHeight,
+    position: 'absolute',
+    width: screenWidth,
   },
   BUTTON: {
     backgroundColor: 'transparent',

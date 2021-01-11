@@ -7,9 +7,11 @@ import Icon from 'react-native-vector-icons/FontAwesome'
 import { WelcomeScreenStyles } from "./WelcomeScreen-Styles"
 import { EIconType, useWelcome } from "./WelcomeScreen-VM"
 import Animated from 'react-native-reanimated/src/Animated'
+import { BlurView } from "@react-native-community/blur"
 
 Icon.loadFont()
 const logo = require("../../../assets/brand/logo_2.png")
+const map = require("../../../assets/brand/map.png")
 
 export const WelcomeScreen = observer(function WelcomeScreen() {
   const vm = useWelcome()
@@ -37,6 +39,13 @@ export const WelcomeScreen = observer(function WelcomeScreen() {
 
   return (
     <View testID="WelcomeScreen" style={WelcomeScreenStyles.FULL}>
+      <Image source={map} style={WelcomeScreenStyles.BLUR_VIEW} />
+      <BlurView
+        style={WelcomeScreenStyles.BLUR_VIEW}
+        blurType="light"
+        blurAmount={10}
+        reducedTransparencyFallbackColor="white"
+      />
       <Screen style={WelcomeScreenStyles.CONTAINER} preset="scroll" backgroundColor={color.transparent} statusBar="dark-content">
         <Header style={WelcomeScreenStyles.HEADER} />
         <Animated.View style={[WelcomeScreenStyles.TITLE_WRAPPER, animationStyles.titleStyle]}>

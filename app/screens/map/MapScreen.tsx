@@ -12,6 +12,7 @@ import Animated from "react-native-reanimated"
 import Fontisto from 'react-native-vector-icons/Fontisto'
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 import { screenHeight, screenWidth } from "../../utils/screen"
+import { CustomOptions } from "./MapScreen-Components/CustomOptions/CustomOptions"
 
 const ASPECT_RATIO = screenWidth / screenHeight
 const LATITUDE_DELTA = 0.075
@@ -75,6 +76,7 @@ export const MapScreen = observer(function MapScreen() {
             }
           </MapView>
         </Animated.View>
+        <CustomOptions />
         <GamePanel isMapTouched={isMapTouched} />
       </Screen>
     </View>
