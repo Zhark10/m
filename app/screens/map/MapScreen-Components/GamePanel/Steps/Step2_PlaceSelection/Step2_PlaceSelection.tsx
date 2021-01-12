@@ -57,11 +57,11 @@ export const Step2: FC = () => {
             ref={carouselRef}
             data={placesToAction}
             renderItem={renderItem}
-            sliderWidth={screenWidth / 2}
+            sliderWidth={screenWidth}
             onSnapToItem={onSnapToItem}
-            layout="tinder"
+            layout="stack"
             layoutCardOffset={COONTAINER_HEIGHT}
-            itemWidth={screenWidth / 2 - 42}
+            itemWidth={screenWidth - 42}
           />
         </View>
       }

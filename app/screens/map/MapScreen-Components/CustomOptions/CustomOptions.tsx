@@ -5,26 +5,17 @@ import { BlurView } from "@react-native-community/blur"
 import { CustomOptionsStyles } from "./CustomOptions-Styles"
 import Fontisto from 'react-native-vector-icons/Fontisto'
 import { color } from "../../../../theme"
+import { useCustomOptions } from "./CustomOptions-VM"
+import { observer } from "mobx-react-lite"
 
 export type TCustomOptionsProps = {
 
 }
 
-export const CustomOptions: FC<TCustomOptionsProps> = (props) => {
-  const OPTIONS = [
-    {
-      tx: "mapScreen.options.step_1_completed_text",
-      complete: true
-    },
-    {
-      tx: "mapScreen.options.step_2_completed_text",
-      complete: false
-    },
-    {
-      tx: "mapScreen.options.step_3_completed_text",
-      complete: false
-    },
-  ]
+export const CustomOptions: FC<TCustomOptionsProps> = observer((props) => {
+  const vm = useCustomOptions()
+  const { data: { OPTIONS } } = vm
+
   return (
     <View style={CustomOptionsStyles.CONTAINER}>
       <Header style={CustomOptionsStyles.HEADER} />
@@ -61,4 +52,4 @@ export const CustomOptions: FC<TCustomOptionsProps> = (props) => {
       </BlurView>
     </View>
   )
-}
+})
