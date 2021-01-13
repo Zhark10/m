@@ -62,7 +62,7 @@ const useStepChangeAnimation = () => {
 
   useEffect(() => {
     let newRightOffset = 0
-    if (Object.values(gameProgress.step1_DiceResult).every(cubeResult => Boolean(cubeResult))) {
+    if (gameProgress.step1_DiceResult.isCompleted) {
       newRightOffset = screenWidth
     }
 
@@ -71,7 +71,7 @@ const useStepChangeAnimation = () => {
     }, 2000)
 
     return () => clearTimeout(animationByTimeout)
-  }, [gameProgress.step1_DiceResult.first, gameProgress.step1_DiceResult.second])
+  }, [gameProgress.step1_DiceResult.isCompleted])
 
   return {
     stepsStyle,
