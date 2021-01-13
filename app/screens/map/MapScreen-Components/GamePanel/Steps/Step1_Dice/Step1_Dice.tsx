@@ -1,3 +1,4 @@
+import { observer } from "mobx-react-lite"
 import React, { FC } from "react"
 import { View } from "react-native"
 import { Text } from "../../../../../../components"
@@ -6,7 +7,7 @@ import { StepCard } from "../StepCard/StepCard"
 import { Step1Styles } from "./Step1_Dice-Styles"
 import { useStep1 } from "./Step1_Dice-VM"
 
-export const Step1: FC = () => {
+export const Step1: FC = observer(() => {
   useStep1()
 
   return (
@@ -25,4 +26,4 @@ export const Step1: FC = () => {
       }
     />
   )
-}
+})

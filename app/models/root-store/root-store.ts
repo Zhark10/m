@@ -2,6 +2,7 @@ import { Instance, SnapshotOut, types } from "mobx-state-tree"
 import { Auth } from "../entities/Auth/Models"
 import { City } from "../entities/City/Store"
 import { Game } from "../entities/Game/Store"
+import { Message } from "../entities/Message/Models"
 import { Profile } from "../entities/Profile/Models"
 
 const NestedStores = {
@@ -38,6 +39,7 @@ const NestedStores = {
 const SimpleModels = {
   auth: types.maybeNull(Auth.Model),
   profile: types.maybeNull(Profile.Model),
+  message: types.optional(Message.Model, { title: '', description: '', buttonText: '' }),
 }
 
 export const RootStoreModel = types.model("RootStore", {

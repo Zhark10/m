@@ -77,9 +77,9 @@ export const MapScreen = observer(function MapScreen() {
             }
           </MapView>
         </Animated.View>
+        <GamePanel isMapTouched={isMapTouched} />
         <AnimatedMessage />
         <CustomOptions />
-        <GamePanel isMapTouched={isMapTouched} />
       </Screen>
     </View>
   )
