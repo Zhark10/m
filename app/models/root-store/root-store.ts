@@ -14,11 +14,21 @@ const NestedStores = {
     gameProgress: {
       step1_DiceResult: {
         first: null,
-        second: null
+        second: null,
+        isCompleted: false,
       },
-      step2_SelectedPlaceToBuild: null,
-      step3_IsBuildStarted: null,
-      step4_IsBuildFinished: null,
+      step2_SelectedPlaceToBuild: {
+        placeId: null,
+        isCompleted: false,
+      },
+      step3_IsBuildStarted: {
+        isPlaceBuildStart: false,
+        isCompleted: false,
+      },
+      step4_IsBuildFinished: {
+        IsBuildFinished: false,
+        isCompleted: false
+      },
     },
     currentActivePlayer: null,
     isLoaded: true,
