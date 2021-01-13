@@ -12,7 +12,7 @@ export type TCustomOptionsProps = {
 
 }
 
-export const CustomOptions: FC<TCustomOptionsProps> = observer((props) => {
+export const CustomOptions: FC<TCustomOptionsProps> = observer(() => {
   const vm = useCustomOptions()
   const { data: { OPTIONS } } = vm
 

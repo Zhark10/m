@@ -1,6 +1,8 @@
 import { types } from "mobx-state-tree"
 import { GameProgressModel } from "./Models"
 
+const coefficientForRadius = 0.5
+
 export const Store = types
   .model({
     currentActivePlayer: types.maybeNull(types.string),
@@ -21,6 +23,14 @@ export const Store = types
     },
     get canBeCompletedStep4() {
       return Boolean(self.gameProgress.step4_IsBuildFinished.IsBuildFinished)
+    },
+    get rollTheDiceResult() {
+      const { first, second } = self.gameProgress.step1_DiceResult
+      return first + second
+    },
+    get calculatedRadius() {
+      const { first, second } = self.gameProgress.step1_DiceResult
+      return coefficientForRadius * (first + second)
     },
   }))
   .actions(self => ({

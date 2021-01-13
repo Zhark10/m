@@ -3,8 +3,6 @@ import { useStores } from "../../../../models"
 export const useCustomOptions = () => {
   const { game } = useStores()
 
-  console.log('game.canBeCompletedStep1', game.canBeCompletedStep1)
-
   const OPTIONS = [
     {
       tx: "mapScreen.options.step_1_completed_text",

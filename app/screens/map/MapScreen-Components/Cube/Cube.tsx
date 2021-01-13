@@ -1,5 +1,5 @@
 /* eslint-disable camelcase */
-import React, { FC, useEffect } from "react"
+import React, { FC } from "react"
 import { StyleSheet, View } from "react-native"
 import { color } from "../../../../theme/color"
 import { screenWidth } from "../../../../utils/screen"
