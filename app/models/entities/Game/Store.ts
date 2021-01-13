@@ -32,6 +32,20 @@ export const Store = types
       const { first, second } = self.gameProgress.step1_DiceResult
       return coefficientForRadius * (first + second)
     },
+    get stepForComplete() {
+      const { gameProgress } = self
+
+      if (gameProgress.step4_IsBuildFinished.IsBuildFinished) {
+        return 4
+      }
+      if (gameProgress.step3_IsBuildStarted.isPlaceBuildStart) {
+        return 3
+      }
+      if (gameProgress.step2_SelectedPlaceToBuild.placeId) {
+        return 2
+      }
+      return 1
+    }
   }))
   .actions(self => ({
     saveDiceResult(cubeNumber: "first" | "second", value: number) {

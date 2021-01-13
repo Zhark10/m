@@ -27,3 +27,16 @@ export const GameProgressModel = types.model("GameProgress", {
   step3_IsBuildStarted: IsBuildStarted,
   step4_IsBuildFinished: IsBuildFinished,
 })
+  .actions(self => ({
+    completeStep(stepNumber) {
+      const stepsForComplete = {
+        1: self.step1_DiceResult,
+        2: self.step2_SelectedPlaceToBuild,
+        3: self.step3_IsBuildStarted,
+        4: self.step4_IsBuildFinished,
+      }
+      const step = stepsForComplete[stepNumber]
+
+      step.isCompleted = true
+    }
+  }))
