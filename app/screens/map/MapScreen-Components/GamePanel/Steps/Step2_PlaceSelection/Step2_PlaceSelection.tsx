@@ -1,11 +1,11 @@
 import React, { FC, useCallback, useRef } from "react"
-import { View, Text } from "react-native"
+import { View } from "react-native"
 import { StepCard } from "../StepCard/StepCard"
 import { COONTAINER_HEIGHT, Step2Styles } from "./Step2_PlaceSelection-Styles"
 import Carousel from 'react-native-snap-carousel'
 import { screenWidth } from "../../../../../../utils/screen"
 import { useStores } from "../../../../../../models"
-import { Button } from "../../../../../../components"
+import { Button, Text } from "../../../../../../components"
 
 export const Step2: FC = () => {
   const renderItem = ({ item, index }) => (
@@ -15,7 +15,7 @@ export const Step2: FC = () => {
     >
       <Text style={Step2Styles.PLACE_TITLE}>{item.organizationName}</Text>
       <View style={Step2Styles.PLACE_ITEM}>
-        <Text style={Step2Styles.PLACE_ITEM_TITLE}>Текущий владелец: </Text>
+        <Text style={Step2Styles.PLACE_ITEM_TITLE} tx={"mapScreen.game_steps.step_2.current_owner"} />
         <Text style={Step2Styles.PLACE_ITEM_INFO}>{item.organizationOwner}</Text>
       </View>
       <View style={Step2Styles.PLACE_ITEM}>
@@ -23,11 +23,14 @@ export const Step2: FC = () => {
         <Text style={Step2Styles.PLACE_COST}>{item.cost} $</Text>
       </View>
       <Button
-        style={Step2Styles.REGISTRATION_BUTTON}
-        textStyle={Step2Styles.REGISTRATION_BUTTON_TEXT}
-        tx={"mapScreen.game_steps.step_2.buy_button"}
+        style={Step2Styles.CARD_BUTTON}
         onPress={() => ({})}
-      />
+      >
+        <Text>
+          <Text style={Step2Styles.CARD_BUTTON_TEXT} tx="mapScreen.game_steps.step_2.go_button" />
+          {/* <Text style={Step2Styles.CARD_BUTTON_PLACE_TEXT}> {item.organizationName}</Text> */}
+        </Text>
+      </Button>
     </View>
   )
 
