@@ -2,11 +2,10 @@ import { useEffect } from "react"
 import { useSharedValue, Easing, useAnimatedStyle, withTiming } from "react-native-reanimated"
 import { useStores } from "../../../../models"
 import { screenHeight, screenWidth } from "../../../../utils/screen"
-import { TGamePanelProps } from "./GamePanel"
 
 const panelHeight = 2 / 3 * screenHeight
 
-const usePanelAnimation = ({ isMapTouched }: TGamePanelProps) => {
+const usePanelAnimation = () => {
   const top = useSharedValue(screenHeight - 128)
   const initialMessageStartOffset = useSharedValue(0)
 
@@ -48,7 +47,7 @@ const usePanelAnimation = ({ isMapTouched }: TGamePanelProps) => {
 
 const useStepChangeAnimation = () => {
   const right = useSharedValue(0)
-  const { game: { gameProgress, resetDiceResult } } = useStores()
+  const { game: { gameProgress } } = useStores()
 
   const stepsStyle = useAnimatedStyle(() => {
     const config = {

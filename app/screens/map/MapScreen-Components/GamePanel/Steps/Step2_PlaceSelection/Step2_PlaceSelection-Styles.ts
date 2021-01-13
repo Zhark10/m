@@ -17,7 +17,6 @@ export const Step2Styles = StyleSheet.create({
     flex: 1,
     height: COONTAINER_HEIGHT,
     justifyContent: 'center',
-    marginVertical: spacing[3],
   },
   PLACE_TITLE: {
     color: color.palette.black,
@@ -71,16 +70,20 @@ export const Step2Styles = StyleSheet.create({
     paddingBottom: 4,
     textAlign: 'center',
   },
-  REGISTRATION_BUTTON: {
-    backgroundColor: color.palette.gold,
+  CARD_BUTTON: {
+    backgroundColor: color.palette.black,
     height: 32,
-    paddingTop: 10,
-    width: '90%',
+    width: '100%',
     alignSelf: 'center',
   },
-  REGISTRATION_BUTTON_TEXT: {
-    color: color.palette.black,
+  CARD_BUTTON_TEXT: {
+    color: color.palette.white,
     fontFamily: typography.primary.book,
-    fontSize: 16,
+    fontSize: 18,
+  },
+  CARD_BUTTON_PLACE_TEXT: {
+    color: color.palette.white,
+    fontFamily: typography.primary.bold,
+    fontSize: 18,
   },
 })
