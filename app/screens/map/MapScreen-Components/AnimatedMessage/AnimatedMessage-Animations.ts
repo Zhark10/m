@@ -4,8 +4,8 @@ import { useStores } from "../../../../models"
 import { screenHeight } from "../../../../utils/screen"
 
 const useMessages = () => {
-  const { game, city: { currentPlace } } = useStores()
-  const bottom = useSharedValue(screenHeight)
+  const { message, game } = useStores()
+  const top = useSharedValue(-screenHeight)
 
   const config = {
     duration: 1500,
@@ -14,17 +14,19 @@ const useMessages = () => {
 
   const styleMessageShow = useAnimatedStyle(() => {
     return {
-      transform: [
-        {
-          scale: withTiming(bottom.value, config),
-        },
-      ],
+      top: withTiming(top.value, config),
     }
   })
 
-  const hideMessage = () => {
-    bottom.value = screenHeight
-  }
+  useEffect(function autohideMessage() {
+    if (message.isShow) {
+      top.value = 0
+    } else {
+      top.value = -screenHeight
+    }
+  }, [message.isShow])
+
+  /**
 
   useEffect(function showMessage() {
     const message: any = {}
@@ -32,28 +34,28 @@ const useMessages = () => {
     if (game.canBeCompletedStep4) {
       message.title = 'Вот и сделан последний шаг!'
       message.description = `Ты построил филлиал на ${currentPlace}! А это значит, что с этого момента место принадлежит тебе и будет приносить ежедневный доход`
-      bottom.value = 0
+      top.value = 0
       return null
     }
 
     if (game.canBeCompletedStep3) {
       message.title = 'Поздравляю! Теперь ты владелец!'
       message.description = `Ты только что приобрел филлиал "${currentPlace}"`
-      bottom.value = 0
+      top.value = 0
       return null
     }
 
     if (game.canBeCompletedStep2) {
       message.title = 'Место выбрано!'
       message.description = `Отправляйся на ${currentPlace}. У тебя 5 часов, чтобы приобрести место`
-      bottom.value = 0
+      top.value = 0
       return null
     }
 
     if (game.canBeCompletedStep1) {
       message.title = `И у тебя выпадает ${game.rollTheDiceResult}`
       message.description = `А это означает, что в радиусе ${game.calculatedRadius} км. ты можешь выбрать следующее место для постройки!`
-      bottom.value = 0
+      top.value = 0
       return null
     }
   }, [
@@ -63,9 +65,10 @@ const useMessages = () => {
     game.canBeCompletedStep4
   ])
 
+  */
+
   return {
     styleMessageShow,
-    hideMessage,
   }
 }
 
