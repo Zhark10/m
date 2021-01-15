@@ -1,7 +1,8 @@
+import { TGamePanelProps } from "./GamePanel"
 import { PanelAnimations } from "./GamePanel-Animations"
 
-export const useGamePanel = () => {
-  const { panelStyle, initialMessageStyle } = PanelAnimations.usePanelAnimation()
+export const useGamePanel = (props: TGamePanelProps) => {
+  const { panelStyle, initialMessageStyle } = PanelAnimations.usePanelAnimation(props)
   const { stepsStyle } = PanelAnimations.useStepChangeAnimation()
 
   return {

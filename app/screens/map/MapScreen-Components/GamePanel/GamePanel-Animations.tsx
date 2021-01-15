@@ -2,10 +2,11 @@ import { useEffect } from "react"
 import { useSharedValue, Easing, useAnimatedStyle, withTiming } from "react-native-reanimated"
 import { useStores } from "../../../../models"
 import { screenHeight, screenWidth } from "../../../../utils/screen"
+import { TGamePanelProps } from "./GamePanel"
 
 const panelHeight = 2 / 3 * screenHeight
 
-const usePanelAnimation = () => {
+const usePanelAnimation = (props: TGamePanelProps) => {
   const top = useSharedValue(screenHeight - 128)
   const initialMessageStartOffset = useSharedValue(0)
 
@@ -29,6 +30,16 @@ const usePanelAnimation = () => {
       top: withTiming(initialMessageStartOffset.value, config),
     }
   })
+
+  // useEffect(() => {
+  //   if (props.isMapTouched) {
+  //     top.value = panelHeight - 20
+  //     initialMessageStartOffset.value = screenHeight - 20
+  //   } else {
+  //     top.value = panelHeight
+  //     initialMessageStartOffset.value = screenHeight
+  //   }
+  // }, [props.isMapTouched])
 
   useEffect(() => {
     const animationByTimeout = setTimeout(() => {
