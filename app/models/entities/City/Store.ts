@@ -33,7 +33,7 @@ const Store = types
   .views(self => ({
     get availablePlaces() {
       return [...self.places.filter(place => place.isAvailable)]
-    }
+    },
   }))
 
 const fake = {
@@ -53,7 +53,7 @@ const fake = {
       id: uuid.v1(),
       organizationName: 'Милано',
       organizationOwner: 'Аркадий',
-      cost: 100,
+      cost: 250,
       coordinates: {
         latitude: 56.632995304311706,
         longitude: 47.89647699840446,
@@ -64,7 +64,7 @@ const fake = {
       id: uuid.v1(),
       organizationName: 'Большое Чикаго',
       organizationOwner: 'Дарья',
-      cost: 150,
+      cost: 325,
       coordinates: {
         latitude: 56.62619643107053,
         longitude: 47.90449972723952,
@@ -75,7 +75,7 @@ const fake = {
       id: uuid.v1(),
       organizationName: 'Yolka',
       organizationOwner: 'Алексей',
-      cost: 200,
+      cost: 400,
       coordinates: {
         latitude: 56.62803830375752,
         longitude: 47.9298039984042,
@@ -86,7 +86,7 @@ const fake = {
       id: uuid.v1(),
       organizationName: 'Инь-Янь',
       organizationOwner: 'Юрий',
-      cost: 250,
+      cost: 500,
       coordinates: {
         latitude: 56.63783625365767,
         longitude: 47.886623710890234,
