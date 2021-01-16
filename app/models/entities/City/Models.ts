@@ -11,5 +11,5 @@ export const Place = types.model({
   organizationOwner: types.string,
   cost: types.number,
   coordinates: Coordinate,
-  isLoaded: types.boolean,
+  isAvailable: types.boolean,
 })

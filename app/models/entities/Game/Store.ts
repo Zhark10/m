@@ -30,7 +30,7 @@ export const Store = types
     },
     get calculatedRadius() {
       const { first, second } = self.gameProgress.step1_DiceResult
-      return coefficientForRadius * (first + second)
+      return (coefficientForRadius * (first + second)).toFixed()
     },
     get radiusInMeters() {
       const { first, second } = self.gameProgress.step1_DiceResult

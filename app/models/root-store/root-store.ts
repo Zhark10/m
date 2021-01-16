@@ -9,7 +9,6 @@ const NestedStores = {
   city: types.optional(City.Store, {
     places: City.fake.places,
     currentPlace: null,
-    availablePlaces: []
   }),
   game: types.optional(Game.Store, {
     gameProgress: {
