@@ -7,7 +7,7 @@ export const useMap = () => {
   const mapViewRef = useRef(null)
   const navigation = useNavigation()
   const goToWelcome = useCallback(() => navigation.navigate("welcome"), [])
-  const { city: { places, currentPlace, addPlace, removePlace, resetAll, selectPlace }, game: { calculatedRadius } } = useStores()
+  const { city: { places, currentPlace, resetAll, selectPlace, placesInitializeRequest }, game: { radiusInMeters } } = useStores()
   const { style: mapViewContainerStyles } = MapScreenAnimations.useMapViewContainerAnimation()
   const [isMapTouched, setTouched] = useState(false)
 
@@ -22,6 +22,7 @@ export const useMap = () => {
   useEffect(() => {
     selectPlace(null)
     resetAll()
+    placesInitializeRequest()
   }, [])
 
   useEffect(function goToRegion() {
@@ -39,11 +40,9 @@ export const useMap = () => {
       isMapTouched,
       places,
       currentPlace,
-      radiusInMeters: 1000 * calculatedRadius,
+      radiusInMeters,
     },
     methods: {
-      addPlace,
-      removePlace,
       goToWelcome,
       mapTouchEnd,
       mapTouchStart,
