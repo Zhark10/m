@@ -32,6 +32,10 @@ export const Store = types
       const { first, second } = self.gameProgress.step1_DiceResult
       return coefficientForRadius * (first + second)
     },
+    get radiusInMeters() {
+      const { first, second } = self.gameProgress.step1_DiceResult
+      return 1000 * coefficientForRadius * (first + second)
+    },
     get stepForComplete() {
       const { gameProgress } = self
 

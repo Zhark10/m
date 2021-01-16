@@ -1,5 +1,7 @@
+import getDistance from "geolib/es/getDistance"
 import { types } from "mobx-state-tree"
 import uuid from "react-native-uuid"
+import { myInitialPosition } from "../../../screens"
 import { Place } from "./Models"
 
 const Store = types
@@ -9,11 +11,8 @@ const Store = types
     currentPlace: types.maybeNull(types.reference(Place)),
   })
   .actions(self => ({
-    addPlace(selectedPlace) {
-      self.places.push(selectedPlace)
-    },
-    removePlace(selectedPlace) {
-      const newPlaces: any = self.places.filter(place => place.id !== selectedPlace.id)
+    setAvailablePlaces(radiusInMeters) {
+      const newPlaces: any = self.places.filter(place => getDistance(place.coordinates, myInitialPosition) <= radiusInMeters)
       self.places = newPlaces
     },
     resetAll() {
