@@ -6,6 +6,7 @@ import Carousel from 'react-native-snap-carousel'
 import { screenWidth } from "../../../../../../utils/screen"
 import { useStores } from "../../../../../../models"
 import { Button, Text } from "../../../../../../components"
+import { getCardColorByCost } from "../../../../../../utils/helpers/get-color"
 
 export const Step2: FC = () => {
   const renderItem = ({ item, index }) => (
@@ -13,7 +14,7 @@ export const Step2: FC = () => {
       key={index}
       style={Step2Styles.BOX}
     >
-      <Text style={Step2Styles.PLACE_TITLE}>{item.organizationName}</Text>
+      <Text style={[Step2Styles.PLACE_TITLE, { backgroundColor: getCardColorByCost(item.cost) }]}>{item.organizationName}</Text>
       <View style={Step2Styles.PLACE_CONTAINER}>
         <View style={Step2Styles.PLACE_ITEM}>
           <Text style={Step2Styles.PLACE_ITEM_TITLE} tx={"mapScreen.game_steps.step_2.current_owner"} />
@@ -65,6 +66,8 @@ export const Step2: FC = () => {
             onSnapToItem={onSnapToItem}
             layout="stack"
             layoutCardOffset={COONTAINER_HEIGHT}
+            sliderHeight={COONTAINER_HEIGHT + 24}
+            itemHeight={COONTAINER_HEIGHT - 24}
             itemWidth={screenWidth - 42}
           />
         </View>
