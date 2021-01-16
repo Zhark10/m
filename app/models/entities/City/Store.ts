@@ -25,43 +25,59 @@ const Store = types
   }))
 
 const fake = {
-  availablePlaces: [
+  allPlaces: [
+    {
+      id: uuid.v1(),
+      organizationName: 'Меделан',
+      organizationOwner: 'Руслан',
+      cost: 100,
+      coordinates: {
+        latitude: 56.63591803038669,
+        longitude: 47.89490247015194,
+      },
+      isLoaded: false,
+    },
     {
       id: uuid.v1(),
       organizationName: 'Милано',
-      organizationOwner: 'Me',
+      organizationOwner: 'Аркадий',
       cost: 100,
       coordinates: {
-        latitude: 56.63919557073426,
-        longitude: 47.89941117849814,
-        latitudeDelta: 0.03607053635663959,
-        longitudeDelta: 0.03553391019821106,
+        latitude: 56.632995304311706,
+        longitude: 47.89647699840446,
       },
       isLoaded: false,
     },
     {
       id: uuid.v1(),
       organizationName: 'Большое Чикаго',
-      organizationOwner: 'Me',
+      organizationOwner: 'Дарья',
       cost: 150,
       coordinates: {
-        latitude: 56.63919557073426,
-        longitude: 47.88141117849814,
-        latitudeDelta: 0.03607053635663959,
-        longitudeDelta: 0.03553391019821106,
+        latitude: 56.62619643107053,
+        longitude: 47.90449972723952,
       },
       isLoaded: false,
     },
     {
       id: uuid.v1(),
       organizationName: 'Yolka',
-      organizationOwner: 'Me',
+      organizationOwner: 'Алексей',
       cost: 200,
       coordinates: {
-        latitude: 56.62130577073426,
-        longitude: 47.89842517849814,
-        latitudeDelta: 0.03607053635663959,
-        longitudeDelta: 0.03553391019821106,
+        latitude: 56.62803830375752,
+        longitude: 47.9298039984042,
+      },
+      isLoaded: false,
+    },
+    {
+      id: uuid.v1(),
+      organizationName: 'Инь-Янь',
+      organizationOwner: 'Юрий',
+      cost: 250,
+      coordinates: {
+        latitude: 56.63783625365767,
+        longitude: 47.886623710890234,
       },
       isLoaded: false,
     },
@@ -71,6 +87,6 @@ const fake = {
 export const City = {
   Store,
   fake: {
-    availablePlaces: fake.availablePlaces
+    places: fake.allPlaces
   }
 }
