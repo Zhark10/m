@@ -6,14 +6,12 @@ import { screenHeight, screenWidth } from "../../utils/screen"
 export const MapScreenStyles = StyleSheet.create({
   BUILDING: {
     alignItems: 'center',
-    backgroundColor: color.palette.black,
     borderRadius: 16,
     height: 32,
     justifyContent: 'center',
     width: 32,
   },
   BUILDING_ICON: {
-    color: color.palette.white,
     fontSize: 16,
   },
   CONTAINER: {

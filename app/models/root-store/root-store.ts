@@ -7,9 +7,9 @@ import { Profile } from "../entities/Profile/Models"
 
 const NestedStores = {
   city: types.optional(City.Store, {
-    places: [],
+    places: City.fake.places,
     currentPlace: null,
-    availablePlaces: City.fake.availablePlaces
+    availablePlaces: []
   }),
   game: types.optional(Game.Store, {
     gameProgress: {

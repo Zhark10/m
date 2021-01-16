@@ -1,7 +1,7 @@
 import { types } from "mobx-state-tree"
 import { GameProgressModel } from "./Models"
 
-const coefficientForRadius = 0.5
+const coefficientForRadius = 0.2
 
 export const Store = types
   .model({
