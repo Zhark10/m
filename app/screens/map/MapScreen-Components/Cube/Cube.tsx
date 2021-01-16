@@ -1,5 +1,5 @@
 /* eslint-disable camelcase */
-import React, { FC } from "react"
+import React, { FC, Fragment, ReactNode } from "react"
 import { StyleSheet, View } from "react-native"
 import { color } from "../../../../theme/color"
 import { screenWidth } from "../../../../utils/screen"
@@ -79,9 +79,9 @@ export const Cube: FC<TCubeProps> = observer(({ cubeNumber }) => {
     }
   })
 
-  const { game: { gameProgress } } = useStores()
+  const { game } = useStores()
 
-  const diceResult = gameProgress.step1_DiceResult ? gameProgress.step1_DiceResult[cubeNumber] : 0
+  const diceResult = game.gameProgress.step1_DiceResult ? game.gameProgress.step1_DiceResult[cubeNumber] : 0
 
   const getDicePointIcon = (diceSize: 'small' | 'large') => {
     const dicePoints = {
@@ -102,6 +102,8 @@ export const Cube: FC<TCubeProps> = observer(({ cubeNumber }) => {
     />
   }
 
+  const isCubeVisible = (CubeComponent: JSX.Element) => game.canBeCompletedStep1 ? <Fragment /> : CubeComponent
+
   return (
     <View>
       <View style={styles.diceBox}>
@@ -109,7 +111,7 @@ export const Cube: FC<TCubeProps> = observer(({ cubeNumber }) => {
       </View>
       <ZSvg canvas={canvas} rollDiceParams={rollDiceParams} cubeNumber={cubeNumber}>
         <Animated.View style={[styles.container, animatedStyle]}>
-          {diceResult ? getDicePointIcon("large")
+          {isCubeVisible(diceResult ? getDicePointIcon("large")
             : <ZBox
               width={1}
               height={1}
@@ -121,7 +123,7 @@ export const Cube: FC<TCubeProps> = observer(({ cubeNumber }) => {
               top={color.palette.black}
               bottom={color.palette.black}
             />
-          }
+          )}
         </Animated.View>
       </ZSvg>
     </View>

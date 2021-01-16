@@ -37,14 +37,12 @@ const Camera = ({ camera, canvas, rollDiceParams: { xOffset, yOffset, scale }, c
   const x = useSharedValue(0)
   const y = useSharedValue(0)
 
-  const { game: { saveDiceResult } } = useStores()
+  const { game, city } = useStores()
 
   const updateShare = () => {
     const result = Math.floor(Math.random() * maxPoint) + 1
-    // const saveResultByTime = setTimeout(() => {
-    saveDiceResult(cubeNumber, result)
-    // }, 1000)
-    // return () => clearTimeout(saveResultByTime)
+    game.saveDiceResult(cubeNumber, result)
+    city.setAvailablePlaces(game.radiusInMeters)
   }
 
   const callback = () => {
