@@ -8,7 +8,7 @@ const useMessages = () => {
   const top = useSharedValue(-screenHeight)
 
   const config = {
-    duration: 1500,
+    duration: 1000,
     easing: Easing.bezier(0.5, 0.01, 0, 1),
   }
 

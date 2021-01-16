@@ -77,11 +77,7 @@ const useStepChangeAnimation = () => {
       newRightOffset = screenWidth
     }
 
-    const animationByTimeout = setTimeout(() => {
-      right.value = newRightOffset
-    }, 2000)
-
-    return () => clearTimeout(animationByTimeout)
+    right.value = newRightOffset
   }, [gameProgress.step1_DiceResult.isCompleted])
 
   return {

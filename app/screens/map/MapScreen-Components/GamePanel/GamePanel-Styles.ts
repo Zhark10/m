@@ -36,7 +36,7 @@ export const GamePanelStyles = StyleSheet.create({
     borderColor: color.palette.gold,
     borderRadius: 12,
     flexDirection: 'row',
-    height: (screenHeight / 3) - 42,
+    height: (screenHeight / 2),
     width: screenWidth * 5,
   },
   INITIAL_MESSAGE: {

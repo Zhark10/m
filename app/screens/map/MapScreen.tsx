@@ -48,7 +48,7 @@ export const MapScreen = observer(function MapScreen() {
             onTouchStart={methods.mapTouchStart}
             onTouchCancel={methods.mapTouchEnd}
             onTouchEnd={methods.mapTouchEnd}
-            initialRegion={defaultCoordinates}
+            initialRegion={{ ...defaultCoordinates, latitude: defaultCoordinates.latitude - 0.01 }}
           >
             <Marker key={'zhark10'} coordinate={defaultCoordinates} style={MapScreenStyles.ME_MARKER}>
               <Fontisto name="person" style={MapScreenStyles.ME_ICON} />
@@ -64,7 +64,7 @@ export const MapScreen = observer(function MapScreen() {
                       MapScreenStyles.BUILDING,
                       {
                         backgroundColor: place.isAvailable ? color.palette.gold : color.palette.black,
-                        borderWidth: place.isAvailable ? 1 : 0
+                        borderWidth: place.isAvailable ? 1 : 0,
                       },
                     ]}>
                     <FontAwesome5
