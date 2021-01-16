@@ -3,8 +3,8 @@ import { Header, Text } from "../../../../components"
 import { View } from "react-native"
 import { BlurView } from "@react-native-community/blur"
 import { CustomOptionsStyles } from "./CustomOptions-Styles"
-import Fontisto from 'react-native-vector-icons/Fontisto'
-import { color } from "../../../../theme"
+import FontAwesome from 'react-native-vector-icons/FontAwesome'
+import { color, typography } from "../../../../theme"
 import { useCustomOptions } from "./CustomOptions-VM"
 import { observer } from "mobx-react-lite"
 
@@ -19,37 +19,48 @@ export const CustomOptions: FC<TCustomOptionsProps> = observer(() => {
   return (
     <View style={CustomOptionsStyles.CONTAINER}>
       <Header style={CustomOptionsStyles.HEADER} />
-      <BlurView
+      <View
         style={CustomOptionsStyles.BLUR_VIEW}
-        blurType="light"
-        blurAmount={10}
-        reducedTransparencyFallbackColor="white"
       >
         {
-          OPTIONS.map(opt => {
+          OPTIONS.map((opt, index) => {
             const optionData = opt.complete
               ? {
                   backgroundColor: color.palette.opacity.gold32,
-                  icon: "checkbox-active",
-                  color: color.palette.black
+                  icon: "check-circle",
+                  textColor: color.palette.black,
+                  iconColor: color.palette.gold,
                 }
               : {
                   backgroundColor: color.transparent,
-                  icon: "checkbox-passive",
-                  color: color.palette.black
+                  icon: "question-circle",
+                  textColor: color.palette.black,
+                  iconColor: color.palette.black,
                 }
+            const prevStateIsComplete = (index > 0 && OPTIONS[index - 1].complete)
             return (
               <Fragment key={opt.tx}>
-                <View key={opt.tx} style={[CustomOptionsStyles.OPTION, { backgroundColor: optionData.backgroundColor }]}>
-                  <Fontisto name={optionData.icon} style={[CustomOptionsStyles.CHECKBOX_ICON, { color: optionData.color }]} />
-                  <Text style={[CustomOptionsStyles.OPTION_TITLE, { color: optionData.color }]} tx={opt.tx} />
+                <View style={CustomOptionsStyles.OPTION}>
+                  <View style={CustomOptionsStyles.OPTION}>
+                    <Text
+                      style={[
+                        CustomOptionsStyles.OPTION_TITLE,
+                        {
+                          color: optionData.textColor,
+                          fontFamily: prevStateIsComplete ? typography.primary.book : typography.primary.book
+                        }
+                      ]}
+                      tx={opt.tx}
+                    />
+                    <FontAwesome name={optionData.icon} style={[CustomOptionsStyles.CHECKBOX_ICON, { color: optionData.iconColor }]} />
+                  </View>
+                  {index !== (OPTIONS.length - 1) && <View style={[CustomOptionsStyles.CARD_SEPARATOR, { backgroundColor: optionData.iconColor }]} />}
                 </View>
-                <View style={CustomOptionsStyles.CARD_SEPARATOR} />
               </Fragment>
             )
           })
         }
-      </BlurView>
+      </View>
     </View>
   )
 })
