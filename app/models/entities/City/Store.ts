@@ -6,21 +6,34 @@ import { Place } from "./Models"
 
 const Store = types
   .model("City", {
-    availablePlaces: types.array(Place),
     places: types.array(Place),
     currentPlace: types.maybeNull(types.reference(Place)),
   })
   .actions(self => ({
     setAvailablePlaces(radiusInMeters) {
-      const newPlaces: any = self.places.filter(place => getDistance(place.coordinates, myInitialPosition) <= radiusInMeters)
+      const newPlaces: any = self.places.map(place => {
+        const isApprovedDistance = getDistance(place.coordinates, myInitialPosition) <= radiusInMeters
+        if (isApprovedDistance) {
+          return { ...place, isAvailable: true }
+        }
+        return place
+      })
       self.places = newPlaces
-    },
-    resetAll() {
-      self.places = [] as any
     },
     selectPlace(selectedPlace) {
       self.currentPlace = selectedPlace
     },
+    resetAll() {
+      self.places = [] as any
+    },
+    placesInitializeRequest() {
+      self.places = City.fake.places as any
+    }
+  }))
+  .views(self => ({
+    get availablePlaces() {
+      return [...self.places.filter(place => place.isAvailable)]
+    }
   }))
 
 const fake = {
@@ -34,7 +47,7 @@ const fake = {
         latitude: 56.63591803038669,
         longitude: 47.89490247015194,
       },
-      isLoaded: false,
+      isAvailable: false,
     },
     {
       id: uuid.v1(),
@@ -45,7 +58,7 @@ const fake = {
         latitude: 56.632995304311706,
         longitude: 47.89647699840446,
       },
-      isLoaded: false,
+      isAvailable: false,
     },
     {
       id: uuid.v1(),
@@ -56,7 +69,7 @@ const fake = {
         latitude: 56.62619643107053,
         longitude: 47.90449972723952,
       },
-      isLoaded: false,
+      isAvailable: false,
     },
     {
       id: uuid.v1(),
@@ -67,7 +80,7 @@ const fake = {
         latitude: 56.62803830375752,
         longitude: 47.9298039984042,
       },
-      isLoaded: false,
+      isAvailable: false,
     },
     {
       id: uuid.v1(),
@@ -78,7 +91,7 @@ const fake = {
         latitude: 56.63783625365767,
         longitude: 47.886623710890234,
       },
-      isLoaded: false,
+      isAvailable: false,
     },
   ]
 }
