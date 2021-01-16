@@ -52,12 +52,6 @@ const useMessages = () => {
       return null
     }
 
-    if (game.canBeCompletedStep1) {
-      message.title = `И у тебя выпадает ${game.rollTheDiceResult}`
-      message.description = `А это означает, что в радиусе ${game.calculatedRadius} км. ты можешь выбрать следующее место для постройки!`
-      top.value = 0
-      return null
-    }
   }, [
     game.canBeCompletedStep1,
     game.canBeCompletedStep2,

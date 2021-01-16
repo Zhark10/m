@@ -13,7 +13,7 @@ export const useStep1 = () => {
   useEffect(function pushMessage() {
     if (!game.canBeCompletedStep1) return
     const message = {
-      title: `И у тебя выпадает ${game.rollTheDiceResult}`,
+      title: `И у тебя выпадает ${game.rollTheDiceResult} очков`,
       description: `А это означает, что в радиусе ${game.calculatedRadius} км. ты можешь выбрать следующее место для постройки!`,
       buttonText: 'Хорошо'
     }
