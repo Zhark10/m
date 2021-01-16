@@ -14,13 +14,14 @@ export const Step2: FC = () => {
       style={Step2Styles.BOX}
     >
       <Text style={Step2Styles.PLACE_TITLE}>{item.organizationName}</Text>
-      <View style={Step2Styles.PLACE_ITEM}>
-        <Text style={Step2Styles.PLACE_ITEM_TITLE} tx={"mapScreen.game_steps.step_2.current_owner"} />
-        <Text style={Step2Styles.PLACE_ITEM_INFO}>{item.organizationOwner}</Text>
-      </View>
-      <View style={Step2Styles.PLACE_ITEM}>
-        <Text style={Step2Styles.PLACE_ITEM_TITLE}>Стоимость: </Text>
-        <Text style={Step2Styles.PLACE_COST}>{item.cost} $</Text>
+      <View style={Step2Styles.PLACE_CONTAINER}>
+        <View style={Step2Styles.PLACE_ITEM}>
+          <Text style={Step2Styles.PLACE_ITEM_TITLE} tx={"mapScreen.game_steps.step_2.current_owner"} />
+          <Text style={Step2Styles.PLACE_ITEM_INFO}>{item.organizationOwner}</Text>
+        </View>
+        <View style={Step2Styles.PLACE_ITEM}>
+          <Text style={Step2Styles.PLACE_COST}>{item.cost} $</Text>
+        </View>
       </View>
       <Button
         style={Step2Styles.CARD_BUTTON}
@@ -37,10 +38,10 @@ export const Step2: FC = () => {
   const carouselRef = useRef(null)
 
   const { city: { availablePlaces, selectPlace } } = useStores()
-  const placesToAction = [...availablePlaces]
 
   const onSnapToItem = useCallback((index: number) => {
-    const currentShowedPlace = placesToAction[index]
+    if (!availablePlaces.length) return
+    const currentShowedPlace = availablePlaces[index]
     selectPlace(currentShowedPlace)
   }, [availablePlaces])
 
@@ -58,7 +59,7 @@ export const Step2: FC = () => {
         >
           <Carousel
             ref={carouselRef}
-            data={placesToAction}
+            data={availablePlaces}
             renderItem={renderItem}
             sliderWidth={screenWidth}
             onSnapToItem={onSnapToItem}

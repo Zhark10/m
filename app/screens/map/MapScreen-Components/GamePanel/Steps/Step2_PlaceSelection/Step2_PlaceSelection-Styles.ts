@@ -21,9 +21,9 @@ export const Step2Styles = StyleSheet.create({
   PLACE_TITLE: {
     color: color.palette.black,
     fontFamily: typography.primary.book,
+    backgroundColor: color.palette.gold,
     textAlign: 'center',
     fontSize: 20,
-    lineHeight: 32,
     padding: spacing[2],
   },
   PLACE_ITEM: {
@@ -43,11 +43,21 @@ export const Step2Styles = StyleSheet.create({
     fontSize: 16,
     padding: spacing[2],
   },
+  PLACE_CONTAINER: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    borderTopWidth: 4,
+    borderBottomWidth: 4,
+    borderTopColor: color.palette.black,
+    borderBottomColor: color.palette.gold,
+  },
   PLACE_COST: {
     color: color.palette.gold,
     fontFamily: typography.primary.bold,
     textAlign: 'center',
-    fontSize: 36,
+    fontSize: 72,
     padding: spacing[2],
   },
   ICON: {
@@ -74,7 +84,7 @@ export const Step2Styles = StyleSheet.create({
     backgroundColor: color.palette.black,
     height: 32,
     width: '100%',
-    alignSelf: 'center',
+    borderRadius: 0,
   },
   CARD_BUTTON_TEXT: {
     color: color.palette.white,
