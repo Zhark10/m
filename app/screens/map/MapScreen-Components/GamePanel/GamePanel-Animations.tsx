@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import { useEffect } from "react"
 import { useSharedValue, Easing, useAnimatedStyle, withTiming } from "react-native-reanimated"
 import { useStores } from "../../../../models"
@@ -58,7 +59,8 @@ const usePanelAnimation = (props: TGamePanelProps) => {
 
 const useStepChangeAnimation = () => {
   const right = useSharedValue(0)
-  const { game: { gameProgress } } = useStores()
+  const { game: { gameProgress: { step1_DiceResult, step2_SelectedPlaceToBuild, step3_IsBuildStarted, step4_IsBuildFinished } } } = useStores()
+  const progressWatchedItemsToPanelAnimate = [step1_DiceResult.isCompleted, step2_SelectedPlaceToBuild.isCompleted, step3_IsBuildStarted.isCompleted, step4_IsBuildFinished.isCompleted]
 
   const stepsStyle = useAnimatedStyle(() => {
     const config = {
@@ -73,12 +75,24 @@ const useStepChangeAnimation = () => {
 
   useEffect(() => {
     let newRightOffset = 0
-    if (gameProgress.step1_DiceResult.isCompleted) {
+    if (step1_DiceResult.isCompleted) {
       newRightOffset = screenWidth
     }
 
+    if (step1_DiceResult.isCompleted) {
+      newRightOffset = 2 * screenWidth
+    }
+
+    if (step3_IsBuildStarted.isCompleted) {
+      newRightOffset = 3 * screenWidth
+    }
+
+    if (step4_IsBuildFinished.isCompleted) {
+      newRightOffset = 3 * screenWidth
+    }
+
     right.value = newRightOffset
-  }, [gameProgress.step1_DiceResult.isCompleted])
+  }, progressWatchedItemsToPanelAnimate)
 
   return {
     stepsStyle,
