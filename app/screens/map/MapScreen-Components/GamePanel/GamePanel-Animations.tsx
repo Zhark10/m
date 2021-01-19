@@ -74,24 +74,24 @@ const useStepChangeAnimation = () => {
   })
 
   useEffect(() => {
-    let newRightOffset = 0
-    if (step1_DiceResult.isCompleted) {
-      newRightOffset = screenWidth
-    }
-
-    if (step1_DiceResult.isCompleted) {
-      newRightOffset = 2 * screenWidth
+    if (step4_IsBuildFinished.isCompleted) {
+      right.value = 4 * screenWidth
+      return
     }
 
     if (step3_IsBuildStarted.isCompleted) {
-      newRightOffset = 3 * screenWidth
+      right.value = 3 * screenWidth
+      return
     }
 
-    if (step4_IsBuildFinished.isCompleted) {
-      newRightOffset = 3 * screenWidth
+    if (step2_SelectedPlaceToBuild.isCompleted) {
+      right.value = 2 * screenWidth
+      return
     }
 
-    right.value = newRightOffset
+    if (step1_DiceResult.isCompleted) {
+      right.value = screenWidth
+    }
   }, progressWatchedItemsToPanelAnimate)
 
   return {
