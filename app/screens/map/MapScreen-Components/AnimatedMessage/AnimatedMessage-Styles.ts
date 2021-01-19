@@ -3,23 +3,23 @@ import { StyleSheet } from "react-native"
 import { color, spacing, typography } from "../../../../theme"
 import { screenHeight, screenWidth } from "../../../../utils/screen"
 
-const CONTAINER_HEIGHT = 2 / 3 * screenHeight - 72
+const CONTAINER_HEIGHT = (2 / 3) * screenHeight - 72
 
 export const AnimatedMessageStyles = StyleSheet.create({
   BLUR_VIEW: {
-    alignItems: 'center',
+    alignItems: "center",
     height: CONTAINER_HEIGHT,
-    justifyContent: 'flex-end',
-    position: 'absolute',
+    justifyContent: "flex-end",
+    position: "absolute",
     top: 0,
     width: screenWidth,
   },
   CARD_BUTTON: {
-    alignSelf: 'center',
+    alignSelf: "center",
     backgroundColor: color.palette.gold,
     height: 46,
     margin: spacing[5],
-    width: '90%',
+    width: "90%",
   },
   CARD_BUTTON_TEXT: {
     color: color.palette.black,
@@ -29,7 +29,7 @@ export const AnimatedMessageStyles = StyleSheet.create({
   CONTAINER: {
     elevation: 5,
     height: CONTAINER_HEIGHT,
-    position: 'absolute',
+    position: "absolute",
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
@@ -50,13 +50,13 @@ export const AnimatedMessageStyles = StyleSheet.create({
     fontFamily: typography.primary.book,
     fontSize: 32,
     padding: spacing[4],
-    textAlign: 'center',
+    textAlign: "center",
   },
   MESSAGE_TITLE: {
     color: color.palette.black,
     fontFamily: typography.primary.bold,
     fontSize: 42,
     padding: spacing[3],
-    textAlign: 'center',
+    textAlign: "center",
   },
 })

@@ -2,8 +2,8 @@ import React, { FC, useRef } from "react"
 import { TouchableOpacity, View } from "react-native"
 import { Text } from "../../../../../../components"
 import { StepCardStyles } from "./StepCard-Styles"
-import Entypo from 'react-native-vector-icons/Entypo'
-import CardFlip from 'react-native-card-flip'
+import Entypo from "react-native-vector-icons/Entypo"
+import CardFlip from "react-native-card-flip"
 
 type TProps = {
   size: "large" | "small"
@@ -24,8 +24,8 @@ export const StepCard: FC<TProps> = ({ theme, title, frontView, backView }) => {
         </TouchableOpacity>
       </View>
       <CardFlip style={StepCardStyles.STEP_CARD_FLIP} ref={cardRef}>
-        <View style={StepCardStyles.CARD_BOX} >{frontView}</View>
-        <View style={StepCardStyles.CARD_BOX} >{backView}</View>
+        <View style={StepCardStyles.CARD_BOX}>{frontView}</View>
+        <View style={StepCardStyles.CARD_BOX}>{backView}</View>
       </CardFlip>
     </View>
   )

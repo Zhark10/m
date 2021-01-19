@@ -12,11 +12,11 @@ export const WelcomeScreenStyles = StyleSheet.create({
   },
   BLUR_VIEW: {
     height: screenHeight,
-    position: 'absolute',
+    position: "absolute",
     width: screenWidth,
   },
   BUTTON: {
-    backgroundColor: 'transparent',
+    backgroundColor: "transparent",
   },
   BUTTON_TEXT: {
     color: color.palette.black,
@@ -41,8 +41,8 @@ export const WelcomeScreenStyles = StyleSheet.create({
     height: 0,
   },
   ICONS_WRAPPER: {
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
     marginVertical: spacing[2],
   },
   INPUT_VIA_TEXT: {
@@ -52,13 +52,13 @@ export const WelcomeScreenStyles = StyleSheet.create({
     fontSize: 32,
     lineHeight: 38,
     paddingVertical: 12,
-    textAlign: 'center',
+    textAlign: "center",
     width: screenWidth,
   },
   LOGO: {
     alignSelf: "center",
     height: 0.9 * screenWidth,
-    width: 0.9 * screenWidth
+    width: 0.9 * screenWidth,
   },
   PROVIDER_ICON: {
     color: color.palette.white,
@@ -67,18 +67,18 @@ export const WelcomeScreenStyles = StyleSheet.create({
     textShadowRadius: 2,
   },
   PROVIDER_ICON_BUTTON: {
-    alignItems: 'center',
+    alignItems: "center",
     backgroundColor: color.palette.black,
     borderRadius: 100,
     height: screenWidth / 6,
-    justifyContent: 'center',
+    justifyContent: "center",
     width: screenWidth / 6,
   },
   PROVIDER_ICON_WRAPPER: {
-    alignItems: 'center',
-    flexDirection: 'row',
+    alignItems: "center",
+    flexDirection: "row",
     height: screenWidth / 5.5 + 36,
-    justifyContent: 'space-evenly',
+    justifyContent: "space-evenly",
     marginVertical: spacing[2],
     width: 0.8 * screenWidth,
   },
@@ -114,9 +114,9 @@ export const WelcomeScreenStyles = StyleSheet.create({
     fontSize: screenWidth / 4.5,
   },
   TITLE_WRAPPER: {
-    alignItems: 'center',
+    alignItems: "center",
     // backgroundColor: color.palette.gold,
     // paddingTop: 12,
-    width: '100%',
-  }
+    width: "100%",
+  },
 })

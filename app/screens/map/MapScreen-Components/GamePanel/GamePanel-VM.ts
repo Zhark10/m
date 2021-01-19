@@ -11,9 +11,8 @@ export const useGamePanel = (props: TGamePanelProps) => {
         panelStyle,
         initialMessageStyle,
         stepsStyle,
-      }
+      },
     },
-    methods: {
-    }
+    methods: {},
   }
 }

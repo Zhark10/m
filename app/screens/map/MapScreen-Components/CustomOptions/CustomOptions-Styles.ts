@@ -7,16 +7,16 @@ const CONTAINER_HEIGHT = 56
 
 export const CustomOptionsStyles = StyleSheet.create({
   BLUR_VIEW: {
-    alignItems: 'flex-end',
-    flexDirection: 'row',
+    alignItems: "flex-end",
+    flexDirection: "row",
     height: CONTAINER_HEIGHT,
-    justifyContent: 'center',
-    position: 'absolute',
+    justifyContent: "center",
+    position: "absolute",
     top: 0,
     width: screenWidth,
   },
   CARD_SEPARATOR: {
-    alignSelf: 'center',
+    alignSelf: "center",
     backgroundColor: color.palette.black,
     height: 1,
     top: -4,
@@ -30,7 +30,7 @@ export const CustomOptionsStyles = StyleSheet.create({
   CONTAINER: {
     elevation: 5,
     height: CONTAINER_HEIGHT,
-    position: 'absolute',
+    position: "absolute",
     width: screenWidth,
     zIndex: 9999,
   },
@@ -38,17 +38,17 @@ export const CustomOptionsStyles = StyleSheet.create({
     height: 0,
   },
   OPTION: {
-    alignItems: 'center',
-    flexDirection: 'row',
+    alignItems: "center",
+    flexDirection: "row",
     height: CONTAINER_HEIGHT / 2,
-    justifyContent: 'center',
+    justifyContent: "center",
   },
   OPTION_TITLE: {
     color: color.palette.black,
     fontSize: 16,
     letterSpacing: 1.5,
-    position: 'absolute',
-    textAlign: 'center',
+    position: "absolute",
+    textAlign: "center",
     top: -20,
     width: screenWidth / 4,
   },

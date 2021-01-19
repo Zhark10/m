@@ -3,8 +3,8 @@ import {
   useAnimatedStyle,
   useSharedValue,
   withTiming,
-  Easing
-} from 'react-native-reanimated/src/Animated'
+  Easing,
+} from "react-native-reanimated/src/Animated"
 import { screenWidth } from "../../utils/screen"
 
 const useRandomBoxWidth = () => {
@@ -30,7 +30,7 @@ const useRandomBoxWidth = () => {
   }, [])
 
   return {
-    style
+    style,
   }
 }
 
@@ -64,7 +64,7 @@ const useTitleAnimation = () => {
   }, [])
 
   return {
-    style
+    style,
   }
 }
 

@@ -6,17 +6,14 @@ import Svg from "react-native-svg"
 import { useZSvg } from "./ZSvg"
 
 interface LayerProps {
-  zIndexStyle: { zIndex: number };
-  children: ReactNode;
+  zIndexStyle: { zIndex: number }
+  children: ReactNode
 }
 
 const Layer = ({ zIndexStyle, children }: LayerProps) => {
   const { canvas } = useZSvg()
   return (
-    <Animated.View
-      style={[StyleSheet.absoluteFill, zIndexStyle]}
-      pointerEvents="none"
-    >
+    <Animated.View style={[StyleSheet.absoluteFill, zIndexStyle]} pointerEvents="none">
       <Svg
         style={StyleSheet.absoluteFill}
         viewBox={[-canvas.x / 2, -canvas.y / 2, canvas.x, canvas.y].join(" ")}

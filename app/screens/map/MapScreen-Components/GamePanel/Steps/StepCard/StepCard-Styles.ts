@@ -6,17 +6,17 @@ import { screenHeight, screenWidth } from "../../../../../../utils/screen"
 
 export const StepCardStyles = StyleSheet.create({
   CARD_BOX: {
-    alignItems: 'center',
-    flexDirection: 'row',
-    justifyContent: 'center',
+    alignItems: "center",
+    flexDirection: "row",
+    justifyContent: "center",
     paddingHorizontal: spacing[2],
   },
   CONTAINER: {
-    alignItems: 'center',
-    backgroundColor: 'transparent',
+    alignItems: "center",
+    backgroundColor: "transparent",
     borderColor: color.palette.gold,
     borderRadius: 4,
-    justifyContent: 'flex-start',
+    justifyContent: "flex-start",
     maxHeight: screenHeight / 4,
     width: screenWidth,
   },
@@ -27,10 +27,10 @@ export const StepCardStyles = StyleSheet.create({
     paddingBottom: 5,
   },
   STEP_CARD_FLIP: {
-    alignItems: 'center',
-    flexDirection: 'row',
+    alignItems: "center",
+    flexDirection: "row",
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: "center",
     paddingHorizontal: spacing[2],
     width: screenWidth / 2,
   },
@@ -41,11 +41,11 @@ export const StepCardStyles = StyleSheet.create({
     lineHeight: 32,
   },
   TITLE_BOX: {
-    alignItems: 'center',
-    flexDirection: 'row',
-    justifyContent: 'center',
+    alignItems: "center",
+    flexDirection: "row",
+    justifyContent: "center",
     paddingHorizontal: 8,
     paddingTop: 6,
-    width: '100%',
-  }
+    width: "100%",
+  },
 })

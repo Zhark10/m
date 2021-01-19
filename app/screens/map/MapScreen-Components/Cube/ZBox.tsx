@@ -13,28 +13,18 @@ const BOTTOM_RIGHT = 2
 const BOTTOM_LEFT = 3
 
 interface ZBoxProps {
-  width: number;
-  height: number;
-  depth: number;
-  front: string;
-  back: string;
-  left: string;
-  right: string;
-  top: string;
-  bottom: string;
+  width: number
+  height: number
+  depth: number
+  front: string
+  back: string
+  left: string
+  right: string
+  top: string
+  bottom: string
 }
 
-const ZBox = ({
-  width,
-  height,
-  depth,
-  front,
-  back,
-  top,
-  bottom,
-  left,
-  right,
-}: ZBoxProps) => {
+const ZBox = ({ width, height, depth, front, back, top, bottom, left, right }: ZBoxProps) => {
   const { camera, canvas } = useZSvg()
   const p1 = { x: -width / 2, y: height / 2, z: depth / 2 }
   const p2 = { x: width / 2, y: height / 2, z: depth / 2 }

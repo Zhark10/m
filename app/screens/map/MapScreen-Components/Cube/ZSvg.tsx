@@ -18,15 +18,15 @@ export const useZSvg = () => {
 }
 
 interface ZSvgContext {
-  camera: Animated.SharedValue<Matrix4>;
-  canvas: Vector3;
+  camera: Animated.SharedValue<Matrix4>
+  canvas: Vector3
 }
 
 interface ZSvgProps {
-  canvas: Vector3;
-  children: ReactElement[] | ReactElement;
+  canvas: Vector3
+  children: ReactElement[] | ReactElement
   rollDiceParams: TRollDiceParams
-  cubeNumber: 'first' | 'second'
+  cubeNumber: "first" | "second"
 }
 
 const ZSvg = ({ canvas, children, rollDiceParams, cubeNumber }: ZSvgProps) => {
@@ -35,7 +35,12 @@ const ZSvg = ({ canvas, children, rollDiceParams, cubeNumber }: ZSvgProps) => {
     <Context.Provider value={{ canvas, camera }}>
       <View style={{ width: canvas.x, height: canvas.y }}>
         {children}
-        <Camera camera={camera} canvas={canvas} rollDiceParams={rollDiceParams} cubeNumber={cubeNumber} />
+        <Camera
+          camera={camera}
+          canvas={canvas}
+          rollDiceParams={rollDiceParams}
+          cubeNumber={cubeNumber}
+        />
       </View>
     </Context.Provider>
   )

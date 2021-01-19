@@ -3,7 +3,8 @@ import { useCallback } from "react"
 import { welcomeAnimations } from "./WelcomeScreen-Animations"
 
 export enum EIconType {
-  LEFT, RIGHT
+  LEFT,
+  RIGHT,
 }
 
 export const useWelcome = () => {
@@ -12,7 +13,15 @@ export const useWelcome = () => {
 
   const { useTitleAnimation, useDeparturePictureFromTheSide } = welcomeAnimations
   const { style: titleStyle } = useTitleAnimation()
-  const { logoStyle, vkStyle, facebookStyle, googleStyle, questStyle, showFooterStyle, showQuestDescriptionStyle } = useDeparturePictureFromTheSide()
+  const {
+    logoStyle,
+    vkStyle,
+    facebookStyle,
+    googleStyle,
+    questStyle,
+    showFooterStyle,
+    showQuestDescriptionStyle,
+  } = useDeparturePictureFromTheSide()
 
   const providers = [
     {
@@ -32,7 +41,7 @@ export const useWelcome = () => {
       onPress: goToMap,
       iconType: EIconType.LEFT,
       animationStyle: vkStyle,
-    }
+    },
   ]
 
   const footerOptions = [
@@ -59,8 +68,8 @@ export const useWelcome = () => {
         logoStyle,
         showFooterStyle,
         showQuestDescriptionStyle,
-      }
+      },
     },
-    methods: { goToMap }
+    methods: { goToMap },
   }
 }

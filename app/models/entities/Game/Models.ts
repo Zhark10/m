@@ -3,7 +3,7 @@ import { types } from "mobx-state-tree"
 const DiceResult = types.model({
   first: types.maybeNull(types.number),
   second: types.maybeNull(types.number),
-  isCompleted: types.boolean
+  isCompleted: types.boolean,
 })
 
 const SelectedPlaceToBuild = types.model({
@@ -21,13 +21,14 @@ const IsBuildFinished = types.model({
   isCompleted: types.boolean,
 })
 
-export const GameProgressModel = types.model("GameProgress", {
-  step1_DiceResult: DiceResult,
-  step2_SelectedPlaceToBuild: SelectedPlaceToBuild,
-  step3_IsBuildStarted: IsBuildStarted,
-  step4_IsBuildFinished: IsBuildFinished,
-})
-  .actions(self => ({
+export const GameProgressModel = types
+  .model("GameProgress", {
+    step1_DiceResult: DiceResult,
+    step2_SelectedPlaceToBuild: SelectedPlaceToBuild,
+    step3_IsBuildStarted: IsBuildStarted,
+    step4_IsBuildFinished: IsBuildFinished,
+  })
+  .actions((self) => ({
     completeStep(stepNumber) {
       const stepsForComplete = {
         1: self.step1_DiceResult,
@@ -38,5 +39,5 @@ export const GameProgressModel = types.model("GameProgress", {
       const step = stepsForComplete[stepNumber]
 
       step.isCompleted = true
-    }
+    },
   }))

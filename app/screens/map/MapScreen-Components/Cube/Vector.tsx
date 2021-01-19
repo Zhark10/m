@@ -3,16 +3,12 @@ import { Matrix4, matrixVecMul4, Vector } from "react-native-redash"
 import { Path3 } from "./Path3"
 
 export interface Vector3 {
-  x: number;
-  y: number;
-  z: number;
+  x: number
+  y: number
+  z: number
 }
 
-export const project = (
-  p: Vector3,
-  canvas: Vector3,
-  transform: Matrix4
-): Vector3 => {
+export const project = (p: Vector3, canvas: Vector3, transform: Matrix4): Vector3 => {
   "worklet"
   const pr = matrixVecMul4(transform, [p.x, p.y, p.z, 1])
   return {
@@ -22,11 +18,7 @@ export const project = (
   }
 }
 
-export const projectBezier = (
-  path: Path3,
-  canvas: Vector3,
-  transform: Matrix4
-) => {
+export const projectBezier = (path: Path3, canvas: Vector3, transform: Matrix4) => {
   "worklet"
   return {
     move: project(path.move, canvas, transform),

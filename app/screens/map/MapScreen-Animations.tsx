@@ -28,7 +28,7 @@ const useMapViewContainerAnimation = () => {
   }, [])
 
   return {
-    style
+    style,
   }
 }
 

@@ -7,7 +7,10 @@ export const useMap = () => {
   const mapViewRef = useRef(null)
   const navigation = useNavigation()
   const goToWelcome = useCallback(() => navigation.navigate("welcome"), [])
-  const { city: { places, currentPlace, resetAll, selectPlace, placesInitializeRequest }, game: { radiusInMeters } } = useStores()
+  const {
+    city: { places, currentPlace, resetAll, selectPlace, placesInitializeRequest },
+    game: { radiusInMeters },
+  } = useStores()
   const { style: mapViewContainerStyles } = MapScreenAnimations.useMapViewContainerAnimation()
   const [isMapTouched, setTouched] = useState(false)
 
@@ -25,16 +28,19 @@ export const useMap = () => {
     placesInitializeRequest()
   }, [])
 
-  useEffect(function goToRegion() {
-    if (currentPlace) {
-      mapViewRef.current?.animateToRegion(currentPlace.coordinates, 500)
-    }
-  }, [currentPlace])
+  useEffect(
+    function goToRegion() {
+      if (currentPlace) {
+        mapViewRef.current?.animateToRegion(currentPlace.coordinates, 500)
+      }
+    },
+    [currentPlace],
+  )
 
   return {
     data: {
       animationStyles: {
-        mapViewContainerStyles
+        mapViewContainerStyles,
       },
       mapViewRef,
       isMapTouched,
@@ -46,6 +52,6 @@ export const useMap = () => {
       goToWelcome,
       mapTouchEnd,
       mapTouchStart,
-    }
+    },
   }
 }

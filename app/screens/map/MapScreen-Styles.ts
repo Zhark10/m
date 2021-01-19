@@ -5,10 +5,10 @@ import { screenHeight, screenWidth } from "../../utils/screen"
 
 export const MapScreenStyles = StyleSheet.create({
   BUILDING: {
-    alignItems: 'center',
+    alignItems: "center",
     borderRadius: 16,
     height: 32,
-    justifyContent: 'center',
+    justifyContent: "center",
     width: 32,
   },
   BUILDING_ICON: {
@@ -19,7 +19,7 @@ export const MapScreenStyles = StyleSheet.create({
     flex: 1,
   },
   FULL: {
-    flex: 1
+    flex: 1,
   },
   HEADER: {
     paddingBottom: spacing[5] - 1,
@@ -48,11 +48,11 @@ export const MapScreenStyles = StyleSheet.create({
     fontSize: 20,
   },
   ME_MARKER: {
-    alignItems: 'center',
+    alignItems: "center",
     backgroundColor: color.palette.gold,
     borderRadius: 4,
     height: 36,
-    justifyContent: 'center',
+    justifyContent: "center",
     width: 36,
   },
   PANEL_TITLE: {
@@ -62,14 +62,14 @@ export const MapScreenStyles = StyleSheet.create({
     fontSize: 26,
     letterSpacing: 2,
     padding: 12,
-    textAlign: 'center',
+    textAlign: "center",
   },
   PANEL_WRAPPER: {
-    alignItems: 'center',
-    backgroundColor: 'transparent',
+    alignItems: "center",
+    backgroundColor: "transparent",
     bottom: 0,
     height: screenWidth / 3,
-    position: 'absolute',
+    position: "absolute",
     width: screenWidth / 3,
   },
   TRAPEZOID_1: {
@@ -83,7 +83,7 @@ export const MapScreenStyles = StyleSheet.create({
     bottom: -10,
     height: screenHeight,
     left: 0,
-    position: 'absolute',
+    position: "absolute",
     width: 0,
   },
 })

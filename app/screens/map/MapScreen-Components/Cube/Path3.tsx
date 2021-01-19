@@ -1,16 +1,16 @@
 import { Vector3 } from "./Vector"
 
 export interface Curve3 {
-  to: Vector3;
-  c1: Vector3;
-  c2: Vector3;
+  to: Vector3
+  c1: Vector3
+  c2: Vector3
 }
 
 export type Path3 = {
-  move: Vector3;
-  curves: Curve3[];
-  close: boolean;
-};
+  move: Vector3
+  curves: Curve3[]
+  close: boolean
+}
 
 /**
  * @summary Create a new path

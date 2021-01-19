@@ -15,10 +15,10 @@ export const useAnimatedMessage = () => {
       animationStyles: {
         styleMessageShow,
       },
-      message
+      message,
     },
     methods: {
       hideMessage,
-    }
+    },
   }
 }

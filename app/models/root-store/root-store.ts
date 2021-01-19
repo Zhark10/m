@@ -27,24 +27,24 @@ const NestedStores = {
       },
       step4_IsBuildFinished: {
         IsBuildFinished: false,
-        isCompleted: false
+        isCompleted: false,
       },
     },
     currentActivePlayer: null,
     isLoaded: true,
-  })
+  }),
 }
 
 const SimpleModels = {
   auth: types.maybeNull(Auth.Model),
   profile: types.maybeNull(Profile.Model),
-  message: types.optional(Message.Model, { title: '', description: '', buttonText: '' }),
+  message: types.optional(Message.Model, { title: "", description: "", buttonText: "" }),
 }
 
 export const RootStoreModel = types.model("RootStore", {
   ...SimpleModels,
-  ...NestedStores
+  ...NestedStores,
 })
 
-export interface RootStore extends Instance<typeof RootStoreModel> { }
-export interface RootStoreSnapshot extends SnapshotOut<typeof RootStoreModel> { }
+export interface RootStore extends Instance<typeof RootStoreModel> {}
+export interface RootStoreSnapshot extends SnapshotOut<typeof RootStoreModel> {}

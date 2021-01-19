@@ -1,9 +1,6 @@
 import React from "react"
 import { StyleSheet } from "react-native"
-import {
-  PanGestureHandler,
-  PanGestureHandlerGestureEvent,
-} from "react-native-gesture-handler"
+import { PanGestureHandler, PanGestureHandlerGestureEvent } from "react-native-gesture-handler"
 import Animated, {
   useAnimatedGestureHandler,
   useSharedValue,
@@ -20,10 +17,10 @@ import { END_SCALE_VALUE, TRollDiceParams } from "./Cube"
 import { Vector3 } from "./Vector"
 
 interface CameraProps {
-  camera: Animated.SharedValue<Matrix4>;
-  canvas: Vector3;
-  rollDiceParams: TRollDiceParams;
-  cubeNumber: 'first' | 'second'
+  camera: Animated.SharedValue<Matrix4>
+  canvas: Vector3
+  rollDiceParams: TRollDiceParams
+  cubeNumber: "first" | "second"
 }
 
 const toRad = (v: number, size: number) => {
@@ -33,7 +30,12 @@ const toRad = (v: number, size: number) => {
 
 const maxPoint = 6
 
-const Camera = ({ camera, canvas, rollDiceParams: { xOffset, yOffset, scale }, cubeNumber }: CameraProps) => {
+const Camera = ({
+  camera,
+  canvas,
+  rollDiceParams: { xOffset, yOffset, scale },
+  cubeNumber,
+}: CameraProps) => {
   const x = useSharedValue(0)
   const y = useSharedValue(0)
 
@@ -46,7 +48,7 @@ const Camera = ({ camera, canvas, rollDiceParams: { xOffset, yOffset, scale }, c
   }
 
   const callback = () => {
-    'worklet'
+    "worklet"
     runOnJS(updateShare)()
   }
 
@@ -54,16 +56,16 @@ const Camera = ({ camera, canvas, rollDiceParams: { xOffset, yOffset, scale }, c
     () => processTransform3d([{ rotateX: y.value + 12 }, { rotateY: x.value + 12 }]),
     (transform) => {
       camera.value = transform
-    }
+    },
   )
   const onGestureEvent = useAnimatedGestureHandler<
     PanGestureHandlerGestureEvent,
     {
-      x: number;
-      y: number;
-      startX: number;
-      startY: number;
-      scale: number;
+      x: number
+      y: number
+      startX: number
+      startY: number
+      scale: number
     }
   >({
     onStart: (e, ctx) => {

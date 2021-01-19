@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     height: cubeSize,
     justifyContent: "center",
-    position: 'absolute',
+    position: "absolute",
     width: cubeSize,
   },
   diceLarge: {
@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
   diceSmall: {
     color: color.palette.black,
     fontSize: 46,
-  }
+  },
 })
 
 const canvas = {
@@ -45,13 +45,13 @@ const canvas = {
 }
 
 export type TRollDiceParams = {
-  xOffset: Animated.SharedValue<number>;
-  yOffset: Animated.SharedValue<number>;
-  scale: Animated.SharedValue<number>;
+  xOffset: Animated.SharedValue<number>
+  yOffset: Animated.SharedValue<number>
+  scale: Animated.SharedValue<number>
 }
 
 type TCubeProps = {
-  cubeNumber: 'first' | 'second'
+  cubeNumber: "first" | "second"
 }
 
 export const Cube: FC<TCubeProps> = observer(({ cubeNumber }) => {
@@ -60,7 +60,9 @@ export const Cube: FC<TCubeProps> = observer(({ cubeNumber }) => {
   const scale = useSharedValue(1)
 
   const rollDiceParams = {
-    xOffset, yOffset, scale
+    xOffset,
+    yOffset,
+    scale,
   }
 
   const animatedStyle = useAnimatedStyle(() => {
@@ -70,59 +72,61 @@ export const Cube: FC<TCubeProps> = observer(({ cubeNumber }) => {
           translateX: xOffset.value,
         },
         {
-          translateY: yOffset.value
+          translateY: yOffset.value,
         },
         {
-          scale: scale.value
-        }
+          scale: scale.value,
+        },
       ],
     }
   })
 
   const { game } = useStores()
 
-  const diceResult = game.gameProgress.step1_DiceResult ? game.gameProgress.step1_DiceResult[cubeNumber] : 0
+  const diceResult = game.gameProgress.step1_DiceResult
+    ? game.gameProgress.step1_DiceResult[cubeNumber]
+    : 0
 
-  const getDicePointIcon = (diceSize: 'small' | 'large') => {
+  const getDicePointIcon = (diceSize: "small" | "large") => {
     const dicePoints = {
-      0: 'dice',
-      1: 'dice-one',
-      2: 'dice-two',
-      3: 'dice-three',
-      4: 'dice-four',
-      5: 'dice-five',
-      6: 'dice-six',
+      0: "dice",
+      1: "dice-one",
+      2: "dice-two",
+      3: "dice-three",
+      4: "dice-four",
+      5: "dice-five",
+      6: "dice-six",
     }
 
     const diceResultIcon = diceSize === "small" ? styles.diceSmall : styles.diceLarge
 
-    return <FontAwesome5Icon
-      name={dicePoints[diceResult]}
-      style={diceResultIcon}
-    />
+    return <FontAwesome5Icon name={dicePoints[diceResult]} style={diceResultIcon} />
   }
 
-  const isCubeVisible = (CubeComponent: JSX.Element) => game.canBeCompletedStep1 ? <Fragment /> : CubeComponent
+  const isCubeVisible = (CubeComponent: JSX.Element) =>
+    game.canBeCompletedStep1 ? <Fragment /> : CubeComponent
 
   return (
     <View>
-      <View style={styles.diceBox}>
-        {getDicePointIcon("small")}
-      </View>
+      <View style={styles.diceBox}>{getDicePointIcon("small")}</View>
       <ZSvg canvas={canvas} rollDiceParams={rollDiceParams} cubeNumber={cubeNumber}>
         <Animated.View style={[styles.container, animatedStyle]}>
-          {isCubeVisible(diceResult ? getDicePointIcon("large")
-            : <ZBox
-              width={1}
-              height={1}
-              depth={1}
-              front={color.palette.black}
-              back={color.palette.black}
-              left={color.palette.black}
-              right={color.palette.black}
-              top={color.palette.black}
-              bottom={color.palette.black}
-            />
+          {isCubeVisible(
+            diceResult ? (
+              getDicePointIcon("large")
+            ) : (
+              <ZBox
+                width={1}
+                height={1}
+                depth={1}
+                front={color.palette.black}
+                back={color.palette.black}
+                left={color.palette.black}
+                right={color.palette.black}
+                top={color.palette.black}
+                bottom={color.palette.black}
+              />
+            ),
           )}
         </Animated.View>
       </ZSvg>

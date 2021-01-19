@@ -4,11 +4,11 @@ import { COONTAINER_HEIGHT } from "../Step2_PlaceSelection/Step2_PlaceSelection-
 
 export const Step1Styles = StyleSheet.create({
   DICE_CONTAINER: {
-    alignItems: 'center',
+    alignItems: "center",
     flex: 1,
-    flexDirection: 'row',
+    flexDirection: "row",
     height: COONTAINER_HEIGHT,
-    justifyContent: 'center',
+    justifyContent: "center",
   },
   INFO_CONTAINER: {
     marginVertical: spacing[3],
@@ -17,7 +17,7 @@ export const Step1Styles = StyleSheet.create({
     color: color.palette.black,
     fontFamily: typography.primary.book,
     fontSize: 16,
-    textAlign: 'center',
+    textAlign: "center",
   },
   INFO_TITLE: {
     color: color.palette.black,
@@ -25,6 +25,6 @@ export const Step1Styles = StyleSheet.create({
     fontSize: 20,
     lineHeight: 32,
     paddingBottom: 4,
-    textAlign: 'center',
+    textAlign: "center",
   },
 })

@@ -18,13 +18,16 @@ const useMessages = () => {
     }
   })
 
-  useEffect(function autohideMessage() {
-    if (message.isShow) {
-      top.value = 0
-    } else {
-      top.value = -screenHeight
-    }
-  }, [message.isShow])
+  useEffect(
+    function autohideMessage() {
+      if (message.isShow) {
+        top.value = 0
+      } else {
+        top.value = -screenHeight
+      }
+    },
+    [message.isShow],
+  )
 
   /**
 

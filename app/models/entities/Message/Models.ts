@@ -5,9 +5,9 @@ const Model = types
   .model({
     title: types.maybeNull(types.string),
     description: types.maybeNull(types.string),
-    buttonText: types.maybeNull(types.string)
+    buttonText: types.maybeNull(types.string),
   })
-  .actions(self => ({
+  .actions((self) => ({
     showMessage(message) {
       self.title = message.title
       self.description = message.description
@@ -17,12 +17,12 @@ const Model = types
       self.title = null
       self.description = null
       self.buttonText = null
-    }
+    },
   }))
-  .views(self => ({
+  .views((self) => ({
     get isShow() {
       return Boolean(self.title)
-    }
+    },
   }))
 
 export const Message = {

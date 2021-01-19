@@ -1,8 +1,5 @@
 import React from "react"
-import Animated, {
-  useAnimatedProps,
-  useAnimatedStyle,
-} from "react-native-reanimated"
+import Animated, { useAnimatedProps, useAnimatedStyle } from "react-native-reanimated"
 import { avg } from "react-native-redash"
 import { Circle, Polygon } from "react-native-svg"
 import { color } from "../../../../theme"
@@ -14,8 +11,8 @@ const AnimatedPolygon = Animated.createAnimatedComponent(Polygon)
 const AnimatedCircle = Animated.createAnimatedComponent(Circle)
 
 interface VertexProps {
-  points: Animated.SharedValue<Vector3[]>;
-  fill: string;
+  points: Animated.SharedValue<Vector3[]>
+  fill: string
 }
 
 const Vertex = ({ points, fill }: VertexProps) => {

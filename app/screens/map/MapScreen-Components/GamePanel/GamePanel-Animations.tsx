@@ -5,7 +5,7 @@ import { useStores } from "../../../../models"
 import { screenHeight, screenWidth } from "../../../../utils/screen"
 import { TGamePanelProps } from "./GamePanel"
 
-const panelHeight = 2 / 3 * screenHeight
+const panelHeight = (2 / 3) * screenHeight
 
 const usePanelAnimation = (props: TGamePanelProps) => {
   const top = useSharedValue(screenHeight - 128)
@@ -59,8 +59,22 @@ const usePanelAnimation = (props: TGamePanelProps) => {
 
 const useStepChangeAnimation = () => {
   const right = useSharedValue(0)
-  const { game: { gameProgress: { step1_DiceResult, step2_SelectedPlaceToBuild, step3_IsBuildStarted, step4_IsBuildFinished } } } = useStores()
-  const progressWatchedItemsToPanelAnimate = [step1_DiceResult.isCompleted, step2_SelectedPlaceToBuild.isCompleted, step3_IsBuildStarted.isCompleted, step4_IsBuildFinished.isCompleted]
+  const {
+    game: {
+      gameProgress: {
+        step1_DiceResult,
+        step2_SelectedPlaceToBuild,
+        step3_IsBuildStarted,
+        step4_IsBuildFinished,
+      },
+    },
+  } = useStores()
+  const progressWatchedItemsToPanelAnimate = [
+    step1_DiceResult.isCompleted,
+    step2_SelectedPlaceToBuild.isCompleted,
+    step3_IsBuildStarted.isCompleted,
+    step4_IsBuildFinished.isCompleted,
+  ]
 
   const stepsStyle = useAnimatedStyle(() => {
     const config = {

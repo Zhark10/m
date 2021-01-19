@@ -9,10 +9,11 @@ const Store = types
     places: types.array(Place),
     currentPlace: types.maybeNull(types.reference(Place)),
   })
-  .actions(self => ({
+  .actions((self) => ({
     setAvailablePlaces(radiusInMeters) {
-      const newPlaces: any = self.places.map(place => {
-        const isApprovedDistance = getDistance(place.coordinates, myInitialPosition) <= radiusInMeters
+      const newPlaces: any = self.places.map((place) => {
+        const isApprovedDistance =
+          getDistance(place.coordinates, myInitialPosition) <= radiusInMeters
         if (isApprovedDistance) {
           return { ...place, isAvailable: true }
         }
@@ -28,11 +29,11 @@ const Store = types
     },
     placesInitializeRequest() {
       self.places = City.fake.places as any
-    }
+    },
   }))
-  .views(self => ({
+  .views((self) => ({
     get availablePlaces() {
-      return [...self.places.filter(place => place.isAvailable)]
+      return [...self.places.filter((place) => place.isAvailable)]
     },
   }))
 
@@ -40,8 +41,8 @@ const fake = {
   allPlaces: [
     {
       id: uuid.v1(),
-      organizationName: 'Меделан',
-      organizationOwner: 'Руслан',
+      organizationName: "Меделан",
+      organizationOwner: "Руслан",
       cost: 100,
       coordinates: {
         latitude: 56.63591803038669,
@@ -51,8 +52,8 @@ const fake = {
     },
     {
       id: uuid.v1(),
-      organizationName: 'Милано',
-      organizationOwner: 'Аркадий',
+      organizationName: "Милано",
+      organizationOwner: "Аркадий",
       cost: 250,
       coordinates: {
         latitude: 56.632995304311706,
@@ -62,8 +63,8 @@ const fake = {
     },
     {
       id: uuid.v1(),
-      organizationName: 'Большое Чикаго',
-      organizationOwner: 'Дарья',
+      organizationName: "Большое Чикаго",
+      organizationOwner: "Дарья",
       cost: 325,
       coordinates: {
         latitude: 56.62619643107053,
@@ -73,8 +74,8 @@ const fake = {
     },
     {
       id: uuid.v1(),
-      organizationName: 'Yolka',
-      organizationOwner: 'Алексей',
+      organizationName: "Yolka",
+      organizationOwner: "Алексей",
       cost: 400,
       coordinates: {
         latitude: 56.62803830375752,
@@ -84,8 +85,8 @@ const fake = {
     },
     {
       id: uuid.v1(),
-      organizationName: 'Инь-Янь',
-      organizationOwner: 'Юрий',
+      organizationName: "Инь-Янь",
+      organizationOwner: "Юрий",
       cost: 500,
       coordinates: {
         latitude: 56.63783625365767,
@@ -93,12 +94,12 @@ const fake = {
       },
       isAvailable: false,
     },
-  ]
+  ],
 }
 
 export const City = {
   Store,
   fake: {
-    places: fake.allPlaces
-  }
+    places: fake.allPlaces,
+  },
 }

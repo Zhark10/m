@@ -1,5 +1,5 @@
 import React, { FC, Fragment } from "react"
-import Animated from 'react-native-reanimated/src/Animated'
+import Animated from "react-native-reanimated/src/Animated"
 import { Text } from "../../../../components"
 import { GamePanelStyles } from "./GamePanel-Styles"
 import { useGamePanel } from "./GamePanel-VM"
@@ -15,18 +15,14 @@ export type TGamePanelProps = {
 
 export const GamePanel: FC<TGamePanelProps> = observer((props) => {
   const vm = useGamePanel(props)
-  const { data: { animationStyles } } = vm
+  const {
+    data: { animationStyles },
+  } = vm
 
-  const gameSteps = [
-    Step1,
-    Step2
-  ]
+  const gameSteps = [Step1, Step2]
 
   return (
-    <Animated.View style={[
-      GamePanelStyles.CONTAINER,
-      animationStyles.panelStyle
-    ]}>
+    <Animated.View style={[GamePanelStyles.CONTAINER, animationStyles.panelStyle]}>
       <BlurView
         style={GamePanelStyles.BLUR_VIEW}
         blurType="light"
@@ -34,16 +30,16 @@ export const GamePanel: FC<TGamePanelProps> = observer((props) => {
         reducedTransparencyFallbackColor="white"
       />
       <Animated.View style={[GamePanelStyles.GAME_SPACE, animationStyles.stepsStyle]}>
-        {
-          gameSteps.map((DynamicStepComponent, key) => (
-            <Fragment key={key}>
-              <DynamicStepComponent />
-              <View style={GamePanelStyles.CARD_SEPARATOR} />
-            </Fragment>
-          ))
-        }
+        {gameSteps.map((DynamicStepComponent, key) => (
+          <Fragment key={key}>
+            <DynamicStepComponent />
+            <View style={GamePanelStyles.CARD_SEPARATOR} />
+          </Fragment>
+        ))}
       </Animated.View>
-      <Animated.View style={[GamePanelStyles.INITIAL_MESSAGE_BOX, animationStyles.initialMessageStyle]}>
+      <Animated.View
+        style={[GamePanelStyles.INITIAL_MESSAGE_BOX, animationStyles.initialMessageStyle]}
+      >
         <Text style={GamePanelStyles.INITIAL_MESSAGE} tx="mapScreen.roll_the_dice" />
       </Animated.View>
     </Animated.View>

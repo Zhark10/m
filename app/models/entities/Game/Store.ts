@@ -9,7 +9,7 @@ export const Store = types
     gameProgress: GameProgressModel,
     isLoaded: types.boolean,
   })
-  .views(self => ({
+  .views((self) => ({
     // FOR DYNAMIC MESSAGE SHOW
     get canBeCompletedStep1() {
       const { first, second } = self.gameProgress.step1_DiceResult
@@ -49,9 +49,9 @@ export const Store = types
         return 2
       }
       return 1
-    }
+    },
   }))
-  .actions(self => ({
+  .actions((self) => ({
     saveDiceResult(cubeNumber: "first" | "second", value: number) {
       self.gameProgress.step1_DiceResult[cubeNumber] = value
     },
@@ -59,9 +59,9 @@ export const Store = types
       self.gameProgress.step1_DiceResult = {
         first: 0,
         second: 0,
-        isCompleted: false
+        isCompleted: false,
       }
-    }
+    },
   }))
 
 export const Game = {
