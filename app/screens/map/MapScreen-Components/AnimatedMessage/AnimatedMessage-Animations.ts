@@ -45,13 +45,6 @@ const useMessages = () => {
       return null
     }
 
-    if (game.canBeCompletedStep2) {
-      message.title = 'Место выбрано!'
-      message.description = `Отправляйся на ${currentPlace}. У тебя 5 часов, чтобы приобрести место`
-      top.value = 0
-      return null
-    }
-
   }, [
     game.canBeCompletedStep1,
     game.canBeCompletedStep2,
