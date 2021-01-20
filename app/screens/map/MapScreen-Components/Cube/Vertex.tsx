@@ -1,14 +1,13 @@
 import React from "react"
 import Animated, { useAnimatedProps, useAnimatedStyle } from "react-native-reanimated"
 import { avg } from "react-native-redash"
-import { Circle, Polygon } from "react-native-svg"
+import { Polygon } from "react-native-svg"
+import FontAwesome5Icon from "react-native-vector-icons/FontAwesome5"
 import { color } from "../../../../theme"
-import { screenWidth } from "../../../../utils/screen"
 import Layer from "./Layer"
 import { Vector3 } from "./Vector"
 
 const AnimatedPolygon = Animated.createAnimatedComponent(Polygon)
-const AnimatedCircle = Animated.createAnimatedComponent(Circle)
 
 interface VertexProps {
   points: Animated.SharedValue<Vector3[]>
@@ -25,17 +24,11 @@ const Vertex = ({ points, fill }: VertexProps) => {
     zIndex: avg(points.value.map(({ z }) => z)),
   }))
   return (
-    <Layer zIndexStyle={zIndex}>
-      <>
+    <>
+      <Layer zIndexStyle={zIndex}>
         <AnimatedPolygon animatedProps={animatedProps} fill={fill} />
-        {/* <AnimatedCircle
-          cx={0}
-          cy={0}
-          r={4}
-          fill="white"
-        /> */}
-      </>
-    </Layer>
+      </Layer>
+    </>
   )
 }
 

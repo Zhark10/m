@@ -34,18 +34,16 @@ const ZBox = ({ width, height, depth, front, back, top, bottom, left, right }: Z
   const p6 = { x: width / 2, y: height / 2, z: -depth / 2 }
   const p7 = { x: width / 2, y: -height / 2, z: -depth / 2 }
   const p8 = { x: -width / 2, y: -height / 2, z: -depth / 2 }
-  const points = useDerivedValue(() => {
-    return [
-      project(p1, canvas, camera.value),
-      project(p2, canvas, camera.value),
-      project(p3, canvas, camera.value),
-      project(p4, canvas, camera.value),
-      project(p5, canvas, camera.value),
-      project(p6, canvas, camera.value),
-      project(p7, canvas, camera.value),
-      project(p8, canvas, camera.value),
-    ]
-  })
+  const points = useDerivedValue(() => ([
+    project(p1, canvas, camera.value),
+    project(p2, canvas, camera.value),
+    project(p3, canvas, camera.value),
+    project(p4, canvas, camera.value),
+    project(p5, canvas, camera.value),
+    project(p6, canvas, camera.value),
+    project(p7, canvas, camera.value),
+    project(p8, canvas, camera.value),
+  ]))
   const v1 = useDerivedValue(() => [
     points.value[FRONT + TOP_LEFT],
     points.value[FRONT + TOP_RIGHT],

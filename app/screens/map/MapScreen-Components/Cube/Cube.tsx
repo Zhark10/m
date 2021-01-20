@@ -1,5 +1,5 @@
 /* eslint-disable camelcase */
-import React, { FC, Fragment, ReactNode } from "react"
+import React, { FC, Fragment } from "react"
 import { StyleSheet, View } from "react-native"
 import { color } from "../../../../theme/color"
 import { screenWidth } from "../../../../utils/screen"
@@ -115,17 +115,17 @@ export const Cube: FC<TCubeProps> = observer(({ cubeNumber }) => {
             diceResult ? (
               getDicePointIcon("large")
             ) : (
-              <ZBox
-                width={1}
-                height={1}
-                depth={1}
-                front={color.palette.black}
-                back={color.palette.black}
-                left={color.palette.black}
-                right={color.palette.black}
-                top={color.palette.black}
-                bottom={color.palette.black}
-              />
+                <ZBox
+                  width={1}
+                  height={1}
+                  depth={1}
+                  front={color.palette.black}
+                  back={color.palette.black}
+                  left={color.palette.black}
+                  right={color.palette.black}
+                  top={color.palette.black}
+                  bottom={color.palette.black}
+                />
             ),
           )}
         </Animated.View>

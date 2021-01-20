@@ -34,10 +34,16 @@ export const MapScreen = observer(function MapScreen() {
   const defaultCoordinates = useMemo(
     () => ({
       ...myInitialPosition,
-      latitudeDelta: radiusInMeters ? LATITUDE_DELTA * radiusInMeters : LATITUDE_DELTA,
-      longitudeDelta: radiusInMeters
-        ? LATITUDE_DELTA * ASPECT_RATIO * radiusInMeters
-        : LATITUDE_DELTA * ASPECT_RATIO,
+      latitudeDelta:
+        // radiusInMeters
+        //   ? LATITUDE_DELTA * radiusInMeters
+        //   :
+        LATITUDE_DELTA,
+      longitudeDelta:
+        // radiusInMeters
+        //   ? LATITUDE_DELTA * ASPECT_RATIO * radiusInMeters
+        //   :
+        LATITUDE_DELTA * ASPECT_RATIO,
     }),
     [radiusInMeters],
   )
