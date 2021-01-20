@@ -41,11 +41,11 @@ const Camera = ({
 
   const { game, city } = useStores()
 
-  const updateShare = () => {
+  const updateShare = React.useCallback(() => {
     const result = Math.floor(Math.random() * maxPoint) + 1
     game.saveDiceResult(cubeNumber, result)
     city.setAvailablePlaces(game.radiusInMeters)
-  }
+  }, [game.radiusInMeters])
 
   const callback = () => {
     "worklet"
@@ -53,11 +53,12 @@ const Camera = ({
   }
 
   useAnimatedReaction(
-    () => processTransform3d([{ rotateX: y.value + 12 }, { rotateY: x.value + 12 }]),
+    () => processTransform3d([{ rotateX: y.value }, { rotateY: x.value }]),
     (transform) => {
       camera.value = transform
     },
   )
+
   const onGestureEvent = useAnimatedGestureHandler<
     PanGestureHandlerGestureEvent,
     {
