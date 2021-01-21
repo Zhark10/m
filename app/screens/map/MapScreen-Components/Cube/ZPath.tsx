@@ -5,13 +5,7 @@ import Animated, {
   useAnimatedStyle,
   useSharedValue,
 } from "react-native-reanimated"
-import {
-  serialize,
-  avg,
-  Transforms3d,
-  processTransform3d,
-  multiply4,
-} from "react-native-redash"
+import { serialize, avg, Transforms3d, processTransform3d, multiply4 } from "react-native-redash"
 import { Path } from "react-native-svg"
 
 import { project } from "./Vector"
@@ -31,23 +25,13 @@ interface ZPathProps {
   progress: Animated.SharedValue<number>
 }
 
-const ZPath = ({
-  path,
-  stroke,
-  strokeWidth,
-  fill,
-  transform,
-  progress,
-}: ZPathProps) => {
+const ZPath = ({ path, stroke, strokeWidth, fill, transform, progress }: ZPathProps) => {
   const ref = useRef<typeof AnimatedPath>(null)
   const length = useSharedValue(0)
   const { camera, canvas } = useZSvg()
   const path2 = useDerivedValue(
     (): Path3 => {
-      const transformMatrix = multiply4(
-        camera.value,
-        processTransform3d(transform)
-      )
+      const transformMatrix = multiply4(camera.value, processTransform3d(transform))
       return {
         move: project(path.move, canvas, transformMatrix),
         curves: path.curves.map((curve) => ({
@@ -57,13 +41,12 @@ const ZPath = ({
         })),
         close: path.close,
       }
-    }
+    },
   )
   const animatedProps = useAnimatedProps(() => {
     return {
       d: serialize(path2.value),
-      strokeDashoffset:
-        progress.value === 1 ? 0 : length.value - length.value * progress.value,
+      strokeDashoffset: progress.value === 1 ? 0 : length.value - length.value * progress.value,
       strokeDasharray: progress.value === 1 ? 0 : length.value,
     }
   })
@@ -71,8 +54,8 @@ const ZPath = ({
   const style = useAnimatedStyle(() => ({
     zIndex: avg(
       [path2.value.move.z].concat(
-        path2.value.curves.map(({ c1, c2, to }) => avg([c1.z, c2.z, to.z]))
-      )
+        path2.value.curves.map(({ c1, c2, to }) => avg([c1.z, c2.z, to.z])),
+      ),
     ),
   }))
   return (
