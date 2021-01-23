@@ -59,7 +59,7 @@ export const Step2: FC = () => {
       title="mapScreen.game_steps.step_2.title"
       theme="light"
       size="small"
-      backView={
+      BackView={
         <View style={Step2Styles.INFO_CONTAINER}>
           <Text style={Step2Styles.INFO_TITLE}>Подсказка</Text>
           <Text style={Step2Styles.INFO_DESCRIPTION}>
@@ -67,7 +67,7 @@ export const Step2: FC = () => {
           </Text>
         </View>
       }
-      frontView={
+      FrontView={
         <View style={Step2Styles.CONTAINER}>
           <View style={Step2Styles.CARD_CONTENT}>
             <View style={Step2Styles.CARD_CONTENT_LEFT_BOX}>

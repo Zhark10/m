@@ -9,11 +9,11 @@ type TProps = {
   size: "large" | "small"
   theme: "dark" | "light"
   title: string
-  frontView: React.ReactNode
-  backView: React.ReactNode
+  FrontView: React.ReactNode
+  BackView: React.ReactNode
 }
 
-export const StepCard: FC<TProps> = ({ theme, title, frontView, backView }) => {
+export const StepCard: FC<TProps> = ({ theme, title, FrontView, BackView }) => {
   const cardRef = useRef(null)
   return (
     <View style={StepCardStyles.CONTAINER}>
@@ -24,8 +24,8 @@ export const StepCard: FC<TProps> = ({ theme, title, frontView, backView }) => {
         </TouchableOpacity>
       </View>
       <CardFlip style={StepCardStyles.STEP_CARD_FLIP} ref={cardRef}>
-        <View style={StepCardStyles.CARD_BOX}>{frontView}</View>
-        <View style={StepCardStyles.CARD_BOX}>{backView}</View>
+        <View style={StepCardStyles.CARD_BOX}>{FrontView}</View>
+        <View style={StepCardStyles.CARD_BOX}>{BackView}</View>
       </CardFlip>
     </View>
   )

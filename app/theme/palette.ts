@@ -8,6 +8,7 @@ export const palette = {
   lightGrey: "#939AA4",
   lighterGrey: "#CDD4DA",
   angry: "#dd3333",
+  red: "#E02F01",
   opacity: {
     gold50: "rgba(199, 166, 99, 0.5)",
     gold32: "rgba(199, 166, 99, 0.32)",
