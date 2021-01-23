@@ -87,7 +87,7 @@ const useStepChangeAnimation = () => {
     }
   })
 
-  useEffect(() => {
+  useEffect(function definePanelHorrizontalOffset() {
     if (step4_IsBuildFinished.isCompleted) {
       right.value = 4 * screenWidth
       return
@@ -105,7 +105,10 @@ const useStepChangeAnimation = () => {
 
     if (step1_DiceResult.isCompleted) {
       right.value = screenWidth
+      return
     }
+
+    right.value = 0
   }, progressWatchedItemsToPanelAnimate)
 
   return {
