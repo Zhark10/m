@@ -6,7 +6,7 @@ import { useGamePanel } from "./GamePanel-VM"
 import { Step1 } from "./Steps/Step1_Dice/Step1_Dice"
 import { Step2 } from "./Steps/Step2_PlaceSelection/Step2_PlaceSelection"
 import { View } from "react-native"
-import { BlurView } from "@react-native-community/blur"
+// import { BlurView } from "@react-native-community/blur"
 import { observer } from "mobx-react-lite"
 
 export type TGamePanelProps = {
@@ -23,12 +23,12 @@ export const GamePanel: FC<TGamePanelProps> = observer((props) => {
 
   return (
     <Animated.View style={[GamePanelStyles.CONTAINER, animationStyles.panelStyle]}>
-      <BlurView
+      {/* <BlurView
         style={GamePanelStyles.BLUR_VIEW}
-        blurType="light"
+        blurType="dark"
         blurAmount={10}
         reducedTransparencyFallbackColor="white"
-      />
+      /> */}
       <Animated.View style={[GamePanelStyles.GAME_SPACE, animationStyles.stepsStyle]}>
         {gameSteps.map((DynamicStepComponent, key) => (
           <Fragment key={key}>

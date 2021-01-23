@@ -18,6 +18,7 @@ export const GamePanelStyles = StyleSheet.create({
     width: 1,
   },
   CONTAINER: {
+    backgroundColor: color.palette.black,
     elevation: 24,
     height: screenHeight,
     position: "absolute",

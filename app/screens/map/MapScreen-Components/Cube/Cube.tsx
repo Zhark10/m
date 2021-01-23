@@ -12,7 +12,7 @@ import FontAwesome5Icon from "react-native-vector-icons/FontAwesome5"
 import { useStores } from "../../../../models"
 
 export const END_SCALE_VALUE = 0.3
-export const cubeSize = screenWidth / 4
+export const cubeSize = screenWidth / 3.5
 
 const styles = StyleSheet.create({
   container: {
