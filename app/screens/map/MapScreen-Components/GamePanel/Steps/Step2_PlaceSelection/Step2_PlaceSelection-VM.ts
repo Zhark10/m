@@ -1,8 +1,13 @@
-import { useEffect } from "react"
+import { useCallback, useEffect, useRef } from "react"
 import { useStores } from "../../../../../../models"
 
 export const useStep2 = () => {
-  const { game, city } = useStores()
+  const {
+    city,
+    game,
+  } = useStores()
+  const carouselRef = useRef(null)
+
   const {
     message: { showMessage },
   } = useStores()
@@ -17,6 +22,30 @@ export const useStep2 = () => {
       }
       showMessage(message)
     },
-    [game.canBeCompletedStep1],
+    [game.canBeCompletedStep2],
   )
+
+  const onSnapToItem = useCallback(
+    (index: number) => {
+      if (!city.availablePlaces.length) return
+      const currentShowedPlace = city.availablePlaces[index]
+      city.selectPlace(currentShowedPlace)
+    },
+    [city.availablePlaces],
+  )
+
+  const rollTheDiceAgain = () => {
+    game.resetDiceResult()
+  }
+
+  return {
+    data: {
+      carouselRef,
+      availablePlaces: city.availablePlaces,
+    },
+    methods: {
+      onSnapToItem,
+      rollTheDiceAgain
+    }
+  }
 }

@@ -1,17 +1,19 @@
 /* eslint-disable react-native/no-inline-styles */
-import React, { FC, useCallback, useRef } from "react"
+import React, { FC } from "react"
 import { TouchableOpacity, View } from "react-native"
 import { StepCard } from "../StepCard/StepCard"
 import { COONTAINER_HEIGHT, SLIDER_WIDTH, Step2Styles } from "./Step2_PlaceSelection-Styles"
 import Carousel from "react-native-snap-carousel"
-import { useStores } from "../../../../../../models"
 import { Text } from "../../../../../../components"
 import { getCardColorByCost } from "../../../../../../utils/helpers/get-color"
 import FontAwesome5Icon from "react-native-vector-icons/FontAwesome5"
 import FontAwesomeIcon from "react-native-vector-icons/FontAwesome"
 import { color } from "../../../../../../theme"
+import { useStep2 } from "./Step2_PlaceSelection-VM"
 
 export const Step2: FC = () => {
+  const { data, methods } = useStep2()
+
   const renderItem = ({ item, index }) => (
     <View key={index} style={Step2Styles.BOX}>
       <Text style={[Step2Styles.PLACE_TITLE, { backgroundColor: getCardColorByCost(item.cost) }]}>
@@ -52,26 +54,6 @@ export const Step2: FC = () => {
     </View>
   )
 
-  const carouselRef = useRef(null)
-
-  const {
-    city: { availablePlaces, selectPlace },
-    game,
-  } = useStores()
-
-  const onSnapToItem = useCallback(
-    (index: number) => {
-      if (!availablePlaces.length) return
-      const currentShowedPlace = availablePlaces[index]
-      selectPlace(currentShowedPlace)
-    },
-    [availablePlaces],
-  )
-
-  const rollTheDiceAgain = () => {
-    game.resetDiceResult()
-  }
-
   return (
     <StepCard
       title="mapScreen.game_steps.step_2.title"
@@ -108,7 +90,7 @@ export const Step2: FC = () => {
               </TouchableOpacity>
               <TouchableOpacity
                 style={Step2Styles.CARD_CONTENT_LEFT_BOX_ICON_BUTTON}
-                onPress={rollTheDiceAgain}
+                onPress={methods.rollTheDiceAgain}
               >
                 <FontAwesomeIcon
                   name="repeat"
@@ -122,11 +104,11 @@ export const Step2: FC = () => {
               <Text style={Step2Styles.ROLL_DICE_REPEAT_TEXT}>-150$</Text>
             </View>
             <Carousel
-              ref={carouselRef}
-              data={availablePlaces}
+              ref={data.carouselRef}
+              data={data.availablePlaces}
               renderItem={renderItem}
               sliderWidth={SLIDER_WIDTH}
-              onSnapToItem={onSnapToItem}
+              onSnapToItem={methods.onSnapToItem}
               layout="stack"
               loop
               sliderHeight={COONTAINER_HEIGHT + 24}
