@@ -8,7 +8,6 @@ export const useStep1 = () => {
   } = useStores()
 
   useEffect(function resetCache() {
-    game.resetDiceResult()
     hideMessage()
   }, [])
 

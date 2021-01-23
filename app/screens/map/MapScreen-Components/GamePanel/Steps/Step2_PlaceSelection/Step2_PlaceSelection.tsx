@@ -56,6 +56,7 @@ export const Step2: FC = () => {
 
   const {
     city: { availablePlaces, selectPlace },
+    game,
   } = useStores()
 
   const onSnapToItem = useCallback(
@@ -66,6 +67,10 @@ export const Step2: FC = () => {
     },
     [availablePlaces],
   )
+
+  const rollTheDiceAgain = () => {
+    game.resetDiceResult()
+  }
 
   return (
     <StepCard
@@ -103,7 +108,7 @@ export const Step2: FC = () => {
               </TouchableOpacity>
               <TouchableOpacity
                 style={Step2Styles.CARD_CONTENT_LEFT_BOX_ICON_BUTTON}
-                onPress={() => null}
+                onPress={rollTheDiceAgain}
               >
                 <FontAwesomeIcon
                   name="repeat"
@@ -123,6 +128,7 @@ export const Step2: FC = () => {
               sliderWidth={SLIDER_WIDTH}
               onSnapToItem={onSnapToItem}
               layout="stack"
+              loop
               sliderHeight={COONTAINER_HEIGHT + 24}
               itemHeight={COONTAINER_HEIGHT - 24}
               itemWidth={SLIDER_WIDTH - 22}
