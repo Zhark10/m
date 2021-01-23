@@ -52,6 +52,15 @@ const Camera = ({
     runOnJS(updateShare)()
   }
 
+  React.useEffect(function cubeRotationInitialize() {
+    const initializeCubeRotateByTimer = setTimeout(() => {
+      x.value = x.value + 12
+      y.value = y.value + 12
+    }, 1000)
+
+    return () => clearTimeout(initializeCubeRotateByTimer)
+  }, [])
+
   useAnimatedReaction(
     () => processTransform3d([{ rotateX: y.value }, { rotateY: x.value }]),
     (transform) => {

@@ -58,6 +58,16 @@ export const GamePanelStyles = StyleSheet.create({
     width: screenWidth,
     zIndex: 999,
   },
+  // STEP_OPACITY: {
+  //   color: color.palette.opacity.gold32,
+  //   fontFamily: typography.primary.bold,
+  //   fontSize: screenWidth / 2,
+  //   height: screenHeight / 3,
+  //   paddingTop: 42,
+  //   position: 'absolute',
+  //   textAlign: 'center',
+  //   width: '100%',
+  // },
   TRAPEZOID: {
     borderBottomColor: color.palette.black,
     borderBottomWidth: 12,
