@@ -12,7 +12,7 @@ const AnimatedCircle = Animated.createAnimatedComponent(Circle)
 
 interface VertexProps {
   points: Animated.SharedValue<Vector3[]>
-  pointsForCount: Animated.SharedValue<Vector3[]>
+  pointsForCount?: Animated.SharedValue<Vector3[]>
   fill: string
 }
 
@@ -22,11 +22,11 @@ const Vertex = ({ points, fill, pointsForCount }: VertexProps) => {
     stroke: color.palette.white,
     strokeWidth: 1,
   }))
-  const animatedCountProps = useAnimatedProps(() => ({
-    points: pointsForCount.value.map(({ x, y }) => [x, y].join(", ")).join(" "),
-    stroke: color.palette.white,
-    strokeWidth: 2,
-  }))
+  // const animatedCountProps = useAnimatedProps(() => ({
+  //   points: pointsForCount.value.map(({ x, y }) => [x, y].join(", ")).join(" "),
+  //   stroke: color.palette.white,
+  //   strokeWidth: 2,
+  // }))
   const zIndex = useAnimatedStyle(() => ({
     zIndex: avg(points.value.map(({ z }) => z)),
   }))
@@ -34,7 +34,7 @@ const Vertex = ({ points, fill, pointsForCount }: VertexProps) => {
     <>
       <Layer zIndexStyle={zIndex}>
         <AnimatedPolygon animatedProps={animatedProps} fill={fill} />
-        <AnimatedPolygon animatedProps={animatedCountProps} fill={color.palette.gold} />
+        {/* <AnimatedPolygon animatedProps={animatedCountProps} fill={color.palette.gold} /> */}
       </Layer>
     </>
   )

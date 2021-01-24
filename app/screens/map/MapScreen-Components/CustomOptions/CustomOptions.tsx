@@ -1,16 +1,13 @@
 import React, { FC, Fragment } from "react"
 import { Header, Text } from "../../../../components"
 import { View } from "react-native"
-import { BlurView } from "@react-native-community/blur"
 import { CustomOptionsStyles } from "./CustomOptions-Styles"
 import FontAwesome from "react-native-vector-icons/FontAwesome"
 import { color, typography } from "../../../../theme"
 import { useCustomOptions } from "./CustomOptions-VM"
 import { observer } from "mobx-react-lite"
 
-export type TCustomOptionsProps = {}
-
-export const CustomOptions: FC<TCustomOptionsProps> = observer(() => {
+export const CustomOptions: FC = observer(() => {
   const vm = useCustomOptions()
   const {
     data: { OPTIONS },

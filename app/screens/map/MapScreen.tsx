@@ -15,6 +15,7 @@ import FontAwesome5 from "react-native-vector-icons/FontAwesome5"
 import { screenHeight, screenWidth } from "../../utils/screen"
 import { CustomOptions } from "./MapScreen-Components/CustomOptions/CustomOptions"
 import { AnimatedMessage } from "./MapScreen-Components/AnimatedMessage/AnimatedMessage"
+// import BuildingIcon from "../../../assets/brand/building.svg"
 
 const ASPECT_RATIO = screenWidth / screenHeight
 const LATITUDE_DELTA = 0.12
@@ -96,6 +97,7 @@ export const MapScreen = observer(function MapScreen() {
                       { color: place.isAvailable ? color.palette.black : color.palette.white },
                     ]}
                   />
+                  {/* <BuildingIcon style={MapScreenStyles.BUILDING_ICON} height="32" width="32"/> */}
                 </Marker>
                 {place.isAvailable && (
                   <Polyline
