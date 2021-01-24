@@ -32,17 +32,17 @@ const usePanelAnimation = (props: TGamePanelProps) => {
     }
   })
 
-  useEffect(() => {
-    if (props.isMapTouched) {
-      console.log('TOUCHED')
-      top.value = panelHeight - 20
-      initialMessageStartOffset.value = screenHeight - 20
-    } else {
-      console.log('UNTOUCHED')
-      top.value = panelHeight + 20
-      initialMessageStartOffset.value = screenHeight
-    }
-  }, [props.isMapTouched])
+  // useEffect(() => {
+  //   if (props.isMapTouched) {
+  //     console.log('TOUCHED')
+  //     top.value = panelHeight - 20
+  //     initialMessageStartOffset.value = screenHeight - 20
+  //   } else {
+  //     console.log('UNTOUCHED')
+  //     top.value = panelHeight + 20
+  //     initialMessageStartOffset.value = screenHeight
+  //   }
+  // }, [props.isMapTouched])
 
   useEffect(() => {
     const animationByTimeout = setTimeout(() => {
