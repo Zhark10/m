@@ -107,15 +107,13 @@ export const MapScreen = observer(function MapScreen() {
                 )}
               </Fragment>
             ))}
-            {
-              <Circle
-                center={defaultCoordinates}
-                radius={radiusInMeters}
-                strokeWidth={2}
-                strokeColor={color.palette.gold}
-                fillColor={color.palette.opacity.gold32}
-              />
-            }
+            <Circle
+              center={defaultCoordinates}
+              radius={radiusInMeters}
+              strokeWidth={2}
+              strokeColor={color.palette.gold}
+              fillColor={color.palette.opacity.gold32}
+            />
           </MapView>
         </Animated.View>
         <GamePanel isMapTouched={isMapTouched} />

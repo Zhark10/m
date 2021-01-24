@@ -22,7 +22,7 @@ const Vertex = ({ points, fill, pointsForCount }: VertexProps) => {
     stroke: color.palette.white,
     strokeWidth: 1,
   }))
-  const animatedProps1 = useAnimatedProps(() => ({
+  const animatedCountProps = useAnimatedProps(() => ({
     points: pointsForCount.value.map(({ x, y }) => [x, y].join(", ")).join(" "),
     stroke: color.palette.white,
     strokeWidth: 2,
@@ -34,7 +34,7 @@ const Vertex = ({ points, fill, pointsForCount }: VertexProps) => {
     <>
       <Layer zIndexStyle={zIndex}>
         <AnimatedPolygon animatedProps={animatedProps} fill={fill} />
-        <AnimatedPolygon animatedProps={animatedProps1} fill={color.palette.gold} />
+        <AnimatedPolygon animatedProps={animatedCountProps} fill={color.palette.gold} />
       </Layer>
     </>
   )

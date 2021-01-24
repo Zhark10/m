@@ -1,5 +1,6 @@
 import { useNavigation } from "@react-navigation/native"
 import { useCallback, useEffect, useRef, useState } from "react"
+import { runOnJS } from "react-native-reanimated"
 import { useStores } from "../../models"
 import { MapScreenAnimations } from "./MapScreen-Animations"
 
@@ -15,11 +16,13 @@ export const useMap = () => {
   const [isMapTouched, setTouched] = useState(false)
 
   const mapTouchEnd = () => {
-    setTouched(false)
+    "worklet"
+    runOnJS(() => setTouched(false))()
   }
 
   const mapTouchStart = () => {
-    setTouched(true)
+    "worklet"
+    runOnJS(() => setTouched(true))()
   }
 
   useEffect(() => {

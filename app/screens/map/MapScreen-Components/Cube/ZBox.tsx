@@ -1,12 +1,8 @@
 import React from "react"
-import { useDerivedValue } from "react-native-reanimated"
-import { v1, v4 } from "react-native-uuid"
 import { useCountPoints } from "./useCountPoints"
 import { usePoints } from "./usePoints"
-import { project } from "./Vector"
 
 import Vertex from "./Vertex"
-import { useZSvg } from "./ZSvg"
 
 interface ZBoxProps {
   width: number
