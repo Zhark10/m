@@ -37,7 +37,15 @@ const NestedStores = {
 
 const SimpleModels = {
   auth: types.maybeNull(Auth.Model),
-  profile: types.maybeNull(Profile.Model),
+  profile: types.optional(Profile.Model, {
+    age: null,
+    firstName: "",
+    secondName: "",
+    nickname: "",
+    meMoney: 25000,
+    playerColor: "",
+    isLoaded: true,
+  }),
   message: types.optional(Message.Model, { title: "", description: "", buttonText: "" }),
 }
 
@@ -46,5 +54,5 @@ export const RootStoreModel = types.model("RootStore", {
   ...NestedStores,
 })
 
-export interface RootStore extends Instance<typeof RootStoreModel> {}
-export interface RootStoreSnapshot extends SnapshotOut<typeof RootStoreModel> {}
+export interface RootStore extends Instance<typeof RootStoreModel> { }
+export interface RootStoreSnapshot extends SnapshotOut<typeof RootStoreModel> { }

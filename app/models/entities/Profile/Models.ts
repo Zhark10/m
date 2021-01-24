@@ -1,13 +1,12 @@
 import { types } from "mobx-state-tree"
 
 const Model = types.model({
-  id: types.identifier,
   firstName: types.string,
   secondName: types.string,
   nickname: types.string,
-  age: types.number,
+  age: types.maybeNull(types.number),
   playerColor: types.string,
-  cost: types.number,
+  meMoney: types.number,
   isLoaded: types.boolean,
 })
 
