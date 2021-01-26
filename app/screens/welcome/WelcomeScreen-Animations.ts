@@ -4,7 +4,7 @@ import {
   useSharedValue,
   withTiming,
   Easing,
-} from "react-native-reanimated/src/Animated"
+} from "react-native-reanimated"
 import { screenWidth } from "../../utils/screen"
 
 const useRandomBoxWidth = () => {

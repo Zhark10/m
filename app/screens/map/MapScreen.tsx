@@ -8,14 +8,14 @@ import MapView, { Circle, Marker, Polyline } from "react-native-maps"
 import { MapScreenStyles } from "./MapScreen-Styles"
 import { customMapStyles } from "../welcome/WelcomeScreen-CustomMapStyles"
 import { useMap } from "./MapScreen-VM"
-import { GamePanel } from "./MapScreen-Components/GamePanel/GamePanel"
+import { GamePanel } from "./MapScreen-Elements/GamePanel/GamePanel"
 import Animated from "react-native-reanimated"
 import Fontisto from "react-native-vector-icons/Fontisto"
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5"
 import { screenHeight, screenWidth } from "../../utils/screen"
-import { CustomOptions } from "./MapScreen-Components/CustomOptions/CustomOptions"
-import { AnimatedMessage } from "./MapScreen-Components/AnimatedMessage/AnimatedMessage"
-// import BuildingIcon from "../../../assets/brand/building.svg"
+import { CustomOptions } from "./MapScreen-Elements/CustomOptions/CustomOptions"
+import { AnimatedMessage } from "./MapScreen-Elements/AnimatedMessage/AnimatedMessage"
+import BuildingIcon from "../../../assets/brand/building.svg"
 
 const ASPECT_RATIO = screenWidth / screenHeight
 const LATITUDE_DELTA = 0.12
@@ -90,14 +90,14 @@ export const MapScreen = observer(function MapScreen() {
                     },
                   ]}
                 >
-                  <FontAwesome5
+                  {/* <FontAwesome5
                     name="building"
                     style={[
                       MapScreenStyles.BUILDING_ICON,
                       { color: place.isAvailable ? color.palette.black : color.palette.white },
                     ]}
-                  />
-                  {/* <BuildingIcon style={MapScreenStyles.BUILDING_ICON} height="32" width="32"/> */}
+                  /> */}
+                  <BuildingIcon style={MapScreenStyles.BUILDING_ICON} height="32" width="32"/>
                 </Marker>
                 {place.isAvailable && (
                   <Polyline

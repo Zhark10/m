@@ -6,7 +6,7 @@ import { color } from "../../theme"
 import Icon from "react-native-vector-icons/FontAwesome"
 import { WelcomeScreenStyles } from "./WelcomeScreen-Styles"
 import { EIconType, useWelcome } from "./WelcomeScreen-VM"
-import Animated from "react-native-reanimated/src/Animated"
+import Animated from "react-native-reanimated"
 import { BlurView } from "@react-native-community/blur"
 
 Icon.loadFont()
