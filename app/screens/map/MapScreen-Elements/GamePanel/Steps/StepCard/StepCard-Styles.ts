@@ -35,7 +35,7 @@ export const StepCardStyles = StyleSheet.create({
     width: screenWidth / 2,
   },
   TITLE: {
-    color: color.palette.white,
+    color: color.palette.black,
     fontFamily: typography.primary.bold,
     fontSize: 24,
     lineHeight: 32,
