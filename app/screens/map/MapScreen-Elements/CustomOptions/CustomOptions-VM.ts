@@ -2,7 +2,7 @@ import { useStores } from "../../../../models"
 
 export const useCustomOptions = () => {
   const {
-    game: { gameProgress },
+    game: { gameProgress},
   } = useStores()
 
   const OPTIONS = [
@@ -23,6 +23,7 @@ export const useCustomOptions = () => {
   return {
     data: {
       OPTIONS,
+      currentStepNumber: gameProgress.currentStepNumber
     },
   }
 }

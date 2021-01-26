@@ -41,3 +41,20 @@ export const GameProgressModel = types
       step.isCompleted = true
     },
   }))
+  .views((self) => ({
+    get currentStepNumber() {
+      if (self.step4_IsBuildFinished.isCompleted) {
+        return 4
+      }
+      if (self.step3_IsBuildStarted.isCompleted) {
+        return 3
+      }
+      if (self.step2_SelectedPlaceToBuild.isCompleted) {
+        return 2
+      }
+      if (self.step1_DiceResult.isCompleted) {
+        return 1
+      }
+      return 0
+    }
+  }))

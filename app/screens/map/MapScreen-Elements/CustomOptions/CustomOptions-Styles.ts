@@ -1,6 +1,6 @@
 /* eslint-disable react-native/no-color-literals */
 import { StyleSheet } from "react-native"
-import { color } from "../../../../theme"
+import { color, typography } from "../../../../theme"
 import { screenWidth } from "../../../../utils/screen"
 
 const CONTAINER_HEIGHT = 56
@@ -45,6 +45,7 @@ export const CustomOptionsStyles = StyleSheet.create({
   },
   OPTION_TITLE: {
     color: color.palette.black,
+    fontFamily: typography.primary.book,
     fontSize: 16,
     letterSpacing: 1.5,
     position: "absolute",

@@ -10,7 +10,7 @@ import { observer } from "mobx-react-lite"
 export const CustomOptions: FC = observer(() => {
   const vm = useCustomOptions()
   const {
-    data: { OPTIONS },
+    data: { OPTIONS, currentStepNumber },
   } = vm
 
   return (
@@ -31,23 +31,21 @@ export const CustomOptions: FC = observer(() => {
                 textColor: color.palette.black,
                 iconColor: color.palette.black,
               }
-          const prevStateIsComplete = index > 0 && OPTIONS[index - 1].complete
+
+          const isCurrentStep = index === currentStepNumber
           return (
             <Fragment key={opt.tx}>
               <View style={CustomOptionsStyles.OPTION}>
                 <View style={CustomOptionsStyles.OPTION}>
-                  <Text
+                  {isCurrentStep && <Text
                     style={[
                       CustomOptionsStyles.OPTION_TITLE,
                       {
                         color: optionData.textColor,
-                        fontFamily: prevStateIsComplete
-                          ? typography.primary.book
-                          : typography.primary.book,
                       },
                     ]}
                     tx={opt.tx}
-                  />
+                  />}
                   <FontAwesome
                     name={optionData.icon}
                     style={[CustomOptionsStyles.CHECKBOX_ICON, { color: optionData.iconColor }]}
