@@ -3,7 +3,7 @@ import { Header, Text } from "../../../../components"
 import { View } from "react-native"
 import { CustomOptionsStyles } from "./CustomOptions-Styles"
 import FontAwesome from "react-native-vector-icons/FontAwesome"
-import { color, typography } from "../../../../theme"
+import { color } from "../../../../theme"
 import { useCustomOptions } from "./CustomOptions-VM"
 import { observer } from "mobx-react-lite"
 

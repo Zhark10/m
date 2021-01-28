@@ -11,11 +11,11 @@ import { useMap } from "./MapScreen-VM"
 import { GamePanel } from "./MapScreen-Elements/GamePanel/GamePanel"
 import Animated from "react-native-reanimated"
 import Fontisto from "react-native-vector-icons/Fontisto"
-import FontAwesome5 from "react-native-vector-icons/FontAwesome5"
+import Entypo from "react-native-vector-icons/Entypo"
 import { screenHeight, screenWidth } from "../../utils/screen"
 import { CustomOptions } from "./MapScreen-Elements/CustomOptions/CustomOptions"
 import { AnimatedMessage } from "./MapScreen-Elements/AnimatedMessage/AnimatedMessage"
-import BuildingIcon from "../../../assets/brand/building.svg"
+// import { BuildingIcon } from "../../components/svg/Building_1"
 
 const ASPECT_RATIO = screenWidth / screenHeight
 const LATITUDE_DELTA = 0.12
@@ -86,18 +86,18 @@ export const MapScreen = observer(function MapScreen() {
                     MapScreenStyles.BUILDING,
                     {
                       backgroundColor: place.isAvailable ? color.palette.gold : color.palette.black,
-                      borderWidth: place.isAvailable ? 1 : 0,
+                      // borderWidth: place.isAvailable ? 1 : 0,
                     },
                   ]}
                 >
-                  {/* <FontAwesome5
-                    name="building"
+                  <Entypo
+                    name={place.isAvailable ? 'emoji-flirt' : 'emoji-neutral'}
                     style={[
                       MapScreenStyles.BUILDING_ICON,
-                      { color: place.isAvailable ? color.palette.black : color.palette.white },
+                      { color: place.isAvailable ? color.palette.black : color.palette.gold },
                     ]}
-                  /> */}
-                  <BuildingIcon style={MapScreenStyles.BUILDING_ICON} height="32" width="32"/>
+                  />
+                  {/* <BuildingIcon strokeWidth={8} backgroundColor={place.isAvailable ? color.palette.gold : color.palette.black} borderColor={place.isAvailable ? color.palette.black : color.palette.white} zoom={0.01}/> */}
                 </Marker>
                 {place.isAvailable && (
                   <Polyline
