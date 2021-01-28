@@ -85,16 +85,16 @@ export const MapScreen = observer(function MapScreen() {
                   style={[
                     MapScreenStyles.BUILDING,
                     {
-                      backgroundColor: place.isAvailable ? color.palette.gold : color.palette.black,
+                      backgroundColor: methods.getIconByConditions(place.isAvailable).iconBackground,
                       // borderWidth: place.isAvailable ? 1 : 0,
                     },
                   ]}
                 >
                   <Entypo
-                    name={place.isAvailable ? 'emoji-flirt' : 'emoji-neutral'}
+                    name={methods.getIconByConditions(place.isAvailable).iconName}
                     style={[
                       MapScreenStyles.BUILDING_ICON,
-                      { color: place.isAvailable ? color.palette.black : color.palette.gold },
+                      { color: methods.getIconByConditions(place.isAvailable).iconColor },
                     ]}
                   />
                   {/* <BuildingIcon strokeWidth={8} backgroundColor={place.isAvailable ? color.palette.gold : color.palette.black} borderColor={place.isAvailable ? color.palette.black : color.palette.white} zoom={0.01}/> */}
