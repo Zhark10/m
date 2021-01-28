@@ -8,7 +8,7 @@ type TProps = {
   zoom: number
 }
 
-export const BuildingIcon: React.FC<TProps> = (props) => {
+export const Building1: React.FC<TProps> = (props) => {
   return (
     <Svg width="42pt" height="56pt" viewBox="0 0 42 56" {...props}>
       <Path

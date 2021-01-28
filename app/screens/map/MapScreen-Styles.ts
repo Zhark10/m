@@ -12,8 +12,9 @@ export const MapScreenStyles = StyleSheet.create({
     width: 32,
   },
   BUILDING_ICON: {
-    height: 32,
-    width: 32,
+    // height: 32,
+    // width: 32,
+    fontSize: 24,
   },
   CONTAINER: {
     backgroundColor: color.transparent,
