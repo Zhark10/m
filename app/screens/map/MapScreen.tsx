@@ -18,7 +18,7 @@ import { AnimatedMessage } from "./MapScreen-Elements/AnimatedMessage/AnimatedMe
 import { getCardColorByCost } from "../../utils/helpers/get-color"
 // import { BuildingIcon } from "../../components/svg/Building_1"
 
-const markerImageUrl = require("../../../assets/brand/marker2.png")
+const markerImageUrl = require("../../../assets/brand/marker3.png")
 const meMarker = require("../../../assets/brand/logo_2.png")
 
 const ASPECT_RATIO = screenWidth / screenHeight
