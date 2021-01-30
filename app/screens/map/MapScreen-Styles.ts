@@ -6,20 +6,18 @@ import { screenHeight, screenWidth } from "../../utils/screen"
 export const MapScreenStyles = StyleSheet.create({
   BUILDING: {
     alignItems: "center",
-    borderRadius: 16,
-    height: 32,
+    borderRadius: 4,
+    height: 36,
     justifyContent: "center",
-    width: 32,
+    width: 36,
   },
   BUILDING_ICON: {
-    // height: 32,
-    // width: 32,
-    fontSize: 32,
+    fontSize: 12,
     left: 1,
   },
   BUILDING_IMAGE: {
-    height: 32,
-    width: 32,
+    height: 22,
+    width: 22,
   },
   CONTAINER: {
     backgroundColor: color.transparent,
@@ -54,13 +52,18 @@ export const MapScreenStyles = StyleSheet.create({
     color: color.palette.black,
     fontSize: 20,
   },
+  ME_IMAGE: {
+    height: 28,
+    width: 28,
+  },
   ME_MARKER: {
     alignItems: "center",
-    backgroundColor: color.palette.gold,
+    backgroundColor: color.palette.white,
     borderRadius: 4,
     height: 36,
     justifyContent: "center",
     width: 36,
+    borderWidth: 2,
   },
   PANEL_TITLE: {
     backgroundColor: color.palette.gold,

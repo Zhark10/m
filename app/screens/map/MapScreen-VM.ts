@@ -55,14 +55,14 @@ export const useMap = () => {
     if (isAvailable) {
       return {
         iconName: "emoji-flirt",
-        iconBackground: color.palette.white,
-        iconColor: color.palette.gold,
+        iconBackground: color.palette.black,
+        iconColor: color.palette.black,
       }
     } else {
       return {
         iconName: "emoji-sad",
-        iconBackground: color.palette.white,
-        iconColor: color.palette.red,
+        iconBackground: color.transparent,
+        iconColor: color.palette.black,
       }
     }
   }

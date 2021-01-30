@@ -15,9 +15,11 @@ import Entypo from "react-native-vector-icons/Entypo"
 import { screenHeight, screenWidth } from "../../utils/screen"
 import { CustomOptions } from "./MapScreen-Elements/CustomOptions/CustomOptions"
 import { AnimatedMessage } from "./MapScreen-Elements/AnimatedMessage/AnimatedMessage"
+import { getCardColorByCost } from "../../utils/helpers/get-color"
 // import { BuildingIcon } from "../../components/svg/Building_1"
 
-const markerImageUrl = require("../../../assets/brand/marker.png")
+const markerImageUrl = require("../../../assets/brand/marker2.png")
+const meMarker = require("../../../assets/brand/logo_2.png")
 
 const ASPECT_RATIO = screenWidth / screenHeight
 const LATITUDE_DELTA = 0.12
@@ -76,7 +78,8 @@ export const MapScreen = observer(function MapScreen() {
               coordinate={defaultCoordinates}
               style={MapScreenStyles.ME_MARKER}
             >
-              <Fontisto name="person" style={MapScreenStyles.ME_ICON} />
+              <Image source={meMarker} style={MapScreenStyles.ME_IMAGE} />
+              {/* <Fontisto name="person" style={MapScreenStyles.ME_ICON} /> */}
             </Marker>
             {places.map((place) => (
               <Fragment key={place.organizationName}>
@@ -87,14 +90,10 @@ export const MapScreen = observer(function MapScreen() {
                   style={[
                     MapScreenStyles.BUILDING,
                     {
-                      backgroundColor: methods.getIconByConditions(place.isAvailable)
-                        .iconBackground,
-                      // borderWidth: place.isAvailable ? 1 : 0,
+                      backgroundColor: place.isAvailable ? getCardColorByCost(place.cost) : color.transparent
                     },
                   ]}
                 >
-                  <Image source={markerImageUrl} style={[MapScreenStyles.BUILDING_IMAGE, { tintColor: methods.getIconByConditions(place.isAvailable).iconColor }]} />
-
                   {/* <Entypo
                     name={methods.getIconByConditions(place.isAvailable).iconName}
                     style={[
@@ -102,7 +101,10 @@ export const MapScreen = observer(function MapScreen() {
                       { color: methods.getIconByConditions(place.isAvailable).iconColor },
                     ]}
                   /> */}
-                  {/* <BuildingIcon strokeWidth={8} backgroundColor={place.isAvailable ? color.palette.gold : color.palette.black} borderColor={place.isAvailable ? color.palette.black : color.palette.white} zoom={0.01}/> */}
+                  <Image source={markerImageUrl} style={[
+                    MapScreenStyles.BUILDING_IMAGE,
+                    { tintColor: methods.getIconByConditions(place.isAvailable).iconColor }
+                  ]} />
                 </Marker>
                 {place.isAvailable && (
                   <Polyline
