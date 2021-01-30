@@ -37,15 +37,17 @@ export const CustomOptions: FC = observer(() => {
             <Fragment key={opt.tx}>
               <View style={CustomOptionsStyles.OPTION}>
                 <View style={CustomOptionsStyles.OPTION}>
-                  {isCurrentStep && <Text
-                    style={[
-                      CustomOptionsStyles.OPTION_TITLE,
-                      {
-                        color: optionData.textColor,
-                      },
-                    ]}
-                    tx={opt.tx}
-                  />}
+                  {isCurrentStep && (
+                    <Text
+                      style={[
+                        CustomOptionsStyles.OPTION_TITLE,
+                        {
+                          color: optionData.textColor,
+                        },
+                      ]}
+                      tx={opt.tx}
+                    />
+                  )}
                   <FontAwesome
                     name={optionData.icon}
                     style={[CustomOptionsStyles.CHECKBOX_ICON, { color: optionData.iconColor }]}

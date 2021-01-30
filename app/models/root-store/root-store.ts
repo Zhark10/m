@@ -54,5 +54,5 @@ export const RootStoreModel = types.model("RootStore", {
   ...NestedStores,
 })
 
-export interface RootStore extends Instance<typeof RootStoreModel> { }
-export interface RootStoreSnapshot extends SnapshotOut<typeof RootStoreModel> { }
+export interface RootStore extends Instance<typeof RootStoreModel> {}
+export interface RootStoreSnapshot extends SnapshotOut<typeof RootStoreModel> {}

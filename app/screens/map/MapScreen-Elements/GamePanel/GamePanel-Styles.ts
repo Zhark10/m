@@ -56,5 +56,5 @@ export const GamePanelStyles = StyleSheet.create({
     position: "absolute",
     width: screenWidth,
     zIndex: 999,
-  }
+  },
 })

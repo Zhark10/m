@@ -1,10 +1,5 @@
 import { useEffect } from "react"
-import {
-  useAnimatedStyle,
-  useSharedValue,
-  withTiming,
-  Easing,
-} from "react-native-reanimated"
+import { useAnimatedStyle, useSharedValue, withTiming, Easing } from "react-native-reanimated"
 import { screenWidth } from "../../utils/screen"
 
 const useRandomBoxWidth = () => {

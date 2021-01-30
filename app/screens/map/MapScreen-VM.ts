@@ -41,15 +41,29 @@ export const useMap = () => {
     [currentPlace],
   )
 
-  const getIconByConditions = (isAvailable: boolean): { iconName: string, iconBackground: string, iconColor: string } => {
+  const getIconByConditions = (
+    isAvailable: boolean,
+  ): { iconName: string; iconBackground: string; iconColor: string } => {
     if (!gameProgress.step1_DiceResult.first) {
-      return { iconName: 'emoji-neutral', iconBackground: color.palette.white, iconColor: color.palette.black }
+      return {
+        iconName: "emoji-neutral",
+        iconBackground: color.palette.white,
+        iconColor: color.palette.black,
+      }
     }
 
     if (isAvailable) {
-      return { iconName: 'emoji-flirt', iconBackground: color.palette.white, iconColor: color.palette.gold }
+      return {
+        iconName: "emoji-flirt",
+        iconBackground: color.palette.white,
+        iconColor: color.palette.gold,
+      }
     } else {
-      return { iconName: 'emoji-sad', iconBackground: color.palette.white, iconColor: color.palette.red }
+      return {
+        iconName: "emoji-sad",
+        iconBackground: color.palette.white,
+        iconColor: color.palette.red,
+      }
     }
   }
 

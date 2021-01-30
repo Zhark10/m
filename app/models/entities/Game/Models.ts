@@ -56,5 +56,5 @@ export const GameProgressModel = types
         return 1
       }
       return 0
-    }
+    },
   }))

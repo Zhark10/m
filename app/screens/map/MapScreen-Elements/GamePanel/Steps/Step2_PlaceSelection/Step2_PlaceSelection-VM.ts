@@ -2,10 +2,7 @@ import { useCallback, useEffect, useRef } from "react"
 import { useStores } from "../../../../../../models"
 
 export const useStep2 = () => {
-  const {
-    city,
-    game,
-  } = useStores()
+  const { city, game } = useStores()
   const carouselRef = useRef(null)
 
   const {
@@ -45,7 +42,7 @@ export const useStep2 = () => {
     },
     methods: {
       onSnapToItem,
-      rollTheDiceAgain
-    }
+      rollTheDiceAgain,
+    },
   }
 }

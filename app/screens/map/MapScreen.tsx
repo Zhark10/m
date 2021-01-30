@@ -85,7 +85,8 @@ export const MapScreen = observer(function MapScreen() {
                   style={[
                     MapScreenStyles.BUILDING,
                     {
-                      backgroundColor: methods.getIconByConditions(place.isAvailable).iconBackground,
+                      backgroundColor: methods.getIconByConditions(place.isAvailable)
+                        .iconBackground,
                       // borderWidth: place.isAvailable ? 1 : 0,
                     },
                   ]}
