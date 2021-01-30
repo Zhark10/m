@@ -1,6 +1,6 @@
 /* eslint-disable react-native/no-inline-styles */
 import React, { Fragment, useMemo } from "react"
-import { View } from "react-native"
+import { Image, View } from "react-native"
 import { observer } from "mobx-react-lite"
 import { Screen } from "../../components"
 import { color } from "../../theme"
@@ -16,6 +16,8 @@ import { screenHeight, screenWidth } from "../../utils/screen"
 import { CustomOptions } from "./MapScreen-Elements/CustomOptions/CustomOptions"
 import { AnimatedMessage } from "./MapScreen-Elements/AnimatedMessage/AnimatedMessage"
 // import { BuildingIcon } from "../../components/svg/Building_1"
+
+const markerImageUrl = require("../../../assets/brand/marker.png")
 
 const ASPECT_RATIO = screenWidth / screenHeight
 const LATITUDE_DELTA = 0.12
@@ -91,13 +93,15 @@ export const MapScreen = observer(function MapScreen() {
                     },
                   ]}
                 >
-                  <Entypo
+                  <Image source={markerImageUrl} style={[MapScreenStyles.BUILDING_IMAGE, { tintColor: methods.getIconByConditions(place.isAvailable).iconColor }]} />
+
+                  {/* <Entypo
                     name={methods.getIconByConditions(place.isAvailable).iconName}
                     style={[
                       MapScreenStyles.BUILDING_ICON,
                       { color: methods.getIconByConditions(place.isAvailable).iconColor },
                     ]}
-                  />
+                  /> */}
                   {/* <BuildingIcon strokeWidth={8} backgroundColor={place.isAvailable ? color.palette.gold : color.palette.black} borderColor={place.isAvailable ? color.palette.black : color.palette.white} zoom={0.01}/> */}
                 </Marker>
                 {place.isAvailable && (
