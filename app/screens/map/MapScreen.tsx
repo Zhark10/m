@@ -1,5 +1,5 @@
 /* eslint-disable react-native/no-inline-styles */
-import React, { Fragment, useMemo } from "react"
+import React, { Fragment } from "react"
 import { Image, View } from "react-native"
 import { observer } from "mobx-react-lite"
 import { Screen } from "../../components"
@@ -10,9 +10,6 @@ import { customMapStyles } from "../welcome/WelcomeScreen-CustomMapStyles"
 import { useMap } from "./MapScreen-VM"
 import { GamePanel } from "./MapScreen-Elements/GamePanel/GamePanel"
 import Animated from "react-native-reanimated"
-import Fontisto from "react-native-vector-icons/Fontisto"
-import Entypo from "react-native-vector-icons/Entypo"
-import { screenHeight, screenWidth } from "../../utils/screen"
 import { CustomOptions } from "./MapScreen-Elements/CustomOptions/CustomOptions"
 import { AnimatedMessage } from "./MapScreen-Elements/AnimatedMessage/AnimatedMessage"
 import { getCardColorByCost } from "../../utils/helpers/get-color"
@@ -20,9 +17,6 @@ import { getCardColorByCost } from "../../utils/helpers/get-color"
 
 const markerImageUrl = require("../../../assets/brand/marker3.png")
 const meMarker = require("../../../assets/brand/logo_2.png")
-
-const ASPECT_RATIO = screenWidth / screenHeight
-const LATITUDE_DELTA = 0.12
 
 export const myInitialPosition = {
   latitude: 56.62830507073426,
@@ -32,26 +26,9 @@ export const myInitialPosition = {
 export const MapScreen = observer(function MapScreen() {
   const vm = useMap()
   const {
-    data: { animationStyles, places, isMapTouched, mapViewRef, radiusInMeters },
+    data: { animationStyles, places, isMapTouched, mapViewRef, radiusInMeters, defaultCoordinates },
     methods,
   } = vm
-
-  const defaultCoordinates = useMemo(
-    () => ({
-      ...myInitialPosition,
-      latitudeDelta:
-        // radiusInMeters
-        //   ? LATITUDE_DELTA * radiusInMeters
-        //   :
-        LATITUDE_DELTA,
-      longitudeDelta:
-        // radiusInMeters
-        //   ? LATITUDE_DELTA * ASPECT_RATIO * radiusInMeters
-        //   :
-        LATITUDE_DELTA * ASPECT_RATIO,
-    }),
-    [radiusInMeters],
-  )
 
   return (
     <View testID="MapScreen" style={MapScreenStyles.FULL}>
@@ -94,13 +71,6 @@ export const MapScreen = observer(function MapScreen() {
                     },
                   ]}
                 >
-                  {/* <Entypo
-                    name={methods.getIconByConditions(place.isAvailable).iconName}
-                    style={[
-                      MapScreenStyles.BUILDING_ICON,
-                      { color: methods.getIconByConditions(place.isAvailable).iconColor },
-                    ]}
-                  /> */}
                   <Image source={markerImageUrl} style={[
                     MapScreenStyles.BUILDING_IMAGE,
                     { tintColor: methods.getIconByConditions(place.isAvailable).iconColor }

@@ -45,7 +45,7 @@ export const CustomOptionsStyles = StyleSheet.create({
   },
   OPTION_TITLE: {
     color: color.palette.black,
-    fontFamily: typography.primary.book,
+    fontFamily: typography.primary.bold,
     fontSize: 16,
     letterSpacing: 1.5,
     position: "absolute",
