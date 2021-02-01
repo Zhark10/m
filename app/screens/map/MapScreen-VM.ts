@@ -1,9 +1,14 @@
 import { useNavigation } from "@react-navigation/native"
 import { useCallback, useEffect, useMemo, useRef, useState } from "react"
 import { runOnJS } from "react-native-reanimated"
+import { myInitialPosition } from ".."
 import { useStores } from "../../models"
 import { color } from "../../theme"
+import { screenWidth, screenHeight } from "../../utils/screen"
 import { MapScreenAnimations } from "./MapScreen-Animations"
+
+const ASPECT_RATIO = screenWidth / screenHeight
+const LATITUDE_DELTA = 0.12
 
 export const useMap = () => {
   const mapViewRef = useRef(null)
@@ -26,11 +31,17 @@ export const useMap = () => {
     runOnJS(() => setTouched(true))()
   }
 
-  useEffect(() => {
+  useEffect(function initialize() {
     selectPlace(null)
     resetAll()
     placesInitializeRequest()
   }, [])
+
+  useEffect(function markersAutoZoom() {
+    if (mapViewRef.current) {
+      mapViewRef.current.fitToSuppliedMarkers(places.map(({ organizationName }) => organizationName))
+    }
+  }, [places])
 
   useEffect(
     function goToRegion() {
@@ -67,6 +78,23 @@ export const useMap = () => {
     }
   }
 
+  const defaultCoordinates = useMemo(
+    () => ({
+      ...myInitialPosition,
+      latitudeDelta:
+        // radiusInMeters
+        //   ? LATITUDE_DELTA * radiusInMeters
+        //   :
+        LATITUDE_DELTA,
+      longitudeDelta:
+        // radiusInMeters
+        //   ? LATITUDE_DELTA * ASPECT_RATIO * radiusInMeters
+        //   :
+        LATITUDE_DELTA * ASPECT_RATIO,
+    }),
+    [radiusInMeters],
+  )
+
   return {
     data: {
       animationStyles: {
@@ -77,6 +105,7 @@ export const useMap = () => {
       places,
       currentPlace,
       radiusInMeters,
+      defaultCoordinates,
     },
     methods: {
       goToWelcome,
