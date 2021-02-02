@@ -13,6 +13,7 @@ import Animated from "react-native-reanimated"
 import { CustomOptions } from "./MapScreen-Elements/CustomOptions/CustomOptions"
 import { AnimatedMessage } from "./MapScreen-Elements/AnimatedMessage/AnimatedMessage"
 import { getCardColorByCost } from "../../utils/helpers/get-color"
+import { HouseMarker } from "./MapScreen-Elements/HouseMarker/HouseMarker"
 // import { BuildingIcon } from "../../components/svg/Building_1"
 
 const markerImageUrl = require("../../../assets/brand/marker3.png")
@@ -21,6 +22,11 @@ const meMarker = require("../../../assets/brand/logo_2.png")
 export const myInitialPosition = {
   latitude: 56.62830507073426,
   longitude: 47.895421717849814,
+}
+
+export const myHouseLocation = {
+  latitude: 56.62418812238768,
+  longitude: 47.951626516682246,
 }
 
 export const MapScreen = observer(function MapScreen() {
@@ -50,14 +56,6 @@ export const MapScreen = observer(function MapScreen() {
             onTouchEnd={methods.mapTouchEnd}
             initialRegion={{ ...defaultCoordinates, latitude: defaultCoordinates.latitude - 0.01 }}
           >
-            <Marker
-              key={"zhark10"}
-              coordinate={defaultCoordinates}
-              style={MapScreenStyles.ME_MARKER}
-            >
-              <Image source={meMarker} style={MapScreenStyles.ME_IMAGE} />
-              {/* <Fontisto name="person" style={MapScreenStyles.ME_ICON} /> */}
-            </Marker>
             {places.map((place) => (
               <Fragment key={place.organizationName}>
                 <Marker
@@ -93,6 +91,19 @@ export const MapScreen = observer(function MapScreen() {
               strokeColor={color.palette.gold}
               fillColor={color.palette.opacity.gold32}
             />
+            <Marker
+              key={"meLocation"}
+              coordinate={defaultCoordinates}
+              style={MapScreenStyles.ME_MARKER}
+            >
+              <Image source={meMarker} style={MapScreenStyles.ME_IMAGE} />
+            </Marker>
+            <Marker
+              key={"myHouseLocation"}
+              coordinate={myHouseLocation}
+            >
+              <HouseMarker />
+            </Marker>
           </MapView>
         </Animated.View>
         <GamePanel isMapTouched={isMapTouched} />
