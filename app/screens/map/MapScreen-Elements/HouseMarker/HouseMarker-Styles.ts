@@ -8,13 +8,13 @@ export const HouseMarkerStyles = StyleSheet.create({
     backgroundColor: color.palette.black,
     borderRadius: 12,
     height: 24,
-    width: 24
+    width: 24,
   },
   MARKER_CONTAINER: {
-    alignItems: 'center',
+    alignItems: "center",
     bottom: 36,
     height: 112,
-    justifyContent: 'flex-end',
+    justifyContent: "flex-end",
     width: 24,
   },
   PILLAR: {
@@ -22,7 +22,7 @@ export const HouseMarkerStyles = StyleSheet.create({
     borderRadius: 4,
     bottom: 8,
     height: 104,
-    position: 'absolute',
+    position: "absolute",
     width: 8,
-  }
+  },
 })

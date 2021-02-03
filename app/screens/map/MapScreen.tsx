@@ -65,14 +65,19 @@ export const MapScreen = observer(function MapScreen() {
                   style={[
                     MapScreenStyles.BUILDING,
                     {
-                      backgroundColor: place.isAvailable ? getCardColorByCost(place.cost) : color.transparent
+                      backgroundColor: place.isAvailable
+                        ? getCardColorByCost(place.cost)
+                        : color.transparent,
                     },
                   ]}
                 >
-                  <Image source={markerImageUrl} style={[
-                    MapScreenStyles.BUILDING_IMAGE,
-                    { tintColor: methods.getIconByConditions(place.isAvailable).iconColor }
-                  ]} />
+                  <Image
+                    source={markerImageUrl}
+                    style={[
+                      MapScreenStyles.BUILDING_IMAGE,
+                      { tintColor: methods.getIconByConditions(place.isAvailable).iconColor },
+                    ]}
+                  />
                 </Marker>
                 {place.isAvailable && (
                   <Polyline
@@ -98,10 +103,7 @@ export const MapScreen = observer(function MapScreen() {
             >
               <Image source={meMarker} style={MapScreenStyles.ME_IMAGE} />
             </Marker>
-            <Marker
-              key={"myHouseLocation"}
-              coordinate={myHouseLocation}
-            >
+            <Marker key={"myHouseLocation"} coordinate={myHouseLocation}>
               <HouseMarker />
             </Marker>
           </MapView>

@@ -37,11 +37,16 @@ export const useMap = () => {
     placesInitializeRequest()
   }, [])
 
-  useEffect(function markersAutoZoom() {
-    if (mapViewRef.current) {
-      mapViewRef.current.fitToSuppliedMarkers(places.map(({ organizationName }) => organizationName))
-    }
-  }, [places])
+  useEffect(
+    function markersAutoZoom() {
+      if (mapViewRef.current) {
+        mapViewRef.current.fitToSuppliedMarkers(
+          places.map(({ organizationName }) => organizationName),
+        )
+      }
+    },
+    [places],
+  )
 
   useEffect(
     function goToRegion() {

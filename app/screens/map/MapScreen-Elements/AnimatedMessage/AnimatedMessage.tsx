@@ -24,14 +24,26 @@ export const AnimatedMessage: FC = observer(() => {
       >
         <MaterialCommunityIcons name="check-decagram" style={AnimatedMessageStyles.ICON} />
         <Text style={AnimatedMessageStyles.MESSAGE_TITLE}>
-          {message?.title ? message?.title.split(TEXT_SEPARATOR.TITLE.TO_STYLED_TEXT).map((titlePartOfText, key) => (
-            <Text key={key} style={AnimatedMessageStyles.MESSAGE_TITLE}>{titlePartOfText}</Text>
-          )) : ''}
+          {message?.title
+            ? message?.title
+                .split(TEXT_SEPARATOR.TITLE.TO_STYLED_TEXT)
+                .map((titlePartOfText, key) => (
+                  <Text key={key} style={AnimatedMessageStyles.MESSAGE_TITLE}>
+                    {titlePartOfText}
+                  </Text>
+                ))
+            : ""}
         </Text>
         <Text style={AnimatedMessageStyles.MESSAGE_DESCRIPTION}>
-          {message?.description ? message?.description.split(TEXT_SEPARATOR.DESCRIPTION.TO_STYLED_TEXT).map((descriptionPartOfText, key) => (
-            <Text key={key} style={AnimatedMessageStyles.MESSAGE_DESCRIPTION}>{descriptionPartOfText}</Text>
-          )) : ''}
+          {message?.description
+            ? message?.description
+                .split(TEXT_SEPARATOR.DESCRIPTION.TO_STYLED_TEXT)
+                .map((descriptionPartOfText, key) => (
+                  <Text key={key} style={AnimatedMessageStyles.MESSAGE_DESCRIPTION}>
+                    {descriptionPartOfText}
+                  </Text>
+                ))
+            : ""}
         </Text>
         <Button style={AnimatedMessageStyles.CARD_BUTTON} onPress={hideMessage}>
           <Text style={AnimatedMessageStyles.CARD_BUTTON_TEXT}>{message?.buttonText}</Text>

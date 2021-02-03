@@ -3,12 +3,12 @@ import { AnimatedMessageAnimations } from "./AnimatedMessage-Animations"
 
 export const TEXT_SEPARATOR = {
   TITLE: {
-    TO_STYLED_TEXT: 'TITLE_TO_STYLED_TEXT',
-    TO_ICON: 'TITLE_TO_ICON',
+    TO_STYLED_TEXT: "TITLE_TO_STYLED_TEXT",
+    TO_ICON: "TITLE_TO_ICON",
   },
   DESCRIPTION: {
-    TO_STYLED_TEXT: 'DESCRIPTION_TO_STYLED_TEXT',
-    TO_ICON: 'DESCRIPTION_TO_ICON',
+    TO_STYLED_TEXT: "DESCRIPTION_TO_STYLED_TEXT",
+    TO_ICON: "DESCRIPTION_TO_ICON",
   },
 }
 
