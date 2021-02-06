@@ -17,14 +17,16 @@ const StorybookUI = getStorybookUI({
 
 export function StorybookUIRoot() {
   useEffect(() => {
-    (async () => {
+    const storybookInit = async () => {
       await initFonts() // expo only
       if (typeof __TEST__ === "undefined" || !__TEST__) {
         const Reactotron = require("../app/services/reactotron")
         const reactotron = new Reactotron.Reactotron()
         reactotron.setup()
       }
-    })()
+    }
+
+    storybookInit()
   }, [])
 
   return <StorybookUI />
