@@ -1,7 +1,6 @@
 /* eslint-disable react-native/no-color-literals */
 import { StyleSheet } from "react-native"
 import { color } from "../../../../theme"
-import { screenHeight, screenWidth } from "../../../../utils/screen"
 
 export const HouseMarkerStyles = StyleSheet.create({
   CIRCLE: {

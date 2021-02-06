@@ -60,10 +60,10 @@ export const MapScreenStyles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: color.palette.white,
     borderRadius: 4,
+    borderWidth: 2,
     height: 36,
     justifyContent: "center",
     width: 36,
-    borderWidth: 2,
   },
   PANEL_TITLE: {
     backgroundColor: color.palette.gold,

@@ -3,9 +3,7 @@ import { View } from "react-native"
 import { observer } from "mobx-react-lite"
 import { HouseMarkerStyles } from "./HouseMarker-Styles"
 
-export type THouseMarkerProps = {}
-
-export const HouseMarker: FC<THouseMarkerProps> = observer((props) => {
+export const HouseMarker: FC = observer(() => {
   return (
     <View style={HouseMarkerStyles.MARKER_CONTAINER}>
       <View style={HouseMarkerStyles.CIRCLE} />
