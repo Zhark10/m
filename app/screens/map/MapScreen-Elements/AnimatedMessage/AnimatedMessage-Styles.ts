@@ -14,12 +14,19 @@ export const AnimatedMessageStyles = StyleSheet.create({
     top: 0,
     width: screenWidth,
   },
+  BUTTON_ICON: {
+    height: 32,
+    width: 32,
+  },
+  BUTTON_ICON_BORDER: {
+    borderWidth: 4
+  },
   CARD_BUTTON: {
-    alignSelf: "center",
-    backgroundColor: color.palette.gold,
+    alignItems: 'center',
     height: 46,
-    margin: spacing[5],
-    width: "90%",
+    justifyContent: "center",
+    marginVertical: spacing[5],
+    width: "100%",
   },
   CARD_BUTTON_TEXT: {
     color: color.palette.black,
@@ -58,5 +65,5 @@ export const AnimatedMessageStyles = StyleSheet.create({
     fontSize: 42,
     padding: spacing[3],
     textAlign: "center",
-  },
+  }
 })
