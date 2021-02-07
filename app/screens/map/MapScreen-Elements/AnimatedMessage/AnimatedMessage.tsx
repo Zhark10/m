@@ -8,7 +8,7 @@ import { observer } from "mobx-react-lite"
 import { Text } from "../../../../components"
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons"
 import SwipeButton from 'rn-swipe-button'
-import { Alert, Image, View } from "react-native"
+import { View } from "react-native"
 import { screenWidth } from "../../../../utils/screen"
 import { color } from "../../../../theme"
 import FontAwesome5Icon from "react-native-vector-icons/FontAwesome5"
