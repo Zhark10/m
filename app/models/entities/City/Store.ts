@@ -11,7 +11,7 @@ const Store = types
   })
   .actions((self) => ({
     setAvailablePlaces(radiusInMeters) {
-      const newPlaces: any = self.places.map((place) => {
+      const newPlaces: any = self.places.slice().map((place) => {
         const isApprovedDistance =
           getDistance(place.coordinates, myInitialPosition) <= radiusInMeters
         if (isApprovedDistance) {

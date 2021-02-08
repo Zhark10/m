@@ -41,7 +41,7 @@ export const useMap = () => {
     function markersAutoZoom() {
       if (mapViewRef.current) {
         mapViewRef.current.fitToSuppliedMarkers(
-          places.map(({ organizationName }) => organizationName),
+          places.slice().map(({ organizationName }) => organizationName),
         )
       }
     },

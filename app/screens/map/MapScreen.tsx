@@ -56,7 +56,7 @@ export const MapScreen = observer(function MapScreen() {
             onTouchEnd={methods.mapTouchEnd}
             initialRegion={{ ...defaultCoordinates, latitude: defaultCoordinates.latitude - 0.01 }}
           >
-            {places.map((place) => (
+            {places.slice().map((place) => (
               <Fragment key={place.organizationName}>
                 <Marker
                   title={place.organizationName}

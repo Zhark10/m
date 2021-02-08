@@ -30,7 +30,7 @@ export const GamePanel: FC<TGamePanelProps> = observer((props) => {
         reducedTransparencyFallbackColor="white"
       />
       <Animated.View style={[GamePanelStyles.GAME_SPACE, animationStyles.stepsStyle]}>
-        {gameSteps.map((DynamicStepComponent, key) => (
+        {gameSteps.slice().map((DynamicStepComponent, key) => (
           <Fragment key={key}>
             <DynamicStepComponent />
             <View style={GamePanelStyles.CARD_SEPARATOR} />
