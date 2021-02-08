@@ -1,10 +1,11 @@
 import React from "react"
 import { createStackNavigator } from "@react-navigation/stack"
-import { WelcomeScreen, MapScreen } from "../screens"
+import { WelcomeScreen, MapScreen, ProfileScreen } from "../screens"
 
 export type PrimaryParamList = {
   welcome: undefined
   map: undefined
+  profile: undefined
 }
 
 const Stack = createStackNavigator<PrimaryParamList>()
@@ -18,6 +19,7 @@ export function MainNavigator() {
     >
       <Stack.Screen name="welcome" component={WelcomeScreen} />
       <Stack.Screen name="map" component={MapScreen} />
+      <Stack.Screen name="profile" component={ProfileScreen} />
     </Stack.Navigator>
   )
 }
