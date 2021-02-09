@@ -99,11 +99,11 @@ export const MapScreen = observer(function MapScreen() {
             <Marker
               key={"meLocation"}
               coordinate={defaultCoordinates}
+              onPress={methods.goToProfile}
+              onSelect={methods.goToProfile}
               style={MapScreenStyles.ME_MARKER}
             >
-              <TouchableOpacity style={MapScreenStyles.ME_IMAGE} onPress={methods.goToProfile}>
-                <Image source={meMarker} style={MapScreenStyles.ME_IMAGE} />
-              </TouchableOpacity>
+              <Image source={meMarker} style={MapScreenStyles.ME_IMAGE} />
             </Marker>
             <Marker key={"myHouseLocation"} coordinate={myHouseLocation}>
               <HouseMarker />

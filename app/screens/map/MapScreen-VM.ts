@@ -14,7 +14,9 @@ export const useMap = () => {
   const mapViewRef = useRef(null)
   const navigation = useNavigation()
   const goToWelcome = useCallback(() => navigation.navigate("welcome"), [])
-  const goToProfile = useCallback(() => navigation.navigate("profile"), [])
+  const goToProfile = useCallback(() => {
+    navigation.navigate("profile")
+  }, [])
   const {
     city: { places, currentPlace, resetAll, selectPlace, placesInitializeRequest },
     game: { radiusInMeters, gameProgress },
@@ -84,22 +86,11 @@ export const useMap = () => {
     }
   }
 
-  const defaultCoordinates = useMemo(
-    () => ({
-      ...myInitialPosition,
-      latitudeDelta:
-        // radiusInMeters
-        //   ? LATITUDE_DELTA * radiusInMeters
-        //   :
-        LATITUDE_DELTA,
-      longitudeDelta:
-        // radiusInMeters
-        //   ? LATITUDE_DELTA * ASPECT_RATIO * radiusInMeters
-        //   :
-        LATITUDE_DELTA * ASPECT_RATIO,
-    }),
-    [radiusInMeters],
-  )
+  const defaultCoordinates = {
+    ...myInitialPosition,
+    latitudeDelta: LATITUDE_DELTA,
+    longitudeDelta: LATITUDE_DELTA * ASPECT_RATIO,
+  }
 
   return {
     data: {
