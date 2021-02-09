@@ -9,6 +9,7 @@ import { useProfile } from "./ProfileScreen-VM"
 import { BlurView } from "@react-native-community/blur"
 
 Icon.loadFont()
+const ava = require("../../../assets/brand/logo_2.png")
 const map = require("../../../assets/brand/map.png")
 
 export const ProfileScreen = observer(function ProfileScreen() {
@@ -18,6 +19,8 @@ export const ProfileScreen = observer(function ProfileScreen() {
   } = vm
   return (
     <View testID="ProfileScreen" style={ProfileScreenStyles.FULL}>
+      <View style={ProfileScreenStyles.HEAD}>
+      </View>
       <Image source={map} style={ProfileScreenStyles.BLUR_VIEW} />
       <BlurView
         style={ProfileScreenStyles.BLUR_VIEW}
@@ -26,12 +29,12 @@ export const ProfileScreen = observer(function ProfileScreen() {
         reducedTransparencyFallbackColor="white"
       />
       <Screen
-        style={ProfileScreenStyles.CONTAINER}
         preset="scroll"
         backgroundColor={color.transparent}
         statusBar="dark-content"
       >
         <Header style={ProfileScreenStyles.HEADER} />
+        <Image source={ava} style={ProfileScreenStyles.AVA} />
 
         <View style={ProfileScreenStyles.FOOTER_CONTENT}>
           {footerOptions.map((option) => (

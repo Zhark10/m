@@ -4,10 +4,18 @@ import { color, spacing, typography } from "../../theme"
 import { screenHeight, screenWidth } from "../../utils/screen"
 
 export const ProfileScreenStyles = StyleSheet.create({
+  AVA: {
+    borderColor: color.palette.gold,
+    borderRadius: screenWidth / 6,
+    borderWidth: 5,
+    height: screenWidth / 3,
+    left: screenWidth / 20,
+    width: screenWidth / 3,
+  },
   BLUR_VIEW: {
-    height: screenHeight,
-    position: "absolute",
+    height: 11 / 12 * screenHeight,
     width: screenWidth,
+    position: 'absolute',
   },
   BUTTON: {
     backgroundColor: "transparent",
@@ -22,6 +30,9 @@ export const ProfileScreenStyles = StyleSheet.create({
   CONTAINER: {
     backgroundColor: color.transparent,
   },
+  CONTENT: {
+
+  },
   FOOTER_CONTENT: {
     borderColor: color.palette.black,
     marginBottom: spacing[8],
@@ -29,6 +40,13 @@ export const ProfileScreenStyles = StyleSheet.create({
   },
   FULL: {
     flex: 1,
+  },
+  HEAD: {
+    backgroundColor: color.palette.black,
+    height: 1 / 12 * screenHeight,
+    width: screenWidth,
+    position: 'absolute',
+
   },
   HEADER: {
     height: 0,
