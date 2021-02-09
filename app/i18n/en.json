@@ -34,6 +34,9 @@
       }
     }
   },
+  "profileScreen": {
+    "continue": "ПРОДОЛЖИТЬ"
+  },
   "storybook": {
     "placeholder": "Placeholder",
     "field": "Field"
