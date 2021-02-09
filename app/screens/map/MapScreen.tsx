@@ -1,6 +1,6 @@
 /* eslint-disable react-native/no-inline-styles */
 import React, { Fragment } from "react"
-import { Image, View } from "react-native"
+import { Image, TouchableOpacity, View } from "react-native"
 import { observer } from "mobx-react-lite"
 import { Screen } from "../../components"
 import { color } from "../../theme"
@@ -101,7 +101,9 @@ export const MapScreen = observer(function MapScreen() {
               coordinate={defaultCoordinates}
               style={MapScreenStyles.ME_MARKER}
             >
-              <Image source={meMarker} style={MapScreenStyles.ME_IMAGE} />
+              <TouchableOpacity style={MapScreenStyles.ME_IMAGE} onPress={methods.goToProfile}>
+                <Image source={meMarker} style={MapScreenStyles.ME_IMAGE} />
+              </TouchableOpacity>
             </Marker>
             <Marker key={"myHouseLocation"} coordinate={myHouseLocation}>
               <HouseMarker />

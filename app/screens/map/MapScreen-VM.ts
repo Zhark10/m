@@ -14,6 +14,7 @@ export const useMap = () => {
   const mapViewRef = useRef(null)
   const navigation = useNavigation()
   const goToWelcome = useCallback(() => navigation.navigate("welcome"), [])
+  const goToProfile = useCallback(() => navigation.navigate("profile"), [])
   const {
     city: { places, currentPlace, resetAll, selectPlace, placesInitializeRequest },
     game: { radiusInMeters, gameProgress },
@@ -114,6 +115,7 @@ export const useMap = () => {
     },
     methods: {
       goToWelcome,
+      goToProfile,
       mapTouchEnd,
       mapTouchStart,
       getIconByConditions,
