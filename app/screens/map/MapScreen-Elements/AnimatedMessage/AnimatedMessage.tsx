@@ -7,16 +7,13 @@ import { TEXT_SEPARATOR, useAnimatedMessage } from "./AnimatedMessage-VM"
 import { observer } from "mobx-react-lite"
 import { Text } from "../../../../components"
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons"
-import SwipeButton from 'rn-swipe-button'
+import SwipeButton from "rn-swipe-button"
 import { View } from "react-native"
 import { screenWidth } from "../../../../utils/screen"
 import { color } from "../../../../theme"
 import FontAwesome5Icon from "react-native-vector-icons/FontAwesome5"
 
-const ButtonIcon = () => <FontAwesome5Icon
-  name="arrow-right"
-  style={{ fontSize: 18 }}
-/>
+const ButtonIcon = () => <FontAwesome5Icon name="arrow-right" style={{ fontSize: 18 }} />
 
 export const AnimatedMessage: FC = observer(() => {
   const vm = useAnimatedMessage()
@@ -39,9 +36,9 @@ export const AnimatedMessage: FC = observer(() => {
             ? message?.title
                 .split(TEXT_SEPARATOR.TITLE.TO_STYLED_TEXT)
                 .map((titlePartOfText, key) => (
-                <Text key={key} style={AnimatedMessageStyles.MESSAGE_TITLE}>
-                  {titlePartOfText}
-                </Text>
+                  <Text key={key} style={AnimatedMessageStyles.MESSAGE_TITLE}>
+                    {titlePartOfText}
+                  </Text>
                 ))
             : ""}
         </Text>
@@ -50,9 +47,9 @@ export const AnimatedMessage: FC = observer(() => {
             ? message?.description
                 .split(TEXT_SEPARATOR.DESCRIPTION.TO_STYLED_TEXT)
                 .map((descriptionPartOfText, key) => (
-                <Text key={key} style={AnimatedMessageStyles.MESSAGE_DESCRIPTION}>
-                  {descriptionPartOfText}
-                </Text>
+                  <Text key={key} style={AnimatedMessageStyles.MESSAGE_DESCRIPTION}>
+                    {descriptionPartOfText}
+                  </Text>
                 ))
             : ""}
         </Text>

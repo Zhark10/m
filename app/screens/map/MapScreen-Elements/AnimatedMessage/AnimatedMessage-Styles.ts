@@ -19,10 +19,10 @@ export const AnimatedMessageStyles = StyleSheet.create({
     width: 32,
   },
   BUTTON_ICON_BORDER: {
-    borderWidth: 4
+    borderWidth: 4,
   },
   CARD_BUTTON: {
-    alignItems: 'center',
+    alignItems: "center",
     height: 46,
     justifyContent: "center",
     marginVertical: spacing[5],
@@ -65,5 +65,5 @@ export const AnimatedMessageStyles = StyleSheet.create({
     fontSize: 42,
     padding: spacing[3],
     textAlign: "center",
-  }
+  },
 })

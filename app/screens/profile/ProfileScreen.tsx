@@ -13,7 +13,9 @@ const map = require("../../../assets/brand/map.png")
 
 export const ProfileScreen = observer(function ProfileScreen() {
   const vm = useProfile()
-  const { data: { profile, footerOptions } } = vm
+  const {
+    data: { profile, footerOptions },
+  } = vm
   return (
     <View testID="ProfileScreen" style={ProfileScreenStyles.FULL}>
       <Image source={map} style={ProfileScreenStyles.BLUR_VIEW} />
