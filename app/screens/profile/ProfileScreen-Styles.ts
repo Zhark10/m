@@ -14,17 +14,17 @@ export const ProfileScreenStyles = StyleSheet.create({
     width: screenWidth / 3,
   },
   AVA_CONTAINER: {
-    flexDirection: 'row',
+    flexDirection: "row",
     height: screenWidth / 3,
-    justifyContent: 'space-between',
+    justifyContent: "space-between",
     top: screenWidth / 6,
     width: screenWidth,
-    zIndex: 100
+    zIndex: 100,
   },
   BLUR_VIEW: {
-    height: 5 / 6 * screenHeight,
-    position: 'absolute',
-    top: 1 / 6 * screenHeight,
+    height: (5 / 6) * screenHeight,
+    position: "absolute",
+    top: (1 / 6) * screenHeight,
     width: screenWidth,
     zIndex: 99,
   },
@@ -41,15 +41,13 @@ export const ProfileScreenStyles = StyleSheet.create({
   CONTAINER: {
     backgroundColor: color.transparent,
   },
-  CONTENT: {
-
-  },
+  CONTENT: {},
   COST: {
     color: color.palette.black,
     fontFamily: typography.primary.bold,
     fontSize: screenWidth / 12,
     padding: 8,
-    textAlign: 'right',
+    textAlign: "right",
   },
   FOOTER_CONTENT: {
     borderColor: color.palette.black,
@@ -60,14 +58,14 @@ export const ProfileScreenStyles = StyleSheet.create({
     flex: 1,
   },
   HEAD: {
-    alignItems: 'flex-end',
+    alignItems: "flex-end",
     backgroundColor: color.palette.black,
-    height: 1 / 6 * screenHeight,
-    justifyContent: 'flex-end',
-    position: 'absolute',
+    height: (1 / 6) * screenHeight,
+    justifyContent: "flex-end",
+    position: "absolute",
     top: 0,
     width: screenWidth,
-    zIndex: 98
+    zIndex: 98,
   },
   HEADER: {
     height: 0,

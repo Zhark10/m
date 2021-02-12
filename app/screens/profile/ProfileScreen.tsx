@@ -19,9 +19,9 @@ export const ProfileScreen = observer(function ProfileScreen() {
   } = vm
   return (
     <View testID="ProfileScreen" style={ProfileScreenStyles.FULL}>
-      <View style={ProfileScreenStyles.HEAD} >
-        <Text style={ProfileScreenStyles.USER_NAME}>{profile.firstName || 'Zharavin'}</Text>
-        <Text style={ProfileScreenStyles.USER_NAME}>{profile.secondName || 'Arkady'}</Text>
+      <View style={ProfileScreenStyles.HEAD}>
+        <Text style={ProfileScreenStyles.USER_NAME}>{profile.firstName || "Zharavin"}</Text>
+        <Text style={ProfileScreenStyles.USER_NAME}>{profile.secondName || "Arkady"}</Text>
       </View>
       <Image source={map} style={ProfileScreenStyles.BLUR_VIEW} />
       <BlurView
@@ -32,15 +32,10 @@ export const ProfileScreen = observer(function ProfileScreen() {
       >
         <Text style={ProfileScreenStyles.COST}>{(profile.meMoney || 27000) + " $"}</Text>
       </BlurView>
-      <View style={ProfileScreenStyles.AVA_CONTAINER} >
+      <View style={ProfileScreenStyles.AVA_CONTAINER}>
         <Image style={ProfileScreenStyles.AVA} source={ava} />
       </View>
-      <Screen
-        preset="scroll"
-        backgroundColor={color.transparent}
-        statusBar="dark-content"
-      >
-
+      <Screen preset="scroll" backgroundColor={color.transparent} statusBar="dark-content">
         <View style={ProfileScreenStyles.FOOTER_CONTENT}>
           {footerOptions.map((option) => (
             <Button
