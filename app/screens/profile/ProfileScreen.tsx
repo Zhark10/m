@@ -1,7 +1,7 @@
 import React from "react"
 import { Image, View } from "react-native"
 import { observer } from "mobx-react-lite"
-import { Button, Header, Screen } from "../../components"
+import { Button, Header, Screen, Text } from "../../components"
 import { color } from "../../theme"
 import Icon from "react-native-vector-icons/FontAwesome"
 import { ProfileScreenStyles } from "./ProfileScreen-Styles"
@@ -19,14 +19,19 @@ export const ProfileScreen = observer(function ProfileScreen() {
   } = vm
   return (
     <View testID="ProfileScreen" style={ProfileScreenStyles.FULL}>
-      <View style={ProfileScreenStyles.HEAD} />
+      <View style={ProfileScreenStyles.HEAD} >
+        <Text style={ProfileScreenStyles.USER_NAME}>{profile.firstName || 'Zharavin'}</Text>
+        <Text style={ProfileScreenStyles.USER_NAME}>{profile.secondName || 'Arkady'}</Text>
+      </View>
       <Image source={map} style={ProfileScreenStyles.BLUR_VIEW} />
       <BlurView
         style={ProfileScreenStyles.BLUR_VIEW}
         blurType="light"
         blurAmount={10}
         reducedTransparencyFallbackColor="white"
-      />
+      >
+        <Text style={ProfileScreenStyles.COST}>{(profile.meMoney || 27000) + " $"}</Text>
+      </BlurView>
       <View style={ProfileScreenStyles.AVA_CONTAINER} >
         <Image style={ProfileScreenStyles.AVA} source={ava} />
       </View>

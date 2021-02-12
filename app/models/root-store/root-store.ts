@@ -42,7 +42,7 @@ const SimpleModels = {
     firstName: "Arkady",
     secondName: "Zharavin",
     nickname: "Zhark10",
-    meMoney: 25000,
+    meMoney: 26000,
     playerColor: "green",
     isLoaded: true,
   }),
