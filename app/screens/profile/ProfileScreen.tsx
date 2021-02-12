@@ -19,8 +19,7 @@ export const ProfileScreen = observer(function ProfileScreen() {
   } = vm
   return (
     <View testID="ProfileScreen" style={ProfileScreenStyles.FULL}>
-      <View style={ProfileScreenStyles.HEAD}>
-      </View>
+      <View style={ProfileScreenStyles.HEAD} />
       <Image source={map} style={ProfileScreenStyles.BLUR_VIEW} />
       <BlurView
         style={ProfileScreenStyles.BLUR_VIEW}
@@ -28,13 +27,14 @@ export const ProfileScreen = observer(function ProfileScreen() {
         blurAmount={10}
         reducedTransparencyFallbackColor="white"
       />
+      <View style={ProfileScreenStyles.AVA_CONTAINER} >
+        <Image style={ProfileScreenStyles.AVA} source={ava} />
+      </View>
       <Screen
         preset="scroll"
         backgroundColor={color.transparent}
         statusBar="dark-content"
       >
-        <Header style={ProfileScreenStyles.HEADER} />
-        <Image source={ava} style={ProfileScreenStyles.AVA} />
 
         <View style={ProfileScreenStyles.FOOTER_CONTENT}>
           {footerOptions.map((option) => (
