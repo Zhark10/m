@@ -61,7 +61,7 @@ export const AnimatedMessageStyles = StyleSheet.create({
   },
   MESSAGE_TITLE: {
     color: color.palette.black,
-    fontFamily: typography.primary.bold,
+    fontFamily: typography.primary.book,
     fontSize: 42,
     padding: spacing[3],
     textAlign: "center",
