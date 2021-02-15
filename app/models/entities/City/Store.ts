@@ -104,5 +104,5 @@ const InitialData = {
 
 export const City = {
   Store,
-  InitialData
+  InitialData,
 }

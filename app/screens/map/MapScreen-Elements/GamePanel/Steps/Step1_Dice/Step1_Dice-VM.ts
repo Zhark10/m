@@ -15,7 +15,12 @@ export const useStep1 = () => {
   useEffect(
     function pushMessage() {
       if (!game.canBeCompletedStep1) return
-      const defaultTitlePart = (game.rollTheDiceResult > 10) ? "Отлично!" : (game.rollTheDiceResult > 8) ? "Неплохо!" : "Упс... всего"
+      const defaultTitlePart =
+        game.rollTheDiceResult > 10
+          ? "Отлично!"
+          : game.rollTheDiceResult > 8
+            ? "Неплохо!"
+            : "Упс... всего"
       const message = {
         title: `${defaultTitlePart} ${TEXT_SEPARATOR.TITLE.TO_STYLED_TEXT}${game.rollTheDiceResult} очков${TEXT_SEPARATOR.TITLE.TO_STYLED_TEXT}`,
         description: `А это означает, что в радиусе ${TEXT_SEPARATOR.DESCRIPTION.TO_STYLED_TEXT}${game.calculatedRadius} км.${TEXT_SEPARATOR.DESCRIPTION.TO_STYLED_TEXT} ты можешь выбрать следующее место для постройки!`,

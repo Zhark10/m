@@ -36,11 +36,14 @@ export const AnimatedMessage: FC = observer(() => {
             ? message?.title
                 .split(TEXT_SEPARATOR.TITLE.TO_STYLED_TEXT)
                 .map((titlePartOfText, key) => {
-                  const styledText = (key % 2 !== 0) ? { color: color.palette.black, fontFamily: typography.primary.bold } : {}
+                  const styledText =
+                    key % 2 !== 0
+                      ? { color: color.palette.black, fontFamily: typography.primary.bold }
+                      : {}
                   return (
-                  <Text key={key} style={[AnimatedMessageStyles.MESSAGE_TITLE, styledText]}>
-                    {titlePartOfText}
-                  </Text>
+                    <Text key={key} style={[AnimatedMessageStyles.MESSAGE_TITLE, styledText]}>
+                      {titlePartOfText}
+                    </Text>
                   )
                 })
             : ""}
@@ -50,11 +53,14 @@ export const AnimatedMessage: FC = observer(() => {
             ? message?.description
                 .split(TEXT_SEPARATOR.DESCRIPTION.TO_STYLED_TEXT)
                 .map((descriptionPartOfText, key) => {
-                  const styledText = (key % 2 !== 0) ? { color: color.palette.black, fontFamily: typography.primary.bold } : {}
+                  const styledText =
+                    key % 2 !== 0
+                      ? { color: color.palette.black, fontFamily: typography.primary.bold }
+                      : {}
                   return (
-                  <Text key={key} style={[AnimatedMessageStyles.MESSAGE_DESCRIPTION, styledText]}>
-                    {descriptionPartOfText}
-                  </Text>
+                    <Text key={key} style={[AnimatedMessageStyles.MESSAGE_DESCRIPTION, styledText]}>
+                      {descriptionPartOfText}
+                    </Text>
                   )
                 })
             : ""}
