@@ -13,11 +13,7 @@ const NestedStores = {
 const SimpleModels = {
   auth: types.maybeNull(Auth.Model),
   profile: types.optional(Profile.Model, Profile.InitialData),
-  message: types.optional(Message.Model, {
-    title: "",
-    description: "",
-    buttonText: "",
-  }),
+  message: types.optional(Message.Model, Message.InitialData),
 }
 
 export const RootStoreModel = types.model("RootStore", {

@@ -25,6 +25,13 @@ const Model = types
     },
   }))
 
+const InitialData = {
+  title: "",
+  description: "",
+  buttonText: "",
+}
+
 export const Message = {
   Model,
+  InitialData,
 }
