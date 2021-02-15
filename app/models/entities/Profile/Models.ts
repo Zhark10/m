@@ -10,6 +10,17 @@ const Model = types.model({
   isLoaded: types.boolean,
 })
 
+const InitialData = {
+  age: 26,
+  firstName: "Arkady",
+  secondName: "Zharavin",
+  nickname: "Zhark10",
+  meMoney: 26000,
+  playerColor: "green",
+  isLoaded: true,
+}
+
 export const Profile = {
   Model,
+  InitialData,
 }

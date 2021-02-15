@@ -12,15 +12,7 @@ const NestedStores = {
 
 const SimpleModels = {
   auth: types.maybeNull(Auth.Model),
-  profile: types.optional(Profile.Model, {
-    age: 26,
-    firstName: "Arkady",
-    secondName: "Zharavin",
-    nickname: "Zhark10",
-    meMoney: 26000,
-    playerColor: "green",
-    isLoaded: true,
-  }),
+  profile: types.optional(Profile.Model, Profile.InitialData),
   message: types.optional(Message.Model, {
     title: "",
     description: "",
