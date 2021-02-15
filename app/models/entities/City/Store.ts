@@ -28,7 +28,7 @@ const Store = types
       self.places = [] as any
     },
     placesInitializeRequest() {
-      self.places = City.fake.places as any
+      self.places = City.InitialData.places as any
     },
   }))
   .views((self) => ({
@@ -97,9 +97,12 @@ const fake = {
   ],
 }
 
+const InitialData = {
+  places: fake.allPlaces,
+  currentPlace: null,
+}
+
 export const City = {
   Store,
-  fake: {
-    places: fake.allPlaces,
-  },
+  InitialData
 }

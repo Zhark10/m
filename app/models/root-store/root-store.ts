@@ -6,10 +6,7 @@ import { Message } from "../entities/Message/Models"
 import { Profile } from "../entities/Profile/Models"
 
 const NestedStores = {
-  city: types.optional(City.Store, {
-    places: City.fake.places,
-    currentPlace: null,
-  }),
+  city: types.optional(City.Store, City.InitialData),
   game: types.optional(Game.Store, {
     gameProgress: {
       step1_DiceResult: {
