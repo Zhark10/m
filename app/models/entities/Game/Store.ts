@@ -64,6 +64,31 @@ export const Store = types
     },
   }))
 
+const InitialData = {
+  gameProgress: {
+    step1_DiceResult: {
+      first: null,
+      second: null,
+      isCompleted: false,
+    },
+    step2_SelectedPlaceToBuild: {
+      placeId: null,
+      isCompleted: false,
+    },
+    step3_IsBuildStarted: {
+      isPlaceBuildStart: false,
+      isCompleted: false,
+    },
+    step4_IsBuildFinished: {
+      IsBuildFinished: false,
+      isCompleted: false,
+    },
+  },
+  currentActivePlayer: null,
+  isLoaded: true,
+}
+
 export const Game = {
   Store,
+  InitialData,
 }

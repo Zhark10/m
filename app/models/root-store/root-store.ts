@@ -7,29 +7,7 @@ import { Profile } from "../entities/Profile/Models"
 
 const NestedStores = {
   city: types.optional(City.Store, City.InitialData),
-  game: types.optional(Game.Store, {
-    gameProgress: {
-      step1_DiceResult: {
-        first: null,
-        second: null,
-        isCompleted: false,
-      },
-      step2_SelectedPlaceToBuild: {
-        placeId: null,
-        isCompleted: false,
-      },
-      step3_IsBuildStarted: {
-        isPlaceBuildStart: false,
-        isCompleted: false,
-      },
-      step4_IsBuildFinished: {
-        IsBuildFinished: false,
-        isCompleted: false,
-      },
-    },
-    currentActivePlayer: null,
-    isLoaded: true,
-  }),
+  game: types.optional(Game.Store, Game.InitialData),
 }
 
 const SimpleModels = {
