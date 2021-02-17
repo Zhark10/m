@@ -1,7 +1,6 @@
 import { useNavigation } from "@react-navigation/native"
-import { useCallback, useEffect, useMemo, useRef, useState } from "react"
+import { useCallback, useEffect, useRef, useState } from "react"
 import { runOnJS } from "react-native-reanimated"
-import { myInitialPosition } from ".."
 import { useStores } from "../../models"
 import { color } from "../../theme"
 import { screenWidth, screenHeight } from "../../utils/screen"
@@ -9,6 +8,16 @@ import { MapScreenAnimations } from "./MapScreen-Animations"
 
 const ASPECT_RATIO = screenWidth / screenHeight
 const LATITUDE_DELTA = 0.12
+
+export const myInitialPosition = {
+  latitude: 56.62830507073426,
+  longitude: 47.895421717849814,
+}
+
+export const myHouseLocation = {
+  latitude: 56.62418812238768,
+  longitude: 47.951626516682246,
+}
 
 export const useMap = () => {
   const mapViewRef = useRef(null)

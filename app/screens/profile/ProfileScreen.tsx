@@ -1,7 +1,7 @@
 import React from "react"
 import { Image, View } from "react-native"
 import { observer } from "mobx-react-lite"
-import { Button, Header, Screen, Text } from "../../components"
+import { Button, Screen, Text } from "../../components"
 import { color } from "../../theme"
 import Icon from "react-native-vector-icons/FontAwesome"
 import { ProfileScreenStyles } from "./ProfileScreen-Styles"
