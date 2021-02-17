@@ -115,8 +115,6 @@ export const WelcomeScreenStyles = StyleSheet.create({
   },
   TITLE_WRAPPER: {
     alignItems: "center",
-    // backgroundColor: color.palette.gold,
-    // paddingTop: 12,
     width: "100%",
   },
 })
