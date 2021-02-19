@@ -1,7 +1,7 @@
 import getDistance from "geolib/es/getDistance"
 import { types } from "mobx-state-tree"
 import uuid from "react-native-uuid"
-import { myInitialPosition } from "../../../screens"
+import { myInitialPosition } from "../../../screens/map/MapScreen-VM"
 import { Place } from "./Models"
 
 const Store = types
