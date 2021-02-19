@@ -1,4 +1,5 @@
 import { types } from "mobx-state-tree"
+import { TCoordinates } from "../../../utils/types/coordinates"
 import { GoToCoordinatesModel } from "./Models"
 
 const Store = types
@@ -6,7 +7,7 @@ const Store = types
     goToCoordinatesEvent: GoToCoordinatesModel
   })
   .actions((self) => ({
-    goAndComeBack(startPosition, finishPosition) {
+    goAndComeBack(startPosition: TCoordinates, finishPosition: TCoordinates) {
       self.goToCoordinatesEvent.startPosition = startPosition
       self.goToCoordinatesEvent.finishPosition = finishPosition
     },
@@ -22,6 +23,10 @@ const Store = types
   }))
 
 const InitialData = {
+  goToCoordinatesEvent: {
+    startPosition: null,
+    finishPosition: null,
+  }
 }
 
 export const AnimationEvent = {
