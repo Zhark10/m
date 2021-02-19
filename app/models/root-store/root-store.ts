@@ -1,4 +1,5 @@
 import { Instance, SnapshotOut, types } from "mobx-state-tree"
+import { AnimationEvent } from "../entities/AnimationEvent/Store"
 import { Auth } from "../entities/Auth/Models"
 import { City } from "../entities/City/Store"
 import { Game } from "../entities/Game/Store"
@@ -8,6 +9,7 @@ import { Profile } from "../entities/Profile/Models"
 const NestedStores = {
   city: types.optional(City.Store, City.InitialData),
   game: types.optional(Game.Store, Game.InitialData),
+  animationEvent: types.optional(AnimationEvent.Store, AnimationEvent.InitialData),
 }
 
 const SimpleModels = {
