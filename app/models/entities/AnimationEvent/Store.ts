@@ -6,10 +6,19 @@ const Store = types
     goToCoordinatesEvent: GoToCoordinatesModel
   })
   .actions((self) => ({
-
+    goAndComeBack(startPosition, finishPosition) {
+      self.goToCoordinatesEvent.startPosition = startPosition
+      self.goToCoordinatesEvent.finishPosition = finishPosition
+    },
+    goAndComeBackAnimationFinish() {
+      self.goToCoordinatesEvent.startPosition = null
+      self.goToCoordinatesEvent.finishPosition = null
+    },
   }))
   .views((self) => ({
-
+    get goAndComeBackActive() {
+      return Boolean(self.goToCoordinatesEvent.finishPosition || self.goToCoordinatesEvent.startPosition)
+    }
   }))
 
 const InitialData = {
