@@ -12,6 +12,7 @@ export const HouseMarker: FC = observer(() => {
     <View style={HouseMarkerStyles.MARKER_CONTAINER}>
       <View style={HouseMarkerStyles.CIRCLE} />
       <View style={HouseMarkerStyles.PILLAR} />
+      <View style={HouseMarkerStyles.STAND} />
     </View>
   )
 })
