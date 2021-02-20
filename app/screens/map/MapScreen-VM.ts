@@ -23,7 +23,7 @@ export const useMap = () => {
   const mapViewRef = useRef(null)
   const navigation = useNavigation()
   const goToWelcome = useCallback(() => navigation.navigate("welcome"), [])
-  const goToProfile = useCallback(() => {
+  const navigateToProfile = useCallback(() => {
     navigation.navigate("profile")
   }, [])
   const {
@@ -115,7 +115,7 @@ export const useMap = () => {
     },
     methods: {
       goToWelcome,
-      goToProfile,
+      navigateToProfile,
       mapTouchEnd,
       mapTouchStart,
       getIconByConditions,

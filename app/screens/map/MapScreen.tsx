@@ -88,8 +88,8 @@ export const MapScreen = observer(function MapScreen() {
             <Marker
               key={"meLocation"}
               coordinate={defaultCoordinates}
-              onPress={methods.goToProfile}
-              onSelect={methods.goToProfile}
+              onPress={methods.navigateToProfile}
+              onSelect={methods.navigateToProfile}
               style={MapScreenStyles.ME_MARKER}
             >
               <Image source={meMarker} style={MapScreenStyles.ME_IMAGE} />
