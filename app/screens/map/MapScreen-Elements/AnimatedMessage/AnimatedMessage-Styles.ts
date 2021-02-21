@@ -19,14 +19,17 @@ export const AnimatedMessageStyles = StyleSheet.create({
     width: 32,
   },
   BUTTON_ICON_BORDER: {
-    borderWidth: 4,
+    borderBottomLeftRadius: 50,
+    borderBottomRightRadius: 0,
+    borderTopLeftRadius: 50,
+    borderTopRightRadius: 0,
   },
   CARD_BUTTON: {
     alignItems: "center",
     height: 46,
     justifyContent: "center",
     marginVertical: spacing[5],
-    width: "100%",
+    width: 1 / 2 * screenWidth,
   },
   CARD_BUTTON_TEXT: {
     color: color.palette.black,
