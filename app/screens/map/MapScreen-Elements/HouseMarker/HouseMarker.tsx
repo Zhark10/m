@@ -6,7 +6,9 @@ import { useHouseMarker } from "./HouseMarker-VM"
 
 export const HouseMarker: FC = observer(() => {
   const vm = useHouseMarker()
-  const { data: { profile } } = vm
+  const {
+    data: { profile },
+  } = vm
 
   return (
     <View style={HouseMarkerStyles.MARKER_CONTAINER}>

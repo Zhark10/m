@@ -4,7 +4,7 @@ import { GoToCoordinatesModel } from "./Models"
 
 const Store = types
   .model("AnimationEvent", {
-    goToCoordinatesEvent: GoToCoordinatesModel
+    goToCoordinatesEvent: GoToCoordinatesModel,
   })
   .actions((self) => ({
     goAndComeBack(startPosition: TCoordinates, finishPosition: TCoordinates) {
@@ -18,15 +18,17 @@ const Store = types
   }))
   .views((self) => ({
     get goAndComeBackActive() {
-      return Boolean(self.goToCoordinatesEvent.finishPosition || self.goToCoordinatesEvent.startPosition)
-    }
+      return Boolean(
+        self.goToCoordinatesEvent.finishPosition || self.goToCoordinatesEvent.startPosition,
+      )
+    },
   }))
 
 const InitialData = {
   goToCoordinatesEvent: {
     startPosition: null,
     finishPosition: null,
-  }
+  },
 }
 
 export const AnimationEvent = {

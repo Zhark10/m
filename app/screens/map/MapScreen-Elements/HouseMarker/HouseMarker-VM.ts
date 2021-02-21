@@ -9,6 +9,6 @@ export const useHouseMarker = () => {
     data: {
       profile,
     },
-    methods: { },
+    methods: {},
   }
 }
