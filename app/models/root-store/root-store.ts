@@ -3,6 +3,7 @@ import { AnimationEvent } from "../entities/AnimationEvent/Store"
 import { Auth } from "../entities/Auth/Models"
 import { City } from "../entities/City/Store"
 import { Game } from "../entities/Game/Store"
+import { Instructions } from "../entities/Instructions/Models"
 import { Message } from "../entities/Message/Models"
 import { Profile } from "../entities/Profile/Models"
 
@@ -14,6 +15,7 @@ const NestedStores = {
 
 const SimpleModels = {
   auth: types.maybeNull(Auth.Model),
+  instructions: types.optional(Instructions.Model, Instructions.InitialData),
   profile: types.optional(Profile.Model, Profile.InitialData),
   message: types.optional(Message.Model, Message.InitialData),
 }
