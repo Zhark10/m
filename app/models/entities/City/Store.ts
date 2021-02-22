@@ -24,6 +24,9 @@ const Store = types
     selectPlace(selectedPlace) {
       self.currentPlace = selectedPlace
     },
+    resetSelectedPlace() {
+      self.currentPlace = null
+    },
     resetAll() {
       self.places = [] as any
     },

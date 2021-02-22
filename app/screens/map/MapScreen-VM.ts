@@ -27,7 +27,7 @@ export const useMap = () => {
     navigation.navigate("profile")
   }, [])
   const {
-    city: { places, currentPlace, resetAll, selectPlace, placesInitializeRequest },
+    city: { places, currentPlace, resetAll, resetSelectedPlace, placesInitializeRequest },
     game: { radiusInMeters, gameProgress },
   } = useStores()
   const { style: mapViewContainerStyles } = MapScreenAnimations.useMapViewContainerAnimation()
@@ -44,7 +44,7 @@ export const useMap = () => {
   }
 
   useEffect(function initialize() {
-    selectPlace(null)
+    resetSelectedPlace()
     resetAll()
     placesInitializeRequest()
   }, [])
