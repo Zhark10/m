@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable no-return-assign */
 import React from "react"
 import { Image, View } from "react-native"
 import { observer } from "mobx-react-lite"
@@ -7,6 +9,7 @@ import Icon from "react-native-vector-icons/FontAwesome"
 import { ProfileScreenStyles } from "./ProfileScreen-Styles"
 import { useProfile } from "./ProfileScreen-VM"
 import { BlurView } from "@react-native-community/blur"
+import { nodeFromRef, SharedElement } from "react-native-shared-element"
 
 Icon.loadFont()
 const ava = require("../../../assets/brand/logo_2.png")
@@ -17,6 +20,9 @@ export const ProfileScreen = observer(function ProfileScreen() {
   const {
     data: { profile, footerOptions },
   } = vm
+
+  let endAncestor: any
+  let endNode: any
   return (
     <View testID="ProfileScreen" style={ProfileScreenStyles.FULL}>
       <View style={ProfileScreenStyles.HEAD}>
@@ -32,8 +38,10 @@ export const ProfileScreen = observer(function ProfileScreen() {
       >
         <Text style={ProfileScreenStyles.COST}>{(profile.meMoney || 27000) + " $"}</Text>
       </BlurView>
-      <View style={ProfileScreenStyles.AVA_CONTAINER}>
-        <Image style={ProfileScreenStyles.AVA} source={ava} />
+      <View ref={ref => endAncestor = nodeFromRef(ref)} style={ProfileScreenStyles.AVA_CONTAINER}>
+        <SharedElement onNode={node => endNode = node}>
+          <Image style={ProfileScreenStyles.AVA} source={ava} />
+        </SharedElement>
       </View>
       <Screen preset="scroll" backgroundColor={color.transparent} statusBar="dark-content">
         <View style={ProfileScreenStyles.FOOTER_CONTENT}>

@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable no-return-assign */
 /* eslint-disable react-native/no-inline-styles */
 import React, { Fragment } from "react"
 import { Image, View } from "react-native"
@@ -14,6 +16,11 @@ import { CustomOptions } from "./MapScreen-Elements/CustomOptions/CustomOptions"
 import { AnimatedMessage } from "./MapScreen-Elements/AnimatedMessage/AnimatedMessage"
 import { getCardColorByCost } from "../../utils/helpers/get-color"
 import { HouseMarker } from "./MapScreen-Elements/HouseMarker/HouseMarker"
+import {
+  SharedElement,
+  SharedElementTransition,
+  nodeFromRef
+} from 'react-native-shared-element'
 
 const markerImageUrl = require("../../../assets/brand/marker3.png")
 const meMarker = require("../../../assets/brand/logo_2.png")
@@ -24,6 +31,9 @@ export const MapScreen = observer(function MapScreen() {
     data: { animationStyles, places, isMapTouched, mapViewRef, radiusInMeters, defaultCoordinates },
     methods,
   } = vm
+
+  let startAncestor: any
+  let startNode: any
 
   return (
     <View testID="MapScreen" style={MapScreenStyles.FULL}>
@@ -92,7 +102,11 @@ export const MapScreen = observer(function MapScreen() {
               onSelect={methods.navigateToProfile}
               style={MapScreenStyles.ME_MARKER}
             >
-              <Image source={meMarker} style={MapScreenStyles.ME_IMAGE} />
+              <View ref={ref => startAncestor = nodeFromRef(ref)}>
+                <SharedElement onNode={node => startNode = node}>
+                  <Image source={meMarker} style={MapScreenStyles.ME_IMAGE} />
+                </SharedElement>
+              </View>
             </Marker>
             <Marker key={"myHouseLocation"} coordinate={myHouseLocation}>
               <HouseMarker />
