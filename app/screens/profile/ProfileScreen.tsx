@@ -38,8 +38,11 @@ export const ProfileScreen = observer(function ProfileScreen() {
       >
         <Text style={ProfileScreenStyles.COST}>{(profile.meMoney || 27000) + " $"}</Text>
       </BlurView>
-      <View ref={ref => endAncestor = nodeFromRef(ref)} style={ProfileScreenStyles.AVA_CONTAINER}>
-        <SharedElement onNode={node => endNode = node}>
+      <View
+        ref={(ref) => (endAncestor = nodeFromRef(ref))}
+        style={ProfileScreenStyles.AVA_CONTAINER}
+      >
+        <SharedElement onNode={(node) => (endNode = node)}>
           <Image style={ProfileScreenStyles.AVA} source={ava} />
         </SharedElement>
       </View>

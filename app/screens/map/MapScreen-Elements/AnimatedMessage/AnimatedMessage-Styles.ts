@@ -29,7 +29,7 @@ export const AnimatedMessageStyles = StyleSheet.create({
     height: 46,
     justifyContent: "center",
     marginVertical: spacing[5],
-    width: 1 / 2 * screenWidth,
+    width: (1 / 2) * screenWidth,
   },
   CARD_BUTTON_TEXT: {
     color: color.palette.black,
