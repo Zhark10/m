@@ -16,7 +16,7 @@ import { CustomOptions } from "./MapScreen-Elements/CustomOptions/CustomOptions"
 import { AnimatedMessage } from "./MapScreen-Elements/AnimatedMessage/AnimatedMessage"
 import { getCardColorByCost } from "../../utils/helpers/get-color"
 import { HouseMarker } from "./MapScreen-Elements/HouseMarker/HouseMarker"
-import { SharedElement, SharedElementTransition, nodeFromRef } from "react-native-shared-element"
+import { SharedElement, nodeFromRef } from "react-native-shared-element"
 
 const markerImageUrl = require("../../../assets/brand/marker3.png")
 const meMarker = require("../../../assets/brand/logo_2.png")
