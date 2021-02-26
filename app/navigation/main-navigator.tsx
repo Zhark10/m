@@ -1,19 +1,29 @@
-import { createAppContainer } from "react-navigation"
-import { createSharedElementStackNavigator } from 'react-navigation-shared-element'
+import React from "react"
+import { createStackNavigator } from "@react-navigation/stack"
 import { WelcomeScreen, MapScreen, ProfileScreen } from "../screens"
+import { createSharedElementStackNavigator } from 'react-navigation-shared-element'
 
-const stackNavigator = createSharedElementStackNavigator(
-  {
-    MapScreen,
-    WelcomeScreen,
-    ProfileScreen
-  },
-  {
-    initialRouteName: "map"
-  }
-)
+export type PrimaryParamList = {
+  welcome: undefined
+  map: undefined
+  profile: undefined
+}
 
-export const MainNavigator = createAppContainer(stackNavigator)
+const Stack = createStackNavigator<PrimaryParamList>()
+
+export function MainNavigator() {
+  return (
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}
+    >
+      <Stack.Screen name="welcome" component={WelcomeScreen} />
+      <Stack.Screen name="map" component={MapScreen} />
+      <Stack.Screen name="profile" component={ProfileScreen} />
+    </Stack.Navigator>
+  )
+}
 
 const exitRoutes = ["welcome"]
 export const canExit = (routeName: string) => exitRoutes.includes(routeName)
