@@ -1,7 +1,7 @@
 import React from "react"
-import { createStackNavigator } from "@react-navigation/stack"
 import { WelcomeScreen, MapScreen, ProfileScreen } from "../screens"
 import { createSharedElementStackNavigator } from 'react-navigation-shared-element'
+import { enableScreens } from 'react-native-screens'
 
 export type PrimaryParamList = {
   welcome: undefined
@@ -9,7 +9,8 @@ export type PrimaryParamList = {
   profile: undefined
 }
 
-const Stack = createStackNavigator<PrimaryParamList>()
+enableScreens()
+const Stack = createSharedElementStackNavigator()
 
 export function MainNavigator() {
   return (
