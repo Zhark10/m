@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-return-assign */
 import React from "react"
-import { Image, View } from "react-native"
+import { Image, StyleSheet, View } from "react-native"
 import { observer } from "mobx-react-lite"
 import { Button, Screen, Text } from "../../components"
 import { color } from "../../theme"
@@ -15,14 +15,12 @@ Icon.loadFont()
 const ava = require("../../../assets/brand/logo_2.png")
 const map = require("../../../assets/brand/map.png")
 
-export const ProfileScreen = observer(function ProfileScreen() {
+export const ProfileScreen: any = observer(function ProfileScreen() {
   const vm = useProfile()
   const {
     data: { profile, footerOptions },
   } = vm
 
-  let endAncestor: any
-  let endNode: any
   return (
     <View testID="ProfileScreen" style={ProfileScreenStyles.FULL}>
       <View style={ProfileScreenStyles.HEAD}>
@@ -39,7 +37,7 @@ export const ProfileScreen = observer(function ProfileScreen() {
         <Text style={ProfileScreenStyles.COST}>{(profile.meMoney || 27000) + " $"}</Text>
       </BlurView>
       <View style={ProfileScreenStyles.AVA_CONTAINER}>
-        <SharedElement id="meMarker">
+        <SharedElement id="image" style={StyleSheet.absoluteFill}>
           <Image style={ProfileScreenStyles.AVA} source={ava} />
         </SharedElement>
       </View>
@@ -60,3 +58,8 @@ export const ProfileScreen = observer(function ProfileScreen() {
     </View>
   )
 })
+
+ProfileScreen.sharedElements = (route, otherRoute, showing) => [
+  { id: 'image' },
+  // { id: 'text', animation: 'fade' },
+]

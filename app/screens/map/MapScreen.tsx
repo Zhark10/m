@@ -95,7 +95,7 @@ export const MapScreen = observer(function MapScreen() {
               onSelect={methods.navigateToProfile}
               style={MapScreenStyles.ME_MARKER}
             >
-              <SharedElement id="meMarker">
+              <SharedElement id="image">
                 <Image source={meMarker} style={MapScreenStyles.ME_IMAGE} />
               </SharedElement>
             </Marker>
