@@ -9,7 +9,7 @@ import Icon from "react-native-vector-icons/FontAwesome"
 import { ProfileScreenStyles } from "./ProfileScreen-Styles"
 import { useProfile } from "./ProfileScreen-VM"
 import { BlurView } from "@react-native-community/blur"
-import { nodeFromRef, SharedElement } from "react-native-shared-element"
+import { SharedElement } from "react-navigation-shared-element"
 
 Icon.loadFont()
 const ava = require("../../../assets/brand/logo_2.png")
@@ -38,11 +38,8 @@ export const ProfileScreen = observer(function ProfileScreen() {
       >
         <Text style={ProfileScreenStyles.COST}>{(profile.meMoney || 27000) + " $"}</Text>
       </BlurView>
-      <View
-        ref={(ref) => (endAncestor = nodeFromRef(ref))}
-        style={ProfileScreenStyles.AVA_CONTAINER}
-      >
-        <SharedElement onNode={(node) => (endNode = node)}>
+      <View style={ProfileScreenStyles.AVA_CONTAINER}>
+        <SharedElement id="meMarker">
           <Image style={ProfileScreenStyles.AVA} source={ava} />
         </SharedElement>
       </View>

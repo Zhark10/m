@@ -16,7 +16,7 @@ import { CustomOptions } from "./MapScreen-Elements/CustomOptions/CustomOptions"
 import { AnimatedMessage } from "./MapScreen-Elements/AnimatedMessage/AnimatedMessage"
 import { getCardColorByCost } from "../../utils/helpers/get-color"
 import { HouseMarker } from "./MapScreen-Elements/HouseMarker/HouseMarker"
-import { SharedElement, nodeFromRef } from "react-native-shared-element"
+import { SharedElement } from 'react-navigation-shared-element'
 
 const markerImageUrl = require("../../../assets/brand/marker3.png")
 const meMarker = require("../../../assets/brand/logo_2.png")
@@ -27,9 +27,6 @@ export const MapScreen = observer(function MapScreen() {
     data: { animationStyles, places, isMapTouched, mapViewRef, radiusInMeters, defaultCoordinates },
     methods,
   } = vm
-
-  let startAncestor: any
-  let startNode: any
 
   return (
     <View testID="MapScreen" style={MapScreenStyles.FULL}>
@@ -98,11 +95,9 @@ export const MapScreen = observer(function MapScreen() {
               onSelect={methods.navigateToProfile}
               style={MapScreenStyles.ME_MARKER}
             >
-              <View ref={(ref) => (startAncestor = nodeFromRef(ref))}>
-                <SharedElement onNode={(node) => (startNode = node)}>
-                  <Image source={meMarker} style={MapScreenStyles.ME_IMAGE} />
-                </SharedElement>
-              </View>
+              <SharedElement id="meMarker">
+                <Image source={meMarker} style={MapScreenStyles.ME_IMAGE} />
+              </SharedElement>
             </Marker>
             <Marker key={"myHouseLocation"} coordinate={myHouseLocation}>
               <HouseMarker />
