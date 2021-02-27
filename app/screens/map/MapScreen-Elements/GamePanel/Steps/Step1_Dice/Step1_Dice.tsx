@@ -25,8 +25,14 @@ export const Step1: FC = observer(() => {
       }
       FrontView={
         <View style={Step1Styles.DICE_CONTAINER}>
-          <Cube cubeNumber="first" />
-          <Cube cubeNumber="second" />
+          <View style={Step1Styles.SIMULATED_TABLE} />
+          <View style={Step1Styles.COPYRIGHT_BOX}>
+            <Text style={Step1Styles.COPYRIGHT}>© Somecity, 2021</Text>
+          </View>
+          <>
+            <Cube cubeNumber="first" />
+            <Cube cubeNumber="second" />
+          </>
         </View>
       }
     />
