@@ -21,13 +21,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     width: cubeSize,
   },
-  diceBox: {
-    alignItems: "center",
-    height: cubeSize,
-    justifyContent: "center",
-    position: "absolute",
-    width: cubeSize,
-  },
   diceLarge: {
     color: color.palette.black,
     fontSize: 52,
@@ -108,7 +101,6 @@ export const Cube: FC<TCubeProps> = observer(({ cubeNumber }) => {
 
   return (
     <View>
-      <View style={styles.diceBox}>{getDicePointIcon("small")}</View>
       <ZSvg canvas={canvas} rollDiceParams={rollDiceParams} cubeNumber={cubeNumber}>
         <Animated.View style={[styles.container, animatedStyle]}>
           {isCubeVisible(

@@ -60,6 +60,6 @@ export const ProfileScreen: any = observer(function ProfileScreen() {
 })
 
 ProfileScreen.sharedElements = (route, otherRoute, showing) => [
-  { id: 'image' },
+  { id: 'image', animation: 'fade' },
   // { id: 'text', animation: 'fade' },
 ]

@@ -50,7 +50,7 @@ export const Step2: FC = () => {
         </View>
       </View>
       {/* <View style={{width: '100%', height: 1, marginBottom: 4, backgroundColor: color.palette.opacity.black40}}/> */}
-      <Text style={Step2Styles.COPYRIGHT}>© Somecity, 2020</Text>
+      <Text style={Step2Styles.COPYRIGHT}>© Somecity, 2021</Text>
     </View>
   )
 
