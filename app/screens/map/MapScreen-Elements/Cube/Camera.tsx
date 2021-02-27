@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { StyleSheet } from "react-native"
 import { PanGestureHandler, PanGestureHandlerGestureEvent } from "react-native-gesture-handler"
 import Animated, {
@@ -60,6 +60,14 @@ const Camera = ({
 
     return () => clearTimeout(initializeCubeRotateByTimer)
   }, [])
+
+  // useEffect(function DiceGoToStartPosition() {
+  //   if (!game.gameProgress.step1_DiceResult.isCompleted) {
+  //     xOffset.value = 0
+  //     yOffset.value = 0
+  //     scale.value = 1
+  //   }
+  // }, [game.gameProgress.step1_DiceResult.isCompleted])
 
   useAnimatedReaction(
     () => processTransform3d([{ rotateX: y.value }, { rotateY: x.value }]),
