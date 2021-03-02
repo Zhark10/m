@@ -1,7 +1,7 @@
 import React from "react"
 import { WelcomeScreen, MapScreen, ProfileScreen } from "../screens"
-import { createSharedElementStackNavigator } from 'react-navigation-shared-element'
-import { enableScreens } from 'react-native-screens'
+import { createSharedElementStackNavigator } from "react-navigation-shared-element"
+import { enableScreens } from "react-native-screens"
 
 export type PrimaryParamList = {
   welcome: undefined

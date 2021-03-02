@@ -16,7 +16,7 @@ export const Step1Styles = StyleSheet.create({
     bottom: -12,
     fontSize: 18,
     padding: 4,
-    position: 'absolute',
+    position: "absolute",
   },
   DICE_CONTAINER: {
     alignItems: "center",
@@ -58,7 +58,7 @@ export const Step1Styles = StyleSheet.create({
     flexDirection: "row",
     height: (2 / 3) * COONTAINER_HEIGHT,
     justifyContent: "center",
-    position: 'absolute',
-    width: screenWidth - 42
+    position: "absolute",
+    width: screenWidth - 42,
   },
 })
