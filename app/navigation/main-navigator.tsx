@@ -2,6 +2,7 @@ import React from "react"
 import { WelcomeScreen, MapScreen, ProfileScreen } from "../screens"
 import { createSharedElementStackNavigator } from "react-navigation-shared-element"
 import { enableScreens } from "react-native-screens"
+import { ROUTES } from "./routes"
 
 export type PrimaryParamList = {
   welcome: undefined
@@ -19,9 +20,9 @@ export function MainNavigator() {
         headerShown: false,
       }}
     >
-      <Stack.Screen name="welcome" component={WelcomeScreen} />
-      <Stack.Screen name="map" component={MapScreen} />
-      <Stack.Screen name="profile" component={ProfileScreen} />
+      <Stack.Screen name={ROUTES.WELCOME} component={WelcomeScreen} />
+      <Stack.Screen name={ROUTES.MAP} component={MapScreen} />
+      <Stack.Screen name={ROUTES.PROFILE} component={ProfileScreen} />
     </Stack.Navigator>
   )
 }
