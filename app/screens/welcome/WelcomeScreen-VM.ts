@@ -1,5 +1,6 @@
 import { useNavigation } from "@react-navigation/native"
 import { useCallback } from "react"
+import { ROUTES } from "../../navigation/routes"
 import { welcomeAnimations } from "./WelcomeScreen-Animations"
 
 export enum EIconType {
@@ -9,7 +10,7 @@ export enum EIconType {
 
 export const useWelcome = () => {
   const navigation = useNavigation()
-  const goToMap = useCallback(() => navigation.navigate("map"), [])
+  const goToMap = useCallback(() => navigation.navigate(ROUTES.MAP), [])
 
   const { useTitleAnimation, useDeparturePictureFromTheSide } = welcomeAnimations
   const { style: titleStyle } = useTitleAnimation()

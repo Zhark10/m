@@ -2,6 +2,7 @@ import { useNavigation } from "@react-navigation/native"
 import { useCallback, useEffect, useRef, useState } from "react"
 import { runOnJS } from "react-native-reanimated"
 import { useStores } from "../../models"
+import { ROUTES } from "../../navigation/routes"
 import { color } from "../../theme"
 import { screenWidth, screenHeight } from "../../utils/screen"
 import { MapScreenAnimations } from "./MapScreen-Animations"
@@ -22,9 +23,9 @@ export const myHouseLocation = {
 export const useMap = () => {
   const mapViewRef = useRef(null)
   const navigation = useNavigation()
-  const goToWelcome = useCallback(() => navigation.navigate("welcome"), [])
+  const goToWelcome = useCallback(() => navigation.navigate(ROUTES.WELCOME), [])
   const navigateToProfile = useCallback(() => {
-    navigation.navigate("profile")
+    navigation.navigate(ROUTES.PROFILE)
   }, [])
   const {
     city: { places, currentPlace, resetAll, resetSelectedPlace, placesInitializeRequest },

@@ -1,6 +1,7 @@
 import { useNavigation } from "@react-navigation/native"
 import { useCallback } from "react"
 import { useStores } from "../../models"
+import { ROUTES } from "../../navigation/routes"
 
 export enum EIconType {
   LEFT,
@@ -9,7 +10,7 @@ export enum EIconType {
 
 export const useProfile = () => {
   const navigation = useNavigation()
-  const goToMap = useCallback(() => navigation.navigate("map"), [])
+  const goToMap = useCallback(() => navigation.navigate(ROUTES.MAP), [])
   const { profile } = useStores()
 
   const footerOptions = [
