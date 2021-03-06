@@ -1,55 +1,27 @@
 import "./i18n"
 import "./utils/ignore-warnings"
-import React, { useState, useEffect, useRef } from "react"
-import { NavigationContainerRef } from "@react-navigation/native"
+import React from "react"
 import { SafeAreaProvider, initialWindowMetrics } from "react-native-safe-area-context"
-import { initFonts } from "./theme/fonts" // expo
-import * as storage from "./utils/storage"
 import {
-  useBackButtonHandler,
   RootNavigator,
-  canExit,
-  setRootNavigation,
-  useNavigationPersistence,
 } from "./navigation"
-import { RootStore, RootStoreProvider, setupRootStore } from "./models"
+import { RootStoreProvider } from "./models"
 import { ToggleStorybook } from "../storybook/toggle-storybook"
-
-import { enableScreens } from "react-native-screens"
-enableScreens()
-
-export const NAVIGATION_PERSISTENCE_KEY = "NAVIGATION_STATE"
+import { useInitConfigs } from "./init"
 
 function App() {
-  const navigationRef = useRef<NavigationContainerRef>()
-  const [rootStore, setRootStore] = useState<RootStore | undefined>(undefined)
+  const configs = useInitConfigs()
 
-  setRootNavigation(navigationRef)
-  useBackButtonHandler(navigationRef, canExit)
-  const { initialNavigationState, onNavigationStateChange } = useNavigationPersistence(
-    storage,
-    NAVIGATION_PERSISTENCE_KEY,
-  )
-
-  useEffect(() => {
-    const initialize = async () => {
-      await initFonts()
-      setupRootStore().then(setRootStore)
-    }
-
-    initialize()
-  }, [])
-
-  if (!rootStore) return null
+  if (!configs.rootStore) return null
 
   return (
     <ToggleStorybook>
-      <RootStoreProvider value={rootStore}>
+      <RootStoreProvider value={configs.rootStore}>
         <SafeAreaProvider initialMetrics={initialWindowMetrics}>
           <RootNavigator
-            ref={navigationRef}
-            initialState={initialNavigationState}
-            onStateChange={onNavigationStateChange}
+            ref={configs.navigationRef}
+            initialState={configs.initialNavigationState}
+            onStateChange={configs.onNavigationStateChange}
           />
         </SafeAreaProvider>
       </RootStoreProvider>
