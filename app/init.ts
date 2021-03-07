@@ -2,7 +2,6 @@ import { NavigationContainerRef } from "@react-navigation/native"
 import { useRef, useState, useEffect } from "react"
 import { RootStore, setupRootStore } from "./models"
 import { setRootNavigation, useBackButtonHandler, canExit, useNavigationPersistence } from "./navigation"
-import { initFonts } from "./theme/fonts"
 import { enableScreens } from "react-native-screens"
 import * as storage from "./utils/storage"
 
@@ -21,13 +20,8 @@ export const useInitConfigs = () => {
     NAVIGATION_PERSISTENCE_KEY,
   )
 
-  useEffect(() => {
-    const initialize = async () => {
-      await initFonts()
-      setupRootStore().then(setRootStore)
-    }
-
-    initialize()
+  useEffect(function initStore() {
+    setupRootStore().then(setRootStore)
   }, [])
 
   return {
