@@ -18,7 +18,7 @@ import { getCardColorByCost } from "../../utils/helpers/get-color"
 import { HouseMarker } from "./MapScreen-Elements/HouseMarker/HouseMarker"
 import { SharedElement } from "react-navigation-shared-element"
 
-const markerImageUrl = require("../../../assets/brand/marker3.png")
+const markerImageUrl = require("../../../assets/brand/marker.png")
 const meMarker = require("../../../assets/brand/logo_2.png")
 
 export const MapScreen = observer(function MapScreen() {
