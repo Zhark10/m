@@ -1,7 +1,12 @@
 import { NavigationContainerRef } from "@react-navigation/native"
 import { useRef, useState, useEffect } from "react"
 import { RootStore, setupRootStore } from "./models"
-import { setRootNavigation, useBackButtonHandler, canExit, useNavigationPersistence } from "./navigation"
+import {
+  setRootNavigation,
+  useBackButtonHandler,
+  canExit,
+  useNavigationPersistence,
+} from "./navigation"
 import { enableScreens } from "react-native-screens"
 import * as storage from "./utils/storage"
 
@@ -28,6 +33,6 @@ export const useInitConfigs = () => {
     rootStore,
     navigationRef,
     initialNavigationState,
-    onNavigationStateChange
+    onNavigationStateChange,
   }
 }

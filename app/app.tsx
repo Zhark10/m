@@ -2,9 +2,7 @@ import "./i18n"
 import "./utils/ignore-warnings"
 import React from "react"
 import { SafeAreaProvider, initialWindowMetrics } from "react-native-safe-area-context"
-import {
-  RootNavigator,
-} from "./navigation"
+import { RootNavigator } from "./navigation"
 import { RootStoreProvider } from "./models"
 import { ToggleStorybook } from "../storybook/toggle-storybook"
 import { useInitConfigs } from "./init"
