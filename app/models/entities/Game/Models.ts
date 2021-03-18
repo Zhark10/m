@@ -28,31 +28,31 @@ export const GameProgressModel = types
     step3_IsBuildStarted: IsBuildStarted,
     step4_IsBuildFinished: IsBuildFinished,
   })
-  .actions((self) => ({
+  .actions((gameProgress) => ({
     completeStep(stepNumber) {
       const stepsForComplete = {
-        1: self.step1_DiceResult,
-        2: self.step2_SelectedPlaceToBuild,
-        3: self.step3_IsBuildStarted,
-        4: self.step4_IsBuildFinished,
+        1: gameProgress.step1_DiceResult,
+        2: gameProgress.step2_SelectedPlaceToBuild,
+        3: gameProgress.step3_IsBuildStarted,
+        4: gameProgress.step4_IsBuildFinished,
       }
       const step = stepsForComplete[stepNumber]
 
       step.isCompleted = true
     },
   }))
-  .views((self) => ({
+  .views((gameProgress) => ({
     get currentStepNumber() {
-      if (self.step4_IsBuildFinished.isCompleted) {
+      if (gameProgress.step4_IsBuildFinished.isCompleted) {
         return 4
       }
-      if (self.step3_IsBuildStarted.isCompleted) {
+      if (gameProgress.step3_IsBuildStarted.isCompleted) {
         return 3
       }
-      if (self.step2_SelectedPlaceToBuild.isCompleted) {
+      if (gameProgress.step2_SelectedPlaceToBuild.isCompleted) {
         return 2
       }
-      if (self.step1_DiceResult.isCompleted) {
+      if (gameProgress.step1_DiceResult.isCompleted) {
         return 1
       }
       return 0
