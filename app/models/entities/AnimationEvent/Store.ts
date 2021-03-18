@@ -6,20 +6,20 @@ const Store = types
   .model("AnimationEvent", {
     goToCoordinatesEvent: GoToCoordinatesModel,
   })
-  .actions((self) => ({
+  .actions((animationEvent) => ({
     goAndComeBack(startPosition: TCoordinates, finishPosition: TCoordinates) {
-      self.goToCoordinatesEvent.startPosition = startPosition
-      self.goToCoordinatesEvent.finishPosition = finishPosition
+      animationEvent.goToCoordinatesEvent.startPosition = startPosition
+      animationEvent.goToCoordinatesEvent.finishPosition = finishPosition
     },
     goAndComeBackAnimationFinish() {
-      self.goToCoordinatesEvent.startPosition = null
-      self.goToCoordinatesEvent.finishPosition = null
+      animationEvent.goToCoordinatesEvent.startPosition = null
+      animationEvent.goToCoordinatesEvent.finishPosition = null
     },
   }))
-  .views((self) => ({
+  .views((animationEvent) => ({
     get goAndComeBackActive() {
       return Boolean(
-        self.goToCoordinatesEvent.finishPosition || self.goToCoordinatesEvent.startPosition,
+        animationEvent.goToCoordinatesEvent.finishPosition || animationEvent.goToCoordinatesEvent.startPosition,
       )
     },
   }))
