@@ -9,9 +9,9 @@ const Store = types
     places: types.array(Place),
     currentPlace: types.maybeNull(types.reference(Place)),
   })
-  .actions((self) => ({
+  .actions((city) => ({
     setAvailablePlaces(radiusInMeters) {
-      const newPlaces: any = self.places.slice().map((place) => {
+      const newPlaces: any = city.places.slice().map((place) => {
         const isApprovedDistance =
           getDistance(place.coordinates, myInitialPosition) <= radiusInMeters
         if (isApprovedDistance) {
@@ -19,24 +19,24 @@ const Store = types
         }
         return place
       })
-      self.places = newPlaces
+      city.places = newPlaces
     },
     selectPlace(selectedPlace) {
-      self.currentPlace = selectedPlace
+      city.currentPlace = selectedPlace
     },
     resetSelectedPlace() {
-      self.currentPlace = null
+      city.currentPlace = null
     },
     resetAll() {
-      self.places = [] as any
+      city.places = [] as any
     },
     placesInitializeRequest() {
-      self.places = City.InitialData.places as any
+      city.places = City.InitialData.places as any
     },
   }))
-  .views((self) => ({
+  .views((city) => ({
     get availablePlaces() {
-      return [...self.places.filter((place) => place.isAvailable)]
+      return [...city.places.filter((place) => place.isAvailable)]
     },
   }))
 
