@@ -2,26 +2,26 @@
 import { types } from "mobx-state-tree"
 
 const Model = types
-  .model({
+  .model('MessageState', {
     title: types.maybeNull(types.string),
     description: types.maybeNull(types.string),
     buttonText: types.maybeNull(types.string),
   })
-  .actions((self) => ({
+  .actions((currentMessageState) => ({
     showMessage(message) {
-      self.title = message.title
-      self.description = message.description
-      self.buttonText = message.buttonText
+      currentMessageState.title = message.title
+      currentMessageState.description = message.description
+      currentMessageState.buttonText = message.buttonText
     },
     hideMessage() {
-      self.title = null
-      self.description = null
-      self.buttonText = null
+      currentMessageState.title = null
+      currentMessageState.description = null
+      currentMessageState.buttonText = null
     },
   }))
-  .views((self) => ({
+  .views((currentMessageState) => ({
     get isShow() {
-      return Boolean(self.title)
+      return Boolean(currentMessageState.title)
     },
   }))
 
