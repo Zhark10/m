@@ -3,24 +3,24 @@ import { TCoordinates } from "../../../utils/types/coordinates"
 import { GoToCoordinatesModel } from "./Models"
 
 const Store = types
-  .model("AnimationEvent", {
+  .model("AnimationEvents", {
     goToCoordinatesEvent: GoToCoordinatesModel,
   })
-  .actions((animationEvent) => ({
+  .actions((animationEvents) => ({
     goAndComeBack(startPosition: TCoordinates, finishPosition: TCoordinates) {
-      animationEvent.goToCoordinatesEvent.startPosition = startPosition
-      animationEvent.goToCoordinatesEvent.finishPosition = finishPosition
+      animationEvents.goToCoordinatesEvent.startPosition = startPosition
+      animationEvents.goToCoordinatesEvent.finishPosition = finishPosition
     },
     goAndComeBackAnimationFinish() {
-      animationEvent.goToCoordinatesEvent.startPosition = null
-      animationEvent.goToCoordinatesEvent.finishPosition = null
+      animationEvents.goToCoordinatesEvent.startPosition = null
+      animationEvents.goToCoordinatesEvent.finishPosition = null
     },
   }))
-  .views((animationEvent) => ({
+  .views((animationEvents) => ({
     get goAndComeBackActive() {
       return Boolean(
-        animationEvent.goToCoordinatesEvent.finishPosition ||
-          animationEvent.goToCoordinatesEvent.startPosition,
+        animationEvents.goToCoordinatesEvent.finishPosition ||
+          animationEvents.goToCoordinatesEvent.startPosition,
       )
     },
   }))
