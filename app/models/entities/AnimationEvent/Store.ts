@@ -19,7 +19,8 @@ const Store = types
   .views((animationEvent) => ({
     get goAndComeBackActive() {
       return Boolean(
-        animationEvent.goToCoordinatesEvent.finishPosition || animationEvent.goToCoordinatesEvent.startPosition,
+        animationEvent.goToCoordinatesEvent.finishPosition ||
+          animationEvent.goToCoordinatesEvent.startPosition,
       )
     },
   }))
